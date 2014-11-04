@@ -17,5 +17,9 @@
         IDbSet<Review> Reviews { get; set; }
 
         IDbSet<Picture> Pictures { get; set; }
+
+        IDbSet<Event> Events { get; set; }
+
+        IDbSet<Message> Messages { get; set; }
     }
 }

@@ -74,6 +74,22 @@
             }
         }
 
+        public IRepository<Event> Events
+        {
+            get
+            {
+                return this.GetRepository<Event>();
+            }
+        }
+
+        public IRepository<Message> Messages
+        {
+            get
+            {
+                return this.GetRepository<Message>();
+            }
+        }
+
         public int SaveChanges()
         {
             return this.context.SaveChanges();

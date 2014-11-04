@@ -19,6 +19,10 @@
 
         IRepository<Review> Reviews { get; }
 
+        IRepository<Event> Events { get; }
+
+        IRepository<Message> Messages { get; }
+
         int SaveChanges();
     }
 }

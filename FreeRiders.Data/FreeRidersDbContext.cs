@@ -36,5 +36,9 @@
         public IDbSet<Review> Reviews { get; set; }
 
         public IDbSet<Picture> Pictures { get; set; }
+
+        public IDbSet<Event> Events { get; set; }
+
+        public IDbSet<Message> Messages { get; set; }
     }
 }
