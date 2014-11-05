@@ -9,7 +9,7 @@
         public int ID { get; set; }
 
         [Required]
-        public string PictureUrl { get; set; }
+        public byte[] Image { get; set; }
 
         public DateTime DateCreated { get; set; }
     }

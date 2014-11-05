@@ -10,10 +10,12 @@
     public class ApplicationUser : IdentityUser
     {
         private ICollection<Review> reviews;
+        private ICollection<Album> albums;
 
         public ApplicationUser()
         {
             this.reviews = new HashSet<Review>();
+            this.albums = new HashSet<Album>();
         }
 
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser> manager)
@@ -28,6 +30,12 @@
         {
             get { return this.reviews; }
             set { this.reviews = value; }
+        }
+
+        public ICollection<Album> Albums
+        {
+            get { return this.albums; }
+            set { this.albums = value; }
         }
     }
 }
