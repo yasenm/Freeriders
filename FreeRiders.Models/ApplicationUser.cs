@@ -26,6 +26,8 @@
             return userIdentity;
         }
 
+        public byte[] Avatar { get; set; }
+
         public ICollection<Review> Reviews
         {
             get { return this.reviews; }

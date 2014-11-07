@@ -1,0 +1,31 @@
+﻿@model ICollection<FreeRiders.Web.Areas.Administration.ViewModels.AdminAlbumModel>
+
+<br />
+<br />
+<br />
+<div class="container">
+    @foreach (var album in Model)
+    {
+        <div class="row">
+            <div class="col-md-4">
+                <img src="@album.Picture.ImageUrl" alt="No picture found..." style="width:100%;" />
+            </div>
+            <div class="col-md-8">
+                <h4>@album.Title</h4>
+                <p class="description-container">
+                    @if (album.Description.Length < 300)
+                    {
+                        @album.Description
+                    }
+                    else
+                    {
+                        @album.Description.Substring(0, 300)
+                        <span>
+                            ...
+                        </span>
+                    }
+                </p>
+            </div>
+        </div>
+    }
+</div>

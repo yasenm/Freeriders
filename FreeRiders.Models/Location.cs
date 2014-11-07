@@ -40,6 +40,7 @@
         public ICollection<Album> Albums
         {
             get { return this.albums; }
+            set { this.albums = value; }
         }
 
         public ICollection<Review> Reviews

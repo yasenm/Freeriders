@@ -1,0 +1,47 @@
+﻿@model FreeRiders.Web.Areas.Administration.ViewModels.InputAlbumModel
+
+@using (Html.BeginForm("Create", "Album", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h3>Create Album</h3>
+        <br />
+        <div class="form-group">
+            <div>
+                @Html.LabelFor(l => l.Title)
+                @Html.TextBoxFor(l => l.Title, new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="form-group">
+            <div>
+                <label for="Picture">Chose picture</label>
+                <input type="file" name="Picture" id="Picture" class="btn btn-default" />
+            </div>
+        </div>
+        <div class="form-group">
+            <div>
+                @Html.LabelFor(l => l.Description)
+                @Html.TextAreaFor(l => l.Description, new { @class = "form-control location-desctioption-text-area" })
+            </div>
+        </div>
+        <div class="form-group">
+            <div>
+                <label for="category-input">Category for the album</label>
+                @Html.DropDownListFor(l => l.CategoryID, (SelectList)ViewBag.Categories, new { id = "category-input", @class = "form-control" })
+            </div>
+        </div>
+        <div class="form-group">
+            <div>
+                <label for="category-input">Location from which is the album</label>
+                @Html.DropDownListFor(l => l.LocationID, (SelectList)ViewBag.Locations, new { id = "category-input", @class = "form-control" })
+            </div>
+        </div>
+        <div class="form-group">
+            <div>
+                <input type="submit" value="Create" id="submitBtn" class="btn btn-success" />
+                <input type="reset" value="Reset" id="resetBtn" class="btn btn-danger" />
+            </div>
+        </div>
+    </div>
+}

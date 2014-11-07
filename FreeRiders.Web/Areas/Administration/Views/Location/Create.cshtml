@@ -1,0 +1,53 @@
+﻿@model FreeRiders.Web.Areas.Administration.ViewModels.InputLocationModel
+
+@using (Html.BeginForm("Create", "Location", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h3>Create Location</h3>
+        <br />
+        <div class="form-group">
+            <div>
+                @Html.LabelFor(l => l.Name)
+                @Html.TextBoxFor(l => l.Name, new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="form-group">
+            <div>
+                <label for="Picture">Chose picture</label>
+                <input type="file" name="Picture" id="Picture" class="btn btn-default" />
+            </div>
+        </div>
+        <div class="form-group">
+            <div>
+                <label for="Latitude">Latitude (optional)</label>
+                <input type="number" name="Latitude" id="Latitude" class="form-control" />
+            </div>
+        </div>
+        <div class="form-group">
+            <div>
+                <label for="Longitude">Longitude (optional)</label>
+                <input type="number" name="Longitude" id="Longitude" class="form-control" />
+            </div>
+        </div>
+        <div class="form-group">
+            <div>
+                @Html.LabelFor(l => l.Description)
+                @Html.TextAreaFor(l => l.Description, new { @class = "form-control location-desctioption-text-area" })
+            </div>
+        </div>
+        <div class="form-group">
+            <div>
+                <label for="category-input">Category</label>
+                @Html.DropDownListFor(l => l.CategoryID, (SelectList)ViewBag.Categories, new { id = "category-input", @class = "form-control" })
+            </div>
+        </div>
+        <div class="form-group">
+            <div>
+                <input type="submit" value="Create" id="submitBtn" class="btn btn-success" />
+                <input type="reset" value="Reset" id="resetBtn" class="btn btn-danger" />
+            </div>
+        </div>
+    </div>
+}

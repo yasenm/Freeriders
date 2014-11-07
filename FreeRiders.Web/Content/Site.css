@@ -22,3 +22,11 @@ select,
 textarea {
     max-width: 280px;
 }
+
+.location-desctioption-text-area{
+    height: 200px;
+}
+
+.description-container{
+    text-align: justify;
+}
