@@ -22,13 +22,40 @@
             <div class="row">
                 @foreach (var picure in Model.Pictures)
                 {
-                    <div class="col-md-1">
-                        <a href="@picure.ImageUrl" target="_blank">
-                            <img src="@picure.ImageUrl" alt="No picture found here..." class="image-in-container" />
+                    <div class="col-md-1 ">
+                        <a data-toggle="modal" data-target="#img-thumbnail@picture.ImageUrl" class="img_modal" href="@picure.ImageUrl" target="_blank">
+                            <img id="img-thumbnail@picture.ImageUrl" class="img-thumbnail" src="@picure.ImageUrl" alt="No picture found here..." class="image-in-container" />
                         </a>
                     </div>
                 }
             </div>
+
+            <div id="modal" style=" overflow:hidden;" class="modal hide fade container" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                <div class="modal-header">
+                    <h4 id="myModalLabel">@Model.Title</h4>
+                </div>
+                <div class="modal-body text-center">
+                    <div class="row">
+                        <div class="col-md-8 col-md-offset-2">
+                            <img id="modal_img_target" class="image-in-container" />
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+                </div>
+            </div>
         </div>
     </div>
 </div>
+
+@section Scripts {
+    <script type="text/javascript">
+        $('.img_modal').on('click', function (e) {
+            e.preventDefault();
+            $("#modal_img_target").attr("src", this);
+            $("#modal").removeClass("hide");
+            $('#modal').modal('show');
+        });
+    </script>
+}

@@ -33,4 +33,13 @@ textarea {
 
 .image-in-container{
     width: 100%;
+    max-height: 450px;
+}
+
+#myModalLabel{
+    color:white;
+}
+
+.image-container-modal{
+    height: 400px;
 }
