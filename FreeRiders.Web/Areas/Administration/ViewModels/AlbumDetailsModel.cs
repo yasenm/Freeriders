@@ -21,6 +21,7 @@
                     Picture = a.Picture,
                     Reviews = a.Reviews,
                     Pictures = a.Pictures,
+                    Location = a.Location,
                 };
             }
         }
@@ -30,6 +31,8 @@
         public string Title { get; set; }
 
         public string Description { get; set; }
+
+        public Location Location { get; set; }
 
         public virtual AlbumCategory Category { get; set; }
 

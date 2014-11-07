@@ -11,6 +11,7 @@
 
     using FreeRiders.Data.Migrations;
     using FreeRiders.Models;
+    using System.Data.Entity.ModelConfiguration.Conventions;
 
     public class FreeRidersDbContext : IdentityDbContext<ApplicationUser>, IFreeRidersDbContext
     {
@@ -18,6 +19,12 @@
             : base("DefaultConnection", throwIfV1Schema: false)
         {
             Database.SetInitializer(new MigrateDatabaseToLatestVersion<FreeRidersDbContext, Configuration>());
+        }
+
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            modelBuilder.Conventions.Remove<OneToManyCascadeDeleteConvention>();
+            base.OnModelCreating(modelBuilder);
         }
 
         public static FreeRidersDbContext Create()

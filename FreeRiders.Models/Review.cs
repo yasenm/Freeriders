@@ -16,6 +16,11 @@
         public virtual ApplicationUser Author { get; set; }
 
         [Required]
+        public int AlbumID { get; set; }
+
+        public virtual Album Album { get; set; }
+
+        [Required]
         [Range(0, 5)]
         public int Stars { get; set; }
     }

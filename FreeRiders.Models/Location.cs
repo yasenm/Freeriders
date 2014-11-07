@@ -37,13 +37,13 @@
 
         public virtual LocationCategory Category { get; set; }
 
-        public ICollection<Album> Albums
+        public virtual ICollection<Album> Albums
         {
             get { return this.albums; }
             set { this.albums = value; }
         }
 
-        public ICollection<Review> Reviews
+        public virtual ICollection<Review> Reviews
         {
             get { return this.reviews; }
             set { this.reviews = value; }

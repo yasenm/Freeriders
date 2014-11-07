@@ -24,6 +24,11 @@
         public string Description { get; set; }
 
         [Required]
+        public int LocationID { get; set; }
+
+        public virtual Location Location { get; set; }
+
+        [Required]
         public int CategoryID { get; set; }
 
         public virtual AlbumCategory Category { get; set; }
@@ -33,13 +38,13 @@
 
         public virtual Picture Picture { get; set; }
 
-        public ICollection<Review> Reviews
+        public virtual ICollection<Review> Reviews
         {
             get { return this.reviews; }
             set { this.reviews = value; }
         }
 
-        public ICollection<Picture> Pictures
+        public virtual ICollection<Picture> Pictures
         {
             get { return this.pictures; }
             set { this.pictures = value; }
