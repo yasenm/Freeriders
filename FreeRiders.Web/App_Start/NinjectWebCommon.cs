@@ -10,6 +10,9 @@ namespace FreeRiders.Web.App_Start
 
     using Ninject;
     using Ninject.Web.Common;
+    using System.Data.Entity;
+    using FreeRiders.Data;
+    using FreeRiders.Data.UnitsOfWork;
 
     public static class NinjectWebCommon 
     {
@@ -61,6 +64,9 @@ namespace FreeRiders.Web.App_Start
         /// <param name="kernel">The kernel.</param>
         private static void RegisterServices(IKernel kernel)
         {
+            kernel.Bind<IFreeRidersDbContext>().To<FreeRidersDbContext>();
+            kernel.Bind<DbContext>().To<FreeRidersDbContext>();
+            kernel.Bind<IFreeRidersData>().To<FreeRidersData>().WithConstructorArgument<IFreeRidersDbContext>(new FreeRidersDbContext());
         }        
     }
 }

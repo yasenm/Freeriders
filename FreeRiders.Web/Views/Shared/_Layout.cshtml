@@ -24,7 +24,7 @@
                     <li>@Html.ActionLink("Home", "Index", "Home", new { area = "" },null)</li>
                     <li>@Html.ActionLink("About", "About", "Home", new { area = "" }, null)</li>
                     <li>@Html.ActionLink("Contact", "Contact", "Home", new { area = "" }, null)</li>
-                    <li>@Html.ActionLink("Create Location", "Create", "Location", new { area = "Addministration" }, null)</li>
+                    <li>@Html.ActionLink("Create Location", "Create", "Location", new { Area = "Administration" }, new { })</li>
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>

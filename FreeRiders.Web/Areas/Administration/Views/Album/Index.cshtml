@@ -25,6 +25,10 @@
                         </span>
                     }
                 </p>
+                <div>
+                    @Html.ActionLink("Edit", "Edit", "Album", new { id = album.ID }, new { area = "Administration" })
+                    @Html.ActionLink("AlbumDetails", "AlbumDetails", "Album", new { id = album.ID }, new { area = "Administration" })
+                </div>
             </div>
         </div>
     }

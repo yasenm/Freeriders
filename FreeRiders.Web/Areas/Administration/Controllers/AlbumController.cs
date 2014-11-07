@@ -10,7 +10,6 @@
 
     public class AlbumController : AuthorizeUserController
     {
-        // GET: Administration/Album
         public ActionResult Index()
         {
             var albumsResult = this.Data.Albums
@@ -19,6 +18,25 @@
                 .ToList();
 
             return View(albumsResult);
+        }
+
+        [HttpGet]
+        public ActionResult AlbumDetails(int id)
+        {
+            var result = this.Data.Albums
+                .All()
+                .Where(a => a.ID == id)
+                .Select(AlbumDetailsModel.FromAlbum)
+                .FirstOrDefault();
+
+            if (result != null)
+            {
+                return View(result);
+            }
+            else
+            {
+                return RedirectToAction("Index", "Album", new { area = "Administration" });
+            }
         }
 
         [HttpGet]
@@ -67,7 +85,46 @@
                 this.Data.Locations.Update(location);
                 this.Data.SaveChanges();
 
-                return Redirect("~/");
+                return RedirectToAction("Index", "Album", new { area = "Administration" });
+            }
+
+            return View();
+        }
+
+        [HttpGet]
+        public ActionResult Edit(int id)
+        {
+            var album = this.Data.Albums
+                .All()
+                .Where(a => a.ID == id)
+                .Select(EditAlbumModel.FromAlbum)
+                .FirstOrDefault();
+
+            if (album != null)
+            {
+                return View(album);
+            }
+            else
+            {
+                return RedirectToAction("Index", "Album", new { area = "Administration" });
+            }
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit(int id, EditAlbumModel album)
+        {
+            if (ModelState.IsValid)
+            {
+                var albumToUpdate = this.Data.Albums.Find(id);
+                foreach (var picture in album.Pictures)
+                {
+                   var albumPicture = ImageUploader.SavePictureInDb(picture, this.Data);
+                   albumToUpdate.Pictures.Add(albumPicture);
+                }
+
+                this.Data.SaveChanges();
+                return RedirectToAction("Index", "Album", new { area = "Administration" });
             }
 
             return View();

@@ -190,6 +190,8 @@
     <Compile Include="Areas\Administration\Controllers\LocationController.cs" />
     <Compile Include="Areas\Administration\ViewModels\AdminAlbumModel.cs" />
     <Compile Include="Areas\Administration\ViewModels\AdminLocationModel.cs" />
+    <Compile Include="Areas\Administration\ViewModels\AlbumDetailsModel.cs" />
+    <Compile Include="Areas\Administration\ViewModels\EditAlbumModel.cs" />
     <Compile Include="Areas\Administration\ViewModels\InputAlbumCategoryModel.cs" />
     <Compile Include="Areas\Administration\ViewModels\InputAlbumModel.cs" />
     <Compile Include="Areas\Administration\ViewModels\InputLocationCategoryModel.cs" />
@@ -232,6 +234,8 @@
     <Content Include="Areas\Administration\Views\Album\Index.cshtml" />
     <Content Include="Areas\Administration\Views\Album\Create.cshtml" />
     <Content Include="Areas\Administration\Views\AlbumCategory\Index.cshtml" />
+    <Content Include="Areas\Administration\Views\Album\Edit.cshtml" />
+    <Content Include="Areas\Administration\Views\Album\AlbumDetails.cshtml" />
     <None Include="Properties\PublishProfiles\freeriders.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />

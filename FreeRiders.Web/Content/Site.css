@@ -30,3 +30,7 @@ textarea {
 .description-container{
     text-align: justify;
 }
+
+.image-in-container{
+    width: 100%;
+}
