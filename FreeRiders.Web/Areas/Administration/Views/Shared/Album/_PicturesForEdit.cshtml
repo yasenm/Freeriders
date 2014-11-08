@@ -1,0 +1,40 @@
+﻿@model ICollection<FreeRiders.Models.Picture>
+
+<div class="col-md-6" id="pictures-list">
+    @foreach (var currentPicture in Model)
+    {
+        if (currentPicture.ID == ViewBag.CoverPictureID)
+        {
+            continue;
+        }
+        <div class="col-md-3">
+            <img src="@currentPicture.ImageUrl" class="image-in-container" alt="No picture found..." />
+            <hr />
+            @Html.ActionLink("Delete", "DeletePictureFromAlbum",
+                new
+                {
+                    pictureID = currentPicture.ID,
+                    albumID = currentPicture.AlbumID,
+                },
+                new { @class = "btn btn-danger" })
+            <br />
+            @Html.ActionLink("Make Cover", "EditPictureToCover",
+                new
+                {
+                    pictureID = currentPicture.ID,
+                    albumID = currentPicture.AlbumID,
+                },
+                 new { @class = "btn btn-default" })
+        </div>
+    }
+</div>
+
+@*@section Scripts {
+        <script type="text/javascript">
+            function RefreshPictures() {
+                $.ajax({
+                    url: '@Url.Action("LoadPicturesGrid")'
+                })
+            }
+        </script>
+    }*@

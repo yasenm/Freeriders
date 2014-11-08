@@ -7,6 +7,7 @@
     using FreeRiders.Web.Areas.Administration.ViewModels;
     using FreeRiders.Web.Controllers;
     using FreeRiders.Web.Infrastructure;
+    using FreeRiders.Models;
 
     public class AlbumController : AuthorizeUserController
     {
@@ -79,7 +80,7 @@
 
                 this.Data.Albums.Add(newAlbum);
                 this.Data.SaveChanges();
-                
+
                 var location = this.Data.Locations.Find(album.LocationID);
                 location.Albums.Add(newAlbum);
                 this.Data.Locations.Update(location);
@@ -119,8 +120,8 @@
                 var albumToUpdate = this.Data.Albums.Find(id);
                 foreach (var picture in album.Pictures)
                 {
-                   var albumPicture = ImageUploader.SavePictureInDb(picture, this.Data);
-                   albumToUpdate.Pictures.Add(albumPicture);
+                    var albumPicture = ImageUploader.SavePictureInDb(picture, this.Data);
+                    albumToUpdate.Pictures.Add(albumPicture);
                 }
 
                 this.Data.SaveChanges();
@@ -128,6 +129,40 @@
             }
 
             return View();
+        }
+
+        [HttpGet]
+        public ActionResult LoadPicturesGrid(int albumID)
+        {
+            var album = this.Data.Albums.Find(albumID);
+            var collection = album.Pictures.ToList();
+
+            ViewBag.CoverPictureID = album.PictureID;
+
+            return PartialView("Album/_PicturesForEdit", collection);
+        }
+
+        [HttpGet]
+        public ActionResult DeletePictureFromAlbum(int pictureID, int albumID)
+        {
+            var album = this.Data.Albums.Find(albumID);
+            var picture = this.Data.Pictures.Delete(pictureID);
+
+            album.Pictures.Remove(picture);
+            this.Data.SaveChanges();
+
+            return RedirectToAction("Edit", new { id = albumID });
+        }
+
+        [HttpGet]
+        public ActionResult EditPictureToCover(int pictureID, int albumID)
+        {
+            var album = this.Data.Albums.Find(albumID);
+
+            album.PictureID = pictureID;
+            this.Data.SaveChanges();
+
+            return RedirectToAction("Edit", new { id = albumID });
         }
     }
 }

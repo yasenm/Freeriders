@@ -236,6 +236,7 @@
     <Content Include="Areas\Administration\Views\AlbumCategory\Index.cshtml" />
     <Content Include="Areas\Administration\Views\Album\Edit.cshtml" />
     <Content Include="Areas\Administration\Views\Album\AlbumDetails.cshtml" />
+    <Content Include="Areas\Administration\Views\Shared\Album\_PicturesForEdit.cshtml" />
     <None Include="Properties\PublishProfiles\freeriders.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
