@@ -15,6 +15,7 @@ namespace FreeRiders.Data.Migrations
 
         protected override void Seed(FreeRidersDbContext context)
         {
+
         }
     }
 }

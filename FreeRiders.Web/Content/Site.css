@@ -33,7 +33,7 @@ textarea {
 
 .image-in-container{
     width: 100%;
-    max-height: 450px;
+    max-height: 400px;
 }
 
 #myModalLabel{
@@ -41,5 +41,5 @@ textarea {
 }
 
 .image-container-modal{
-    height: 400px;
+    height: 450px;
 }

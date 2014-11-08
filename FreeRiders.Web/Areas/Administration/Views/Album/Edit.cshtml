@@ -1,7 +1,7 @@
 ﻿@model FreeRiders.Web.Areas.Administration.ViewModels.EditAlbumModel
 
 <div class="row">
-    @using (Html.BeginForm("Edit", "Album", FormMethod.Post, new { enctype = "multipart/form-data", @class = "form-horizontal col-md-12" }))
+    @using (Html.BeginForm("Edit", "Album", FormMethod.Post, new { enctype = "multipart/form-data", @class = "form-horizontal" }))
     {
         @Html.AntiForgeryToken()
 
