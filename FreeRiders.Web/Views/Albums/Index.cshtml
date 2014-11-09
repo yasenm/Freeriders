@@ -1,0 +1,35 @@
+﻿@model ICollection<FreeRiders.Web.ViewModels.AlbumIndexViewModel>
+
+<header class="intro-header text-center album-header" style="background-image: url('http://cf.ltkcdn.net/ski/images/std/93403-400x300-ski-pictures-4.jpg'); background-size: 100% 100%;">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="site-heading">
+
+                    <h1>
+                        <strong class="album-link">Albums</strong>
+                    </h1>
+                    <hr class="small">
+                    <h1 class=" album-grid-container">
+                        <strong class="album-link">Check out our albums...</strong>
+                    </h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<div class="container">
+    @foreach (var albumModel in Model)
+    {
+        <div class="col-md-3 album-grid-container">
+            <a class="album-link" href="@Url.Action("AlbumDetails", "Albums", new { id = albumModel.ID })">
+                <div class="row text-center" style="background-image: url(@albumModel.Picture.ImageUrl); background-size: 100% 100%;">
+                    <h1>
+                        <strong>@albumModel.Title</strong>
+                    </h1>
+                </div>
+            </a>
+        </div>
+    }
+</div>

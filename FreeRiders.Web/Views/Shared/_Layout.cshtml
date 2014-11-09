@@ -21,16 +21,16 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home", new { area = "" },null)</li>
-                    <li>@Html.ActionLink("About", "About", "Home", new { area = "" }, null)</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home", new { area = "" }, null)</li>
+                    <li>@Html.ActionLink("Locations", "Index", "Location", new { area = "" }, null)</li>
+                    <li>@Html.ActionLink("Albums", "Index", "Albums", new { area = "" }, null)</li>
+                    <li>@Html.ActionLink("Events", "Index", "Event", new { area = "" }, null)</li>
                     <li>@Html.ActionLink("Create Location", "Create", "Location", new { Area = "Administration" }, new { })</li>
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>
         </div>
     </nav>
-    
+
     <div class="container body-content">
         @RenderBody()
         <hr />
@@ -40,6 +40,8 @@
     </div>
 
     @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/unobtrusive")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
 </body>

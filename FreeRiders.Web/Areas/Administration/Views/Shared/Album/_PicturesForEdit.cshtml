@@ -7,34 +7,47 @@
         {
             continue;
         }
-        <div class="col-md-3">
-            <img src="@currentPicture.ImageUrl" class="image-in-container" alt="No picture found..." />
-            <hr />
-            @Html.ActionLink("Delete", "DeletePictureFromAlbum",
-                new
-                {
-                    pictureID = currentPicture.ID,
-                    albumID = currentPicture.AlbumID,
-                },
-                new { @class = "btn btn-danger" })
-            <br />
-            @Html.ActionLink("Make Cover", "EditPictureToCover",
-                new
-                {
-                    pictureID = currentPicture.ID,
-                    albumID = currentPicture.AlbumID,
-                },
-                 new { @class = "btn btn-default" })
+        
+        <div class="col-md-3 edit-album-grid-cell">
+            <div class="edit-image-container">
+                <img src="@currentPicture.ImageUrl" class="image-in-container" alt="No picture found..." />
+            </div>
+            <div>
+                @Ajax.ActionLink("Delete", "DeletePictureFromAlbum", "Album",
+                    new
+                    {
+                        pictureID = currentPicture.ID,
+                        albumID = ViewBag.AlbumID,
+                    },
+                    new AjaxOptions
+                    {
+                        HttpMethod = "POST",
+                        InsertionMode = InsertionMode.Replace,
+                        UpdateTargetId = "pictures-grid",
+                    },
+                    new { @class = "btn btn-xs btn-danger" })
+            </div>
+            <div>
+                @Ajax.ActionLink("Make Cover", "EditPictureToCover", "Album",
+                    new
+                    {
+                        pictureID = currentPicture.ID,
+                        albumID = ViewBag.AlbumID,
+                    },
+                    new AjaxOptions
+                    {
+                        HttpMethod = "POST",
+                        InsertionMode = InsertionMode.Replace,
+                        UpdateTargetId = "pictures-grid",
+                    },
+                    new { @class = "btn btn-xs btn-default" })
+            </div>
         </div>
     }
 </div>
 
-@*@section Scripts {
-        <script type="text/javascript">
-            function RefreshPictures() {
-                $.ajax({
-                    url: '@Url.Action("LoadPicturesGrid")'
-                })
-            }
-        </script>
-    }*@
+<script>
+    function reloadPictureGrid() {
+        $('#pictures-grid').load('@(Url.Action("LoadPicturesGrid", new { albumID = ViewBag.AlbumID }))');
+    }
+</script>

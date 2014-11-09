@@ -20,22 +20,61 @@
 input,
 select,
 textarea {
-    
 }
 
-.description-container{
+.description-container {
     text-align: justify;
 }
 
-.image-in-container{
-    width: 100%;
-    max-height: 400px;
+.image-in-container {
+    max-width: 100%;
+    max-height: 100%;
 }
 
-#myModalLabel{
-    color:white;
+#myModalLabel {
+    color: white;
 }
 
-.image-container-modal{
+.image-container-modal {
     height: 450px;
+}
+
+.edit-album-grid-cell {
+    margin-bottom: 5px;
+}
+
+    .edit-album-grid-cell div {
+        margin-top: 5px;
+    }
+
+.edit-image-container {
+    height: 80px;
+}
+
+.album-header{
+    margin-top: -5px;
+    height: 250px;
+}
+
+.album-link {
+    padding-left:2px;
+    padding-right:2px;
+    color: #007196;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: white;
+    text-shadow: 4px 4px black;
+}
+
+.album-grid-container{
+    background-clip: padding-box;
+    border: 5px solid transparent;
+}
+
+.album-thumbnail-container{
+    height: 70px;
+    margin-bottom: 5px;
+}
+
+.album-details-text-content{
+    text-align:justify;
 }

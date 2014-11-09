@@ -4,10 +4,10 @@
     using System.Linq;
     using System.Web.Mvc;
 
+    using FreeRiders.Models;
     using FreeRiders.Web.Areas.Administration.ViewModels;
     using FreeRiders.Web.Controllers;
     using FreeRiders.Web.Infrastructure;
-    using FreeRiders.Models;
 
     public class AlbumController : AuthorizeUserController
     {
@@ -138,11 +138,12 @@
             var collection = album.Pictures.ToList();
 
             ViewBag.CoverPictureID = album.PictureID;
+            ViewBag.AlbumID = albumID;
 
             return PartialView("Album/_PicturesForEdit", collection);
         }
 
-        [HttpGet]
+        [HttpPost]
         public ActionResult DeletePictureFromAlbum(int pictureID, int albumID)
         {
             var album = this.Data.Albums.Find(albumID);
@@ -151,10 +152,10 @@
             album.Pictures.Remove(picture);
             this.Data.SaveChanges();
 
-            return RedirectToAction("Edit", new { id = albumID });
+            return this.LoadPicturesGrid(albumID);
         }
 
-        [HttpGet]
+        [HttpPost]
         public ActionResult EditPictureToCover(int pictureID, int albumID)
         {
             var album = this.Data.Albums.Find(albumID);
@@ -162,7 +163,7 @@
             album.PictureID = pictureID;
             this.Data.SaveChanges();
 
-            return RedirectToAction("Edit", new { id = albumID });
+            return this.LoadPicturesGrid(albumID);
         }
     }
 }

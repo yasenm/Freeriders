@@ -40,7 +40,9 @@
                     </div>
                 </div>*@
         </div>
-        @Html.Action("LoadPicturesGrid", new { albumID = Model.ID })
+        <div id="pictures-grid">
+            @Html.Action("LoadPicturesGrid", new { albumID = Model.ID })
+        </div>
     </div>
     <div class="row">
         <div class="form-group">

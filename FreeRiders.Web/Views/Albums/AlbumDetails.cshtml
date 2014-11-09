@@ -1,0 +1,90 @@
+﻿@model FreeRiders.Models.Album
+
+<header class="intro-header text-center album-header" style="background-image: url('@Model.Picture.ImageUrl'); background-size: 100% 100%;">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="site-heading">
+
+                    <h1>
+                        <strong class="album-link">@Model.Title</strong>
+                    </h1>
+                    <hr class="small">
+                    <h1 class=" album-grid-container">
+                        <strong class="album-link">@Model.Location.Name</strong>
+                    </h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<div class="container">
+    <br />
+    <div class="row">
+        <div class="col-md-6">
+            <div class="row album-details-text-content">
+                <h2><strong>@Model.Title</strong></h2>
+                <span> in </span>
+                <a href="@Url.Action("LocationDetails", "Locations", new { id = Model.Location.ID })">
+                    <h2>
+                        <strong>@Model.Location.Name</strong>
+                    </h2>
+                </a>
+                <span class="subheading">@Model.Description</span>
+            </div>
+            <div class="row">
+                <h2>
+                    <strong>Reviews will go here...</strong>
+                </h2>
+            </div>
+        </div>
+        <br />
+        <div class="col-md-6">
+            <div class="row">
+                @foreach (var picure in Model.Pictures)
+                {
+                    <div class="col-md-3 text-center album-thumbnail-container">
+                        <a data-toggle="modal" data-target="#img-thumbnail@picture.ImageUrl"
+                           class="img_modal"
+                           href="@picure.ImageUrl"
+                           target="_blank">
+
+                            <img id="img-thumbnail@picture.ImageUrl"
+                                 class="img-thumbnail image-in-container"
+                                 src="@picure.ImageUrl"
+                                 alt="No picture found here..." />
+                        </a>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+
+    <div id="modal" style=" overflow:hidden;" class="modal hide fade container" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-header">
+            <h4 id="myModalLabel">@Model.Title</h4>
+        </div>
+        <div class="modal-body text-center">
+            <div class="row">
+                <div class="col-md-8 col-md-offset-2 image-container-modal">
+                    <img id="modal_img_target" class="image-in-container" />
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script type="text/javascript">
+        $('.img_modal').on('click', function (e) {
+            e.preventDefault();
+            $("#modal_img_target").attr("src", this);
+            $("#modal").removeClass("hide");
+            $('#modal').modal('show');
+        });
+    </script>
+}
