@@ -6,6 +6,8 @@
     using System.Web;
     using System.Web.Mvc;
 
+    using AutoMapper.QueryableExtensions;
+
     using FreeRiders.Web.ViewModels;
 
     public class AlbumsController : AuthorizeUserController
@@ -15,7 +17,9 @@
         {
             var viewResult = this.Data.Albums
                 .All()
-                .Select(AlbumIndexViewModel.FromAlbum)
+                .AsQueryable()
+                .Project()
+                .To<AlbumIndexViewModel>()
                 .ToList();
 
             return View(viewResult);
