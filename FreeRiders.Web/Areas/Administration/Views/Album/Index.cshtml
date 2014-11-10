@@ -12,7 +12,7 @@
             </div>
             <div class="col-md-8">
                 <h4>@album.Title</h4>
-                <p class="description-container">
+                <p class="description-container subheading">
                     @if (album.Description.Length < 300)
                     {
                         @album.Description
@@ -20,14 +20,11 @@
                     else
                     {
                         @album.Description.Substring(0, 300)
-                        <span>
-                            ...
-                        </span>
                     }
                 </p>
                 <div>
                     @Html.ActionLink("Edit", "Edit", "Album", new { id = album.ID }, new { area = "Administration" })
-                    @Html.ActionLink("AlbumDetails", "AlbumDetails", "Album", new { id = album.ID }, new { area = "Administration" })
+                    @Html.ActionLink("AlbumDetails", "AlbumDetails", "Albums", new { area = string.Empty, id = album.ID }, new { })
                 </div>
             </div>
         </div>

@@ -1,6 +1,6 @@
 ﻿@model ICollection<FreeRiders.Models.Picture>
 
-<div class="col-md-6" id="pictures-list">
+<div class="col-md-6 text-center" id="pictures-list">
     @foreach (var currentPicture in Model)
     {
         if (currentPicture.ID == ViewBag.CoverPictureID)

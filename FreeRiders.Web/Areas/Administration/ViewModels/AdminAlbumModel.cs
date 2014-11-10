@@ -1,30 +1,12 @@
 ﻿namespace FreeRiders.Web.Areas.Administration.ViewModels
 {
-    using System;
     using System.Collections.Generic;
-    using System.Linq.Expressions;
 
     using FreeRiders.Models;
+    using FreeRiders.Web.Infrastructure.Mapping;
 
-    public class AdminAlbumModel
+    public class AdminAlbumModel : IMapFrom<Album>
     {
-        public static Expression<Func<Album, AdminAlbumModel>> FromAlbum
-        {
-            get
-            {
-                return a => new AdminAlbumModel
-                {
-                    ID = a.ID,
-                    Title = a.Title,
-                    Description = a.Description,
-                    Category = a.Category,
-                    Picture = a.Picture,
-                    Reviews = a.Reviews,
-                    Pictures = a.Pictures,
-                };
-            }
-        }
-
         public int ID { get; set; }
 
         public string Title { get; set; }

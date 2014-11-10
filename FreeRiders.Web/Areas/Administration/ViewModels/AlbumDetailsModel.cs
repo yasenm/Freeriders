@@ -8,24 +8,6 @@
 
     public class AlbumDetailsModel
     {
-        public static Expression<Func<Album, AlbumDetailsModel>> FromAlbum
-        {
-            get
-            {
-                return a => new AlbumDetailsModel
-                {
-                    ID = a.ID,
-                    Title = a.Title,
-                    Description = a.Description,
-                    Category = a.Category,
-                    Picture = a.Picture,
-                    Reviews = a.Reviews,
-                    Pictures = a.Pictures,
-                    Location = a.Location,
-                };
-            }
-        }
-
         public int ID { get; set; }
 
         public string Title { get; set; }

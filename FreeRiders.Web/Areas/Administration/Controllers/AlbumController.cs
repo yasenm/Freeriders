@@ -4,6 +4,8 @@
     using System.Linq;
     using System.Web.Mvc;
 
+    using AutoMapper.QueryableExtensions;
+
     using FreeRiders.Models;
     using FreeRiders.Web.Areas.Administration.ViewModels;
     using FreeRiders.Web.Controllers;
@@ -15,29 +17,12 @@
         {
             var albumsResult = this.Data.Albums
                 .All()
-                .Select(AdminAlbumModel.FromAlbum)
+                .AsQueryable()
+                .Project()
+                .To<AdminAlbumModel>()
                 .ToList();
 
             return View(albumsResult);
-        }
-
-        [HttpGet]
-        public ActionResult AlbumDetails(int id)
-        {
-            var result = this.Data.Albums
-                .All()
-                .Where(a => a.ID == id)
-                .Select(AlbumDetailsModel.FromAlbum)
-                .FirstOrDefault();
-
-            if (result != null)
-            {
-                return View(result);
-            }
-            else
-            {
-                return RedirectToAction("Index", "Album", new { area = "Administration" });
-            }
         }
 
         [HttpGet]
@@ -145,26 +130,22 @@
         }
 
         [HttpPost]
-        public ActionResult DeletePictureFromAlbum(int pictureID, int albumID)
+        public void DeletePictureFromAlbum(int pictureID, int albumID)
         {
             var album = this.Data.Albums.Find(albumID);
             var picture = this.Data.Pictures.Delete(pictureID);
 
             album.Pictures.Remove(picture);
             this.Data.SaveChanges();
-
-            return this.LoadPicturesGrid(albumID);
         }
 
         [HttpPost]
-        public ActionResult EditPictureToCover(int pictureID, int albumID)
+        public void EditPictureToCover(int pictureID, int albumID)
         {
             var album = this.Data.Albums.Find(albumID);
 
             album.PictureID = pictureID;
             this.Data.SaveChanges();
-
-            return this.LoadPicturesGrid(albumID);
         }
     }
 }

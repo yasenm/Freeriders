@@ -220,9 +220,6 @@
     </Compile>
     <Compile Include="App_Start\ViewEnginesConfiguration.cs" />
     <Compile Include="Infrastructure\ImageUploader.cs" />
-    <Compile Include="Infrastructure\Mapping\AutoMapperConfig.cs" />
-    <Compile Include="Infrastructure\Mapping\IHaveCustomMappings.cs" />
-    <Compile Include="Infrastructure\Mapping\IMapFrom.cs" />
     <Compile Include="ViewModels\AccountViewModels.cs" />
     <Compile Include="ViewModels\AlbumIndexViewModel.cs" />
     <Compile Include="ViewModels\HeaderViewModel.cs" />
@@ -252,7 +249,6 @@
     <Content Include="Areas\Administration\Views\Album\Create.cshtml" />
     <Content Include="Areas\Administration\Views\AlbumCategory\Index.cshtml" />
     <Content Include="Areas\Administration\Views\Album\Edit.cshtml" />
-    <Content Include="Areas\Administration\Views\Album\AlbumDetails.cshtml" />
     <Content Include="Areas\Administration\Views\Shared\Album\_PicturesForEdit.cshtml" />
     <None Include="Properties\PublishProfiles\freeriders.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
@@ -340,6 +336,10 @@
     <ProjectReference Include="..\FreeRiders.Models\FreeRiders.Models.csproj">
       <Project>{6233a92a-730c-4ed6-b757-0c59a7972ed2}</Project>
       <Name>FreeRiders.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FreeRiders.Web.Infrastructure\FreeRiders.Web.Infrastructure.csproj">
+      <Project>{d43f730f-e672-4208-86ac-ab406ced5bf3}</Project>
+      <Name>FreeRiders.Web.Infrastructure</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
