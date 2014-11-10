@@ -1,23 +1,16 @@
 ﻿@model FreeRiders.Models.Album
+@using FreeRiders.Web.ViewModels;
 
-<header class="intro-header text-center album-header" style="background-image: url('@Model.Picture.ImageUrl'); background-size: 100% 100%;">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <div class="site-heading">
+@{
+    var headerArguments = new HeaderViewModel
+    {
+        ImageUrl = Model.Picture.ImageUrl,
+        Title = Model.Title,
+        Subtitle = Model.Location.Name,
+    };
+}
 
-                    <h1>
-                        <strong class="album-link">@Model.Title</strong>
-                    </h1>
-                    <hr class="small">
-                    <h1 class=" album-grid-container">
-                        <strong class="album-link">@Model.Location.Name</strong>
-                    </h1>
-                </div>
-            </div>
-        </div>
-    </div>
-</header>
+@Html.Partial("_PageHeader", headerArguments)
 
 <div class="container">
     <br />
@@ -31,7 +24,9 @@
                         <strong>@Model.Location.Name</strong>
                     </h2>
                 </a>
-                <span class="subheading">@Model.Description</span>
+                <p class="subheading">
+                    @Model.Description
+                </p>
             </div>
             <div class="row">
                 <h2>

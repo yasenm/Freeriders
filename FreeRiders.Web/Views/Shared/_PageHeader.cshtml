@@ -1,0 +1,20 @@
+﻿@model FreeRiders.Web.ViewModels.HeaderViewModel
+
+<header class="intro-header text-center album-header" style="background-image: url('@Model.ImageUrl'); background-size: 100% 100%;">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="site-heading">
+
+                    <h1>
+                        <strong class="album-link">@Model.Title</strong>
+                    </h1>
+                    <hr class="small">
+                    <h1 class=" album-grid-container">
+                        <strong class="album-link">@Model.Subtitle</strong>
+                    </h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>

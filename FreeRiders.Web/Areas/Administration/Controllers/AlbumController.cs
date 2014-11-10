@@ -77,6 +77,7 @@
                 var newAlbum = album.GetAlbumForDb();
                 newAlbum.PictureID = picture.ID;
                 newAlbum.Pictures.Add(picture);
+                newAlbum.LocationID = album.LocationID;
 
                 this.Data.Albums.Add(newAlbum);
                 this.Data.SaveChanges();

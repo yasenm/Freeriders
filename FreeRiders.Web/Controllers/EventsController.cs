@@ -6,7 +6,7 @@ using System.Web.Mvc;
 
 namespace FreeRiders.Web.Controllers
 {
-    public class EventController : Controller
+    public class EventsController : Controller
     {
         // GET: Event
         public ActionResult Index()

@@ -9,6 +9,19 @@
     padding-right: 15px;
 }
 
+html, body {
+	height: 100%;
+}
+
+.wrapper {
+	min-height: 100%;
+	margin: 0 auto -235px; /* the bottom margin is the negative value of the footer's height */
+}
+
+footer, .push {
+    height: 215px;
+}
+
 /* Override the default bootstrap behavior where horizontal description lists 
    will truncate terms that are too long to fit in the left column 
 */
@@ -52,8 +65,9 @@ textarea {
 }
 
 .album-header{
+    padding-top: 50px;
     margin-top: -5px;
-    height: 250px;
+    height: 350px;
 }
 
 .album-link {
@@ -76,5 +90,16 @@ textarea {
 }
 
 .album-details-text-content{
+    text-align:justify;
+}
+
+.base-album-grid{
+    margin-top: 5px;
+    vertical-align:central;
+    height: 150px;
+}
+
+.subheading{
+    word-wrap:break-word;
     text-align:justify;
 }

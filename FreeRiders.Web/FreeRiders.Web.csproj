@@ -202,9 +202,9 @@
     <Compile Include="Controllers\AlbumsController.cs" />
     <Compile Include="Controllers\AuthorizeUserController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
-    <Compile Include="Controllers\EventController.cs" />
+    <Compile Include="Controllers\EventsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\LocationController.cs" />
+    <Compile Include="Controllers\LocationsController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\MessageController.cs" />
     <Compile Include="Controllers\ReviewController.cs" />
@@ -216,6 +216,7 @@
     <Compile Include="Infrastructure\ImageUploader.cs" />
     <Compile Include="ViewModels\AccountViewModels.cs" />
     <Compile Include="ViewModels\AlbumIndexViewModel.cs" />
+    <Compile Include="ViewModels\HeaderViewModel.cs" />
     <Compile Include="ViewModels\LocationViewModel.cs" />
     <Compile Include="ViewModels\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -228,6 +229,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Images\albums-cover.jpg" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="FlickrNet.chm" />
@@ -300,18 +302,19 @@
     <Content Include="Views\Account\_DisplayAvatar.cshtml" />
     <Content Include="Views\Albums\Index.cshtml" />
     <Content Include="Views\Albums\AlbumDetails.cshtml" />
+    <Content Include="Views\Locations\Index.cshtml" />
+    <Content Include="Views\Events\Index.cshtml" />
+    <Content Include="Views\Locations\LocationDetails.cshtml" />
+    <Content Include="Views\Shared\_PageHeader.cshtml" />
+    <Content Include="Views\Shared\_AlbumGridLink.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Infrastructure\Filters\" />
-    <Folder Include="Views\Admin\" />
-    <Folder Include="Views\AuthorizeUser\" />
-    <Folder Include="Views\Base\" />
-    <Folder Include="Views\Event\" />
-    <Folder Include="Views\Location\" />
     <Folder Include="Views\Message\" />
-    <Folder Include="Views\Partials\" />
     <Folder Include="Views\Review\" />
+    <Folder Include="Views\Shared\Albums\" />
+    <Folder Include="Views\Shared\Locations\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

@@ -1,0 +1,47 @@
+﻿@model FreeRiders.Models.Location
+@using FreeRiders.Web.ViewModels;
+
+
+@{
+    var argument = new HeaderViewModel()
+    {
+        ImageUrl = Model.Picture.ImageUrl,
+        Title = Model.Name,
+        Subtitle = Model.Category.Name,
+    };
+}
+
+@Html.Partial("_PageHeader", argument)
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-8">
+            <div class="row">
+                <h2>
+                    <strong>@Model.Name</strong>
+                </h2>
+                <p>
+                    @Model.Description
+                </p>
+            </div>
+            <div class="row">
+                <h2>Reviews will go here...</h2>
+            </div>
+        </div>
+        <div class="col-md-4 text-center">
+            <h2>
+                <strong>Albums</strong>
+            </h2>
+            @foreach (var album in Model.Albums)
+            {
+                <div class="row">
+                    <div class="col-md-10 col-md-offset-1">
+                        <a href="@Url.Action("AlbumDetails", "Albums", new { id = album.ID, })">
+                            @Html.Partial("_AlbumGridLink", album)
+                        </a>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>

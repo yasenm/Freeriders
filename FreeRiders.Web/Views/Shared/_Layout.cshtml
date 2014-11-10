@@ -21,18 +21,17 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Locations", "Index", "Location", new { area = "" }, null)</li>
+                    <li>@Html.ActionLink("Locations", "Index", "Locations", new { area = "" }, null)</li>
                     <li>@Html.ActionLink("Albums", "Index", "Albums", new { area = "" }, null)</li>
-                    <li>@Html.ActionLink("Events", "Index", "Event", new { area = "" }, null)</li>
+                    <li>@Html.ActionLink("Events", "Index", "Events", new { area = "" }, null)</li>
                     <li>@Html.ActionLink("Create Location", "Create", "Location", new { Area = "Administration" }, new { })</li>
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>
         </div>
     </nav>
-
+    @RenderBody()
     <div class="container body-content">
-        @RenderBody()
         <hr />
         <footer class="text-center">
             <p>&copy; @DateTime.Now.Year - made by <a href="https://github.com/yasenm" target="_blank">yasenm</a></p>
