@@ -2,8 +2,14 @@
 {
     using System.Web.Mvc;
 
-    [Authorize(Roles = "Admin")]
+    using FreeRiders.Data.UnitsOfWork;
+
+    //[Authorize(Roles = "Admin")]
     public class AdminController : BaseController
     {
+        public AdminController(IFreeRidersData data)
+            : base(data)
+        {
+        }
     }
 }

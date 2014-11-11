@@ -1,20 +1,22 @@
 ﻿namespace FreeRiders.Web.Areas.Administration.Controllers
 {
-    using System;
     using System.Collections.Generic;
     using System.Linq;
-    using System.Web;
     using System.Web.Mvc;
 
-    using FreeRiders.Models;
+    using FreeRiders.Data.UnitsOfWork;
     using FreeRiders.Web.Areas.Administration.ViewModels;
     using FreeRiders.Web.Controllers;
     using FreeRiders.Web.Infrastructure;
-    using System.IO;
 
-    public class LocationController : AuthorizeUserController
+    public class LocationController : AdminController
     {
         private const string DefaultPictureUrl = "http://i.imgur.com/dQZEDmZ.jpg";
+
+        public LocationController(IFreeRidersData data)
+            : base(data)
+        {
+        }
 
         // GET: Administration/Location
         public ActionResult Index()

@@ -13,7 +13,7 @@
     using FreeRiders.Web.ViewModels;
     
     [Authorize]
-    public class ManageController : BaseController
+    public class ManageController : Controller
     {
         public ManageController()
         {

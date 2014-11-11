@@ -1,5 +1,9 @@
 ﻿@model FreeRiders.Web.Areas.Administration.ViewModels.InputAlbumModel
 
+@{
+    Layout = "~/Areas/Administration/Views/Shared/_Layout.cshtml";
+}
+
 <div class="container">
     @using (Html.BeginForm("Create", "Album", FormMethod.Post, new { enctype = "multipart/form-data" }))
     {

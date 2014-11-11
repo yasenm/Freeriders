@@ -9,9 +9,15 @@
     using FreeRiders.Models;
     using FreeRiders.Web.Infrastructure;
     using FreeRiders.Web.ViewModels;
+    using FreeRiders.Data.UnitsOfWork;
 
     public class HomeController : BaseController
     {
+        public HomeController(IFreeRidersData data)
+            :base(data)
+        {
+        }
+
         public ActionResult Index()
         {
             var locations = this.Data.Locations

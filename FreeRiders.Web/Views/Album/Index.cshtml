@@ -16,7 +16,7 @@
     @foreach (var albumModel in Model)
     {
         <div class="col-md-3 album-grid-container">
-            <a class="album-link" href="@Url.Action("AlbumDetails", "Albums", new { id = albumModel.ID })">
+            <a class="album-link" href="@Url.Action("AlbumDetails", "Album", new { id = albumModel.ID })">
                 @Html.Partial("_AlbumGridLink", albumModel)
             </a>
         </div>

@@ -6,12 +6,18 @@
     using System.Web;
     using System.Web.Mvc;
 
+    using FreeRiders.Data.UnitsOfWork;
     using FreeRiders.Models;
     using FreeRiders.Web.Areas.Administration.ViewModels;
     using FreeRiders.Web.Controllers;
 
-    public class AlbumCategoryController : AuthorizeUserController
+    public class AlbumCategoryController : AdminController
     {
+        public AlbumCategoryController(IFreeRidersData data)
+            :base(data)
+        {
+        }
+
         // GET: Administration/AlbumCategory
         public ActionResult Index()
         {

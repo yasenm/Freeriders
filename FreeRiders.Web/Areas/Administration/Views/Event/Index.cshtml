@@ -1,0 +1,21 @@
+﻿@using FreeRiders.Web.Areas.Administration.ViewModels
+@model IEnumerable<AdminEventViewModel>
+
+@{
+    Layout = "~/Areas/Administration/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+@(Html.Kendo()
+    .Grid<AdminEventViewModel>(Model)
+    .Name("grid")
+    .Columns(columns =>
+    {
+        columns.Bound(ev => ev.ID);
+        columns.Bound(ev => ev.Creator.UserName);
+        columns.Bound(ev => ev.DateCreated);
+        columns.Bound(ev => ev.DateOfEvent);
+    })
+)
+</div>
+

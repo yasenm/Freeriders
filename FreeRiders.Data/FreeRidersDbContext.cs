@@ -12,6 +12,7 @@
     using FreeRiders.Data.Migrations;
     using FreeRiders.Models;
     using System.Data.Entity.ModelConfiguration.Conventions;
+    using FreeRiders.Data.Common.Models;
 
     public class FreeRidersDbContext : IdentityDbContext<ApplicationUser>, IFreeRidersDbContext
     {
@@ -47,5 +48,30 @@
         public IDbSet<Event> Events { get; set; }
 
         public IDbSet<Message> Messages { get; set; }
+
+        private void ApplyAuditInfoRules()
+        {
+            // Approach via @julielerman: http://bit.ly/123661P
+            foreach (var entry in
+                this.ChangeTracker.Entries()
+                    .Where(
+                        e =>
+                        e.Entity is IAuditInfo && ((e.State == EntityState.Added) || (e.State == EntityState.Modified))))
+            {
+                var entity = (IAuditInfo)entry.Entity;
+
+                if (entry.State == EntityState.Added)
+                {
+                    if (!entity.PreserveCreatedOn)
+                    {
+                        entity.CreatedOn = DateTime.Now;
+                    }
+                }
+                else
+                {
+                    entity.ModifiedOn = DateTime.Now;
+                }
+            }
+        }
     }
 }

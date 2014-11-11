@@ -6,12 +6,18 @@
     using System.Web;
     using System.Web.Mvc;
 
+    using FreeRiders.Data.UnitsOfWork;
+    using FreeRiders.Models;
     using FreeRiders.Web.Controllers;
     using FreeRiders.Web.Areas.Administration.ViewModels;
-    using FreeRiders.Models;
 
-    public class LocationCategoryController : AuthorizeUserController
+    public class LocationCategoryController : AdminController
     {
+        public LocationCategoryController(IFreeRidersData data)
+            :base(data)
+        {
+        }
+
         // GET: Administration/LocationCategory
         public ActionResult Index()
         {

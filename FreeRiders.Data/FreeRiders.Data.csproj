@@ -66,6 +66,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\FreeRiders.Data.Common\FreeRiders.Data.Common.csproj">
+      <Project>{99100df0-fcac-4785-8a08-c0f1da676131}</Project>
+      <Name>FreeRiders.Data.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\FreeRiders.Models\FreeRiders.Models.csproj">
       <Project>{6233a92a-730c-4ed6-b757-0c59a7972ed2}</Project>
       <Name>FreeRiders.Models</Name>

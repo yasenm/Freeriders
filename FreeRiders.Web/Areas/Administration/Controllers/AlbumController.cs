@@ -6,13 +6,19 @@
 
     using AutoMapper.QueryableExtensions;
 
+    using FreeRiders.Data.UnitsOfWork;
     using FreeRiders.Models;
     using FreeRiders.Web.Areas.Administration.ViewModels;
     using FreeRiders.Web.Controllers;
     using FreeRiders.Web.Infrastructure;
 
-    public class AlbumController : AuthorizeUserController
+    public class AlbumController : AdminController
     {
+        public AlbumController(IFreeRidersData data)
+            : base(data)
+        {
+        }
+
         public ActionResult Index()
         {
             var albumsResult = this.Data.Albums

@@ -6,6 +6,7 @@
     using System.Web.Routing;
 
     using FreeRiders.Web.Infrastructure.Mapping;
+    using FreeRiders.Web.App_Start;
 
     public class MvcApplication : System.Web.HttpApplication
     {

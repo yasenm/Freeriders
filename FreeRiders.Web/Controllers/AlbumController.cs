@@ -8,10 +8,16 @@
 
     using AutoMapper.QueryableExtensions;
 
+    using FreeRiders.Data.UnitsOfWork;
     using FreeRiders.Web.ViewModels;
 
-    public class AlbumsController : AuthorizeUserController
+    public class AlbumController : BaseController
     {
+        public AlbumController(IFreeRidersData data)
+            : base(data)
+        {
+        }
+
         [HttpGet]
         public ActionResult Index()
         {

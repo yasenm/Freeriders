@@ -24,11 +24,6 @@
 
         protected string FlickrAuth = ConfigurationManager.AppSettings["FlickrAuthtoken"];
 
-        public BaseController()
-            : this(new FreeRidersData(new FreeRidersDbContext()))
-        {
-        }
-
         public BaseController(IFreeRidersData data)
         {
             this.Data = data;
