@@ -3,7 +3,9 @@
     using System;
     using System.ComponentModel.DataAnnotations;
 
-    public class Picture
+    using FreeRiders.Data.Common.Models;
+
+    public class Picture : DeletableEntity
     {
         [Key]
         public int ID { get; set; }

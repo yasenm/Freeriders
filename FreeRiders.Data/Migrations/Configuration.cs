@@ -1,5 +1,6 @@
 namespace FreeRiders.Data.Migrations
 {
+    using FreeRiders.Models;
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
@@ -15,7 +16,27 @@ namespace FreeRiders.Data.Migrations
 
         protected override void Seed(FreeRidersDbContext context)
         {
+            if (context.Users.Any())
+            {
+                return;
+            }
 
+            this.SeedAdmin(context);
+            this.SeedEvents(context);
+        }
+
+        private void SeedEvents(FreeRidersDbContext context)
+        {
+            
+        }
+
+        private void SeedAdmin(FreeRidersDbContext context)
+        {
+            //context.Events.AddOrUpdate(e => e.ID,
+            //    new Event
+            //    {
+
+            //    });
         }
     }
 }

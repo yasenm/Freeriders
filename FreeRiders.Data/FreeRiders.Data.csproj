@@ -56,8 +56,8 @@
     <Compile Include="IFreeRidersDbContext.cs" />
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Repositories\IRepository.cs" />
-    <Compile Include="Repositories\Repository.cs" />
+    <Compile Include="Repositories\DeletableEntityRepository.cs" />
+    <Compile Include="Repositories\GenericRepository.cs" />
     <Compile Include="UnitsOfWork\FreeRidersData.cs" />
     <Compile Include="UnitsOfWork\IFreeRidersData.cs" />
   </ItemGroup>

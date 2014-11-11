@@ -46,7 +46,7 @@
         public ActionResult DisplayPhoto()
         {
             var data = new FreeRidersData(new FreeRidersDbContext());
-            var currentUser = data.Users.Find(this.User.Identity.GetUserId());
+            var currentUser = data.Users.GetById(this.User.Identity.GetUserId());
             string imgSrc = data.Pictures.All().FirstOrDefault().ImageUrl;
 
             if (currentUser.Avatar != null)

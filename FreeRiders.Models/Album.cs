@@ -3,7 +3,9 @@
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
 
-    public class Album
+    using FreeRiders.Data.Common.Models;
+
+    public class Album : DeletableEntity
     {
         private ICollection<Review> reviews;
         private ICollection<Picture> pictures;

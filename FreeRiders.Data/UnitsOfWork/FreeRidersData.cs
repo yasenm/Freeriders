@@ -6,17 +6,19 @@
 
     using FreeRiders.Data.Repositories;
     using FreeRiders.Models;
+    using FreeRiders.Data.Common.Repository;
 
     public class FreeRidersData : IFreeRidersData
     {
-        private DbContext context;
         private IDictionary<Type, object> repositories;
 
-        public FreeRidersData(DbContext context)
+        public FreeRidersData(IFreeRidersDbContext context)
         {
-            this.context = context;
+            this.Context = context;
             this.repositories = new Dictionary<Type, object>();
         }
+
+        public IFreeRidersDbContext Context { get; set; }
 
         public IRepository<ApplicationUser> Users
         {
@@ -92,7 +94,7 @@
 
         public int SaveChanges()
         {
-            return this.context.SaveChanges();
+            return this.Context.SaveChanges();
         }
 
         private IRepository<T> GetRepository<T>() where T : class
@@ -100,11 +102,12 @@
             var typeOfRepository = typeof(T);
             if (!this.repositories.ContainsKey(typeOfRepository))
             {
-                var newRepository = Activator.CreateInstance(typeof(Repository<T>), context);
+                var newRepository = Activator.CreateInstance(typeof(GenericRepository<T>), Context);
                 this.repositories.Add(typeOfRepository, newRepository);
             }
 
             return (IRepository<T>)this.repositories[typeOfRepository];
         }
+
     }
 }

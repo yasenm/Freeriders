@@ -2,19 +2,17 @@
 {
     using System;
     using System.ComponentModel.DataAnnotations;
+    using System.Web.Mvc;
 
     using FreeRiders.Models;
     using FreeRiders.Web.Infrastructure.Mapping;
 
     public class AdminEventViewModel : IMapFrom<Event>
     {
-        [Key]
+        [HiddenInput(DisplayValue = false)]
         public int ID { get; set; }
 
-        [Required]
         public string CreatorID { get; set; }
-
-        public virtual ApplicationUser Creator { get; set; }
 
         public bool Passed { get; set; }
 

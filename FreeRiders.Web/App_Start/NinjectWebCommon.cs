@@ -64,7 +64,7 @@ namespace FreeRiders.Web.App_Start
         /// <param name="kernel">The kernel.</param>
         private static void RegisterServices(IKernel kernel)
         {
-            kernel.Bind<DbContext>().To<FreeRidersDbContext>();
+            kernel.Bind<IFreeRidersDbContext>().To<FreeRidersDbContext>();
             kernel.Bind<IFreeRidersData>().To<FreeRidersData>();
 
             //kernel.Bind<IFreeRidersDbContext>().To<FreeRidersDbContext>();

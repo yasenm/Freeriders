@@ -18,7 +18,7 @@
 
         public ActionResult LocationDetails(int id)
         {
-            var result = this.Data.Locations.Find(id);
+            var result = this.Data.Locations.GetById(id);
 
             return View(result);
         }

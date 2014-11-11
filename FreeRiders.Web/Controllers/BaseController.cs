@@ -16,7 +16,7 @@
         {
             get
             {
-                return this.Data.Users.Find(this.GetUserId());
+                return this.Data.Users.GetById(this.GetUserId());
             }
         }
 

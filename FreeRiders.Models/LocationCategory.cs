@@ -2,7 +2,9 @@
 {
     using System.ComponentModel.DataAnnotations;
 
-    public class LocationCategory
+    using FreeRiders.Data.Common.Models;
+
+    public class LocationCategory : DeletableEntity
     {
         [Key]
         public int ID { get; set; }

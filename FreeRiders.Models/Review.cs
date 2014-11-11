@@ -2,7 +2,9 @@
 {
     using System.ComponentModel.DataAnnotations;
 
-    public class Review
+    using FreeRiders.Data.Common.Models;
+
+    public class Review : DeletableEntity
     {
         [Key]
         public int ID { get; set; }

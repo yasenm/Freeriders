@@ -73,7 +73,7 @@
                 this.Data.Albums.Add(newAlbum);
                 this.Data.SaveChanges();
 
-                var location = this.Data.Locations.Find(album.LocationID);
+                var location = this.Data.Locations.GetById(album.LocationID);
                 location.Albums.Add(newAlbum);
                 this.Data.Locations.Update(location);
                 this.Data.SaveChanges();
@@ -109,7 +109,7 @@
         {
             if (ModelState.IsValid)
             {
-                var albumToUpdate = this.Data.Albums.Find(id);
+                var albumToUpdate = this.Data.Albums.GetById(id);
                 foreach (var picture in album.Pictures)
                 {
                     var albumPicture = ImageUploader.SavePictureInDb(picture, this.Data);
@@ -126,7 +126,7 @@
         [HttpGet]
         public ActionResult LoadPicturesGrid(int albumID)
         {
-            var album = this.Data.Albums.Find(albumID);
+            var album = this.Data.Albums.GetById(albumID);
             var collection = album.Pictures.ToList();
 
             ViewBag.CoverPictureID = album.PictureID;
@@ -138,10 +138,7 @@
         [HttpPost]
         public ActionResult DeletePictureFromAlbum(int pictureID, int albumID)
         {
-            var album = this.Data.Albums.Find(albumID);
-            var picture = this.Data.Pictures.Delete(pictureID);
-
-            album.Pictures.Remove(picture);
+            this.Data.Pictures.Delete(pictureID);
             this.Data.SaveChanges();
 
             return this.LoadPicturesGrid(albumID);
@@ -150,7 +147,7 @@
         [HttpPost]
         public ActionResult EditPictureToCover(int pictureID, int albumID)
         {
-            var album = this.Data.Albums.Find(albumID);
+            var album = this.Data.Albums.GetById(albumID);
 
             album.PictureID = pictureID;
             this.Data.SaveChanges();

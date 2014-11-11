@@ -51,7 +51,7 @@
             }
             catch (Exception s)
             {
-                return "error";
+                return "error " + s.Message;
             }
         }
 

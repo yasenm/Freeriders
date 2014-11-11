@@ -4,7 +4,9 @@
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
 
-    public class Event
+    using FreeRiders.Data.Common.Models;
+
+    public class Event : DeletableEntity
     {
         private ICollection<ApplicationUser> joinedUsers;
         private ICollection<Message> messages;
@@ -25,8 +27,10 @@
 
         public bool Passed { get; set; }
 
-        [Required]
-        public DateTime DateCreated { get; set; }
+        //[Required]
+        //public int LocationID { get; set; }
+
+        //public virtual Location Location { get; set; }
 
         [Required]
         public DateTime DateOfEvent { get; set; }

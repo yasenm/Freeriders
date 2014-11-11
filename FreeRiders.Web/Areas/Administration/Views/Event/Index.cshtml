@@ -1,21 +1,35 @@
-﻿@using FreeRiders.Web.Areas.Administration.ViewModels
-@model IEnumerable<AdminEventViewModel>
+﻿@using FreeRiders.Models
 
 @{
     Layout = "~/Areas/Administration/Views/Shared/_Layout.cshtml";
+    const string ControllerName = "Event";
 }
 
 <div class="container">
-@(Html.Kendo()
-    .Grid<AdminEventViewModel>(Model)
+    @(Html.Kendo()
+    .Grid<Event>()
     .Name("grid")
     .Columns(columns =>
     {
         columns.Bound(ev => ev.ID);
-        columns.Bound(ev => ev.Creator.UserName);
-        columns.Bound(ev => ev.DateCreated);
+        columns.Bound(ev => ev.Passed);
+        columns.Bound(ev => ev.CreatedOn);
         columns.Bound(ev => ev.DateOfEvent);
+        columns.Command(command => { command.Edit(); command.Destroy(); }).Width(160);
     })
-)
+    .ToolBar(toolbar => toolbar.Create())
+    .Editable(edit => edit.Mode(GridEditMode.PopUp))
+    .Pageable(page => page.Refresh(true))
+    .Sortable()
+    .Groupable()
+    .DataSource(data =>
+        data
+        .Ajax()
+        .Model(model => model.Id(ev => ev.ID))
+        .Read(read => read.Action("Read", ControllerName))
+        .Create(create => create.Action("Create", ControllerName))
+        .Update(update => update.Action("Update", ControllerName))
+        .Destroy(update => update.Action("Destroy", ControllerName)))
+    )
 </div>
 

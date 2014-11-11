@@ -3,6 +3,7 @@
     using System;
     using System.Collections.Generic;
     using System.Data.Entity;
+    using System.Data.Entity.ModelConfiguration.Conventions;
     using System.Linq;
     using System.Text;
     using System.Threading.Tasks;
@@ -11,8 +12,8 @@
 
     using FreeRiders.Data.Migrations;
     using FreeRiders.Models;
-    using System.Data.Entity.ModelConfiguration.Conventions;
     using FreeRiders.Data.Common.Models;
+    using FreeRiders.Data.Common.Contracts.CodeFirstConventions;
 
     public class FreeRidersDbContext : IdentityDbContext<ApplicationUser>, IFreeRidersDbContext
     {
@@ -20,12 +21,6 @@
             : base("DefaultConnection", throwIfV1Schema: false)
         {
             Database.SetInitializer(new MigrateDatabaseToLatestVersion<FreeRidersDbContext, Configuration>());
-        }
-
-        protected override void OnModelCreating(DbModelBuilder modelBuilder)
-        {
-            modelBuilder.Conventions.Remove<OneToManyCascadeDeleteConvention>();
-            base.OnModelCreating(modelBuilder);
         }
 
         public static FreeRidersDbContext Create()
@@ -49,6 +44,39 @@
 
         public IDbSet<Message> Messages { get; set; }
 
+        public DbContext DbContext
+        {
+            get
+            {
+                return this;
+            }
+        }
+
+        public override int SaveChanges()
+        {
+            this.ApplyAuditInfoRules();
+            this.ApplyDeletableEntityRules();
+            return base.SaveChanges();
+        }
+
+        public new IDbSet<T> Set<T>() where T : class
+        {
+            return base.Set<T>();
+        }
+
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            modelBuilder.Conventions.Remove<OneToManyCascadeDeleteConvention>();
+            modelBuilder.Conventions.Add(new IsUnicodeAttributeConvention());
+
+            base.OnModelCreating(modelBuilder); // Without this call EntityFramework won't be able to configure the identity model
+        }
+
+        protected override void Dispose(bool disposing)
+        {
+            base.Dispose(disposing);
+        }
+
         private void ApplyAuditInfoRules()
         {
             // Approach via @julielerman: http://bit.ly/123661P
@@ -71,6 +99,22 @@
                 {
                     entity.ModifiedOn = DateTime.Now;
                 }
+            }
+        }
+
+        private void ApplyDeletableEntityRules()
+        {
+            // Approach via @julielerman: http://bit.ly/123661P
+            foreach (
+                var entry in
+                    this.ChangeTracker.Entries()
+                        .Where(e => e.Entity is IDeletableEntity && (e.State == EntityState.Deleted)))
+            {
+                var entity = (IDeletableEntity)entry.Entity;
+
+                entity.DeletedOn = DateTime.Now;
+                entity.IsDeleted = true;
+                entry.State = EntityState.Modified;
             }
         }
     }

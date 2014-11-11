@@ -1,14 +1,14 @@
-﻿namespace FreeRiders.Data.Common.Repository
+﻿namespace FreeRiders.Data.Repositories
 {
+    using System;
     using System.Data.Entity;
     using System.Linq;
 
     using FreeRiders.Data.Common.Models;
-    using System;
-    using System.Data.Entity.Infrastructure;
+    using FreeRiders.Data.Common.Repository;
 
-    public class DeletableEntityRepository<T> : GenericRepository<T>, IDeletableEntityRepository<T>
-        where T : class, IDeletableEntity
+    public class DeletableEntityRepository<T> :
+    GenericRepository<T>, IDeletableEntityRepository<T> where T : class, IDeletableEntity
     {
         public DeletableEntityRepository(DbContext context)
             : base(context)
@@ -27,16 +27,11 @@
 
         public override void Delete(T entity)
         {
-            entity.IsDeleted = true;
             entity.DeletedOn = DateTime.Now;
+            entity.IsDeleted = true;
 
-            DbEntityEntry entry = this.Context.Entry(entity);
+            var entry = this.Context.Entry(entity);
             entry.State = EntityState.Modified;
-        }
-
-        public void ActualDelete(T entity)
-        {
-            base.Delete(entity);
         }
     }
 }

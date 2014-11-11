@@ -3,7 +3,9 @@
     using System;
     using System.ComponentModel.DataAnnotations;
 
-    public class Message
+    using FreeRiders.Data.Common.Models;
+
+    public class Message : DeletableEntity
     {
         [Key]
         public int ID { get; set; }

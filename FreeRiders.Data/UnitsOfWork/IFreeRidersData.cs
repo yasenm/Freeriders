@@ -1,10 +1,14 @@
 ﻿namespace FreeRiders.Data.UnitsOfWork
 {
-    using FreeRiders.Data.Repositories;
     using FreeRiders.Models;
+
+    using FreeRiders.Data.Common.Repository;
+    using FreeRiders.Data.Repositories;
 
     public interface IFreeRidersData
     {
+        IFreeRidersDbContext Context { get; }
+
         IRepository<ApplicationUser> Users { get; }
 
         IRepository<Album> Albums { get; }
