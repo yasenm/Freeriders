@@ -136,22 +136,26 @@
         }
 
         [HttpPost]
-        public void DeletePictureFromAlbum(int pictureID, int albumID)
+        public ActionResult DeletePictureFromAlbum(int pictureID, int albumID)
         {
             var album = this.Data.Albums.Find(albumID);
             var picture = this.Data.Pictures.Delete(pictureID);
 
             album.Pictures.Remove(picture);
             this.Data.SaveChanges();
+
+            return this.LoadPicturesGrid(albumID);
         }
 
         [HttpPost]
-        public void EditPictureToCover(int pictureID, int albumID)
+        public ActionResult EditPictureToCover(int pictureID, int albumID)
         {
             var album = this.Data.Albums.Find(albumID);
 
             album.PictureID = pictureID;
             this.Data.SaveChanges();
+
+            return this.LoadPicturesGrid(albumID);
         }
     }
 }
