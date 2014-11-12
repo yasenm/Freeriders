@@ -7,18 +7,18 @@
     using Microsoft.AspNet.Identity;
     using Microsoft.AspNet.Identity.EntityFramework;
 
-    public class ApplicationUser : IdentityUser
+    public class User : IdentityUser
     {
         private ICollection<Review> reviews;
         private ICollection<Album> albums;
 
-        public ApplicationUser()
+        public User()
         {
             this.reviews = new HashSet<Review>();
             this.albums = new HashSet<Album>();
         }
 
-        public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser> manager)
+        public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<User> manager)
         {
             // Note the authenticationType must match the one defined in CookieAuthenticationOptions.AuthenticationType
             var userIdentity = await manager.CreateIdentityAsync(this, DefaultAuthenticationTypes.ApplicationCookie);

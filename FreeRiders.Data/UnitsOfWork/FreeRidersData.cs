@@ -7,6 +7,7 @@
     using FreeRiders.Data.Repositories;
     using FreeRiders.Models;
     using FreeRiders.Data.Common.Repository;
+    using FreeRiders.Data.Common.Models;
 
     public class FreeRidersData : IFreeRidersData
     {
@@ -20,11 +21,11 @@
 
         public IFreeRidersDbContext Context { get; set; }
 
-        public IRepository<ApplicationUser> Users
+        public IRepository<User> Users
         {
             get
             {
-                return this.GetRepository<ApplicationUser>();
+                return this.GetRepository<User>();
             }
         }
 
@@ -32,7 +33,7 @@
         {
             get
             {
-                return this.GetRepository<Album>();
+                return this.GetDeletableEntityRepository<Album>();
             }
         }
 
@@ -40,7 +41,7 @@
         {
             get
             {
-                return this.GetRepository<AlbumCategory>();
+                return this.GetDeletableEntityRepository<AlbumCategory>();
             }
         }
 
@@ -48,7 +49,7 @@
         {
             get
             {
-                return this.GetRepository<Location>();
+                return this.GetDeletableEntityRepository<Location>();
             }
         }
 
@@ -56,7 +57,7 @@
         {
             get
             {
-                return this.GetRepository<LocationCategory>();
+                return this.GetDeletableEntityRepository<LocationCategory>();
             }
         }
 
@@ -64,7 +65,7 @@
         {
             get
             {
-                return this.GetRepository<Picture>();
+                return this.GetDeletableEntityRepository<Picture>();
             }
         }
 
@@ -72,7 +73,7 @@
         {
             get
             {
-                return this.GetRepository<Review>();
+                return this.GetDeletableEntityRepository<Review>();
             }
         }
 
@@ -80,7 +81,7 @@
         {
             get
             {
-                return this.GetRepository<Event>();
+                return this.GetDeletableEntityRepository<Event>();
             }
         }
 
@@ -88,7 +89,7 @@
         {
             get
             {
-                return this.GetRepository<Message>();
+                return this.GetDeletableEntityRepository<Message>();
             }
         }
 
@@ -96,17 +97,39 @@
         {
             return this.Context.SaveChanges();
         }
-
+        
         private IRepository<T> GetRepository<T>() where T : class
+        {
+            if (!this.repositories.ContainsKey(typeof(T)))
+            {
+                var type = typeof(GenericRepository<T>);
+                this.repositories.Add(typeof(T), Activator.CreateInstance(type, this.Context));
+            }
+
+            return (IRepository<T>)this.repositories[typeof(T)];
+        }
+
+        private IDeletableEntityRepository<T> GetDeletableEntityRepository<T>() where T : class, IDeletableEntity
         {
             var typeOfRepository = typeof(T);
             if (!this.repositories.ContainsKey(typeOfRepository))
             {
-                var newRepository = Activator.CreateInstance(typeof(GenericRepository<T>), Context);
+                var newRepository = Activator.CreateInstance(typeof(DeletableEntityRepository<T>), Context);
                 this.repositories.Add(typeOfRepository, newRepository);
             }
 
-            return (IRepository<T>)this.repositories[typeOfRepository];
+            return (IDeletableEntityRepository<T>)this.repositories[typeOfRepository];
+        }
+
+        protected virtual void Dispose(bool disposing)
+        {
+            if (disposing)
+            {
+                if (this.Context != null)
+                {
+                    this.Context.Dispose();
+                }
+            }
         }
 
     }

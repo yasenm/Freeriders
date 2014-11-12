@@ -13,7 +13,7 @@
         [Required]
         public string AuthorID { get; set; }
 
-        public virtual ApplicationUser Author { get; set; }
+        public virtual User Author { get; set; }
 
         [Required]
         public string Text { get; set; }

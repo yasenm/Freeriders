@@ -15,7 +15,11 @@
 
         public string CreatorID { get; set; }
 
-        public bool Passed { get; set; }
+        [Required]
+        public string Title { get; set; }
+
+        [Required]
+        public string Description { get; set; }
 
         [Required]
         public DateTime DateCreated { get; set; }

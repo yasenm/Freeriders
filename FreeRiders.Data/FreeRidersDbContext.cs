@@ -15,7 +15,7 @@
     using FreeRiders.Data.Common.Models;
     using FreeRiders.Data.Common.Contracts.CodeFirstConventions;
 
-    public class FreeRidersDbContext : IdentityDbContext<ApplicationUser>, IFreeRidersDbContext
+    public class FreeRidersDbContext : IdentityDbContext<User>, IFreeRidersDbContext
     {
         public FreeRidersDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
@@ -55,7 +55,7 @@
         public override int SaveChanges()
         {
             this.ApplyAuditInfoRules();
-            //this.ApplyDeletableEntityRules();
+            this.ApplyDeletableEntityRules();
             return base.SaveChanges();
         }
 

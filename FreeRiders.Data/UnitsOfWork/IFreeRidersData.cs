@@ -9,7 +9,7 @@
     {
         IFreeRidersDbContext Context { get; }
 
-        IRepository<ApplicationUser> Users { get; }
+        IRepository<User> Users { get; }
 
         IRepository<Album> Albums { get; }
 

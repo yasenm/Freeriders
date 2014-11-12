@@ -12,7 +12,7 @@
 
     public abstract class BaseController : Controller
     {
-        protected ApplicationUser CurrentUser
+        protected User CurrentUser
         {
             get
             {

@@ -33,5 +33,10 @@
             var entry = this.Context.Entry(entity);
             entry.State = EntityState.Modified;
         }
+
+        public void Dispose()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

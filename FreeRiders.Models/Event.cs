@@ -8,24 +8,22 @@
 
     public class Event : DeletableEntity
     {
-        private ICollection<ApplicationUser> joinedUsers;
+        private ICollection<User> joinedUsers;
         private ICollection<Message> messages;
 
         public Event()
         {
-            this.joinedUsers = new HashSet<ApplicationUser>();
+            this.joinedUsers = new HashSet<User>();
             this.messages = new HashSet<Message>();
         }
 
         [Key]
         public int ID { get; set; }
 
-        public bool IsPassed { get; set; }
-
         [Required]
         public string CreatorID { get; set; }
 
-        public virtual ApplicationUser Creator { get; set; }
+        public virtual User Creator { get; set; }
 
         [Required]
         [StringLength(100, MinimumLength = 10)]
@@ -42,7 +40,7 @@
         [Required]
         public DateTime DateOfEvent { get; set; }
 
-        public ICollection<ApplicationUser> JoinedUsers
+        public ICollection<User> JoinedUsers
         {
             get { return this.joinedUsers; }
             set { this.joinedUsers = value; }

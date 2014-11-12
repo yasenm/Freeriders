@@ -17,7 +17,7 @@
     {
         private const string ClientId = "253ceccb0eb6e36";
 
-        public static void UploadAvatarToUser(HttpPostedFileBase file, ApplicationUser user, IFreeRidersData Data)
+        public static void UploadAvatarToUser(HttpPostedFileBase file, User user, IFreeRidersData Data)
         {
             using (var memory = new MemoryStream())
             {

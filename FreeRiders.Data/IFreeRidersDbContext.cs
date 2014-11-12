@@ -7,7 +7,7 @@
 
     public interface IFreeRidersDbContext
     {
-        IDbSet<ApplicationUser> Users { get; set; }
+        IDbSet<User> Users { get; set; }
 
         IDbSet<Album> Albums { get; set; }
 
