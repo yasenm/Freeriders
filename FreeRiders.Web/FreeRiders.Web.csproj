@@ -481,7 +481,6 @@
     <Content Include="Areas\Administration\Views\LocationCategory\Index.cshtml" />
     <Content Include="Areas\Administration\Views\Album\Index.cshtml" />
     <Content Include="Areas\Administration\Views\Album\Create.cshtml" />
-    <Content Include="bin\AlbumCategory\Index.cshtml" />
     <Content Include="Areas\Administration\Views\Album\Edit.cshtml" />
     <Content Include="Areas\Administration\Views\Shared\Album\_PicturesForEdit.cshtml" />
     <Content Include="Content\kendo\images\kendoui.ttf" />
@@ -571,7 +570,8 @@
     <Content Include="Views\Shared\_DateTime.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App_Data\" />
+    <Folder Include="App_Data\Elmah\" />
+    <Folder Include="bin\" />
     <Folder Include="Infrastructure\Filters\" />
     <Folder Include="ViewModels\Album\" />
     <Folder Include="Views\Message\" />
