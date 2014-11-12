@@ -1,6 +1,6 @@
-﻿@model FreeRiders.Models.Location
-@using FreeRiders.Web.ViewModels;
+﻿@using FreeRiders.Web.ViewModels;
 
+@model FreeRiders.Models.Location
 
 @{
     var argument = new HeaderViewModel()
@@ -36,7 +36,7 @@
             {
                 <div class="row">
                     <div class="col-md-10 col-md-offset-1">
-                        <a href="@Url.Action("AlbumDetails", "Albums", new { id = album.ID, })">
+                        <a href="@Url.Action("AlbumDetails", "Album", new { id = album.ID, })">
                             @Html.Partial("_AlbumGridLink", album)
                         </a>
                     </div>

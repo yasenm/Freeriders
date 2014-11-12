@@ -12,8 +12,9 @@
     .Columns(columns =>
     {
         columns.Bound(ev => ev.ID);
-        columns.Bound(ev => ev.Passed);
         columns.Bound(ev => ev.CreatedOn);
+        columns.Bound(ev => ev.Title);
+        columns.Bound(ev => ev.Description);
         columns.Bound(ev => ev.DateOfEvent);
         columns.Command(command => { command.Edit(); command.Destroy(); }).Width(160);
     })

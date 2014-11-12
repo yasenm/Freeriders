@@ -4,34 +4,15 @@
     using System.Linq.Expressions;
 
     using FreeRiders.Models;
+    using FreeRiders.Web.Infrastructure.Mapping;
 
-    public class LocationViewModel
+    public class LocationViewModel : IMapFrom<Location>
     {
-        public static Expression<Func<Location, LocationViewModel>> FromLocation
-        {
-            get
-            {
-                return location => new LocationViewModel
-                {
-                    Name = location.Name,
-                    Latitude = location.Latitude,
-                    Longitude = location.Longitude,
-                    Description = location.Description,
-                    Category = location.Category,
-                    Picture = location.Picture,
-                };
-            }
-        }
+        public int ID { get; set; }
 
         public string Name { get; set; }
 
-        public double Latitude { get; set; }
-
-        public double Longitude { get; set; }
-
         public string Description { get; set; }
-
-        public LocationCategory Category { get; set; }
 
         public Picture Picture { get; set; }
     }

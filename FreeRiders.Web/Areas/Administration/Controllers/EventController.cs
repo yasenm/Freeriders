@@ -74,7 +74,7 @@
         [HttpPost]
         public ActionResult Update([DataSourceRequest]DataSourceRequest request, ViewModel model)
         {
-            //base.Update<Model, ViewModel>(model, model.ID);
+            base.Update<Model, ViewModel>(model, model.ID);
             return this.GridOperation(model, request);
         }
 

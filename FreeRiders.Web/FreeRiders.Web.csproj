@@ -45,6 +45,12 @@
     <Reference Include="AutoMapper.Net4">
       <HintPath>..\packages\AutoMapper.3.2.1\lib\net40\AutoMapper.Net4.dll</HintPath>
     </Reference>
+    <Reference Include="Elmah">
+      <HintPath>..\packages\elmah.corelibrary.1.2.1\lib\Elmah.dll</HintPath>
+    </Reference>
+    <Reference Include="Elmah.Mvc">
+      <HintPath>..\packages\Elmah.MVC.2.1.1\lib\net40\Elmah.Mvc.dll</HintPath>
+    </Reference>
     <Reference Include="FlickrNet">
       <HintPath>..\packages\FlickrNet.3.15.0\lib\net20\FlickrNet.dll</HintPath>
     </Reference>
@@ -215,9 +221,9 @@
     <Compile Include="Controllers\AlbumController.cs" />
     <Compile Include="Controllers\AuthorizeUserController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
-    <Compile Include="Controllers\EventsController.cs" />
+    <Compile Include="Controllers\EventController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\LocationsController.cs" />
+    <Compile Include="Controllers\LocationController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\MessageController.cs" />
     <Compile Include="Controllers\ReviewController.cs" />
@@ -229,7 +235,9 @@
     <Compile Include="Infrastructure\ImageUploader.cs" />
     <Compile Include="ViewModels\AccountViewModels.cs" />
     <Compile Include="ViewModels\AlbumIndexViewModel.cs" />
+    <Compile Include="ViewModels\Event\EventsViewModel.cs" />
     <Compile Include="ViewModels\HeaderViewModel.cs" />
+    <Compile Include="ViewModels\Home\HomeViewModel.cs" />
     <Compile Include="ViewModels\LocationViewModel.cs" />
     <Compile Include="ViewModels\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -458,6 +466,8 @@
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="Images\albums-cover.jpg" />
+    <Content Include="Images\home-cover.jpg" />
+    <Content Include="Images\locations-cover.jpg" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="FlickrNet.chm" />
@@ -471,7 +481,7 @@
     <Content Include="Areas\Administration\Views\LocationCategory\Index.cshtml" />
     <Content Include="Areas\Administration\Views\Album\Index.cshtml" />
     <Content Include="Areas\Administration\Views\Album\Create.cshtml" />
-    <Content Include="Areas\Administration\Views\AlbumCategory\Index.cshtml" />
+    <Content Include="bin\AlbumCategory\Index.cshtml" />
     <Content Include="Areas\Administration\Views\Album\Edit.cshtml" />
     <Content Include="Areas\Administration\Views\Shared\Album\_PicturesForEdit.cshtml" />
     <Content Include="Content\kendo\images\kendoui.ttf" />
@@ -549,22 +559,25 @@
     <Content Include="Views\Account\_DisplayAvatar.cshtml" />
     <Content Include="Views\Album\Index.cshtml" />
     <Content Include="Views\Album\AlbumDetails.cshtml" />
-    <Content Include="Views\Locations\Index.cshtml" />
+    <Content Include="Views\Location\Index.cshtml" />
     <Content Include="Views\Events\Index.cshtml" />
-    <Content Include="Views\Locations\LocationDetails.cshtml" />
+    <Content Include="Views\Location\LocationDetails.cshtml" />
     <Content Include="Views\Shared\_PageHeader.cshtml" />
     <Content Include="Views\Shared\_AlbumGridLink.cshtml" />
     <Content Include="Scripts\kendo\jquery.min.map" />
     <Content Include="Scripts\kendo\kendo.all.min.js.map" />
     <Content Include="Scripts\kendo\kendo.aspnetmvc.min.js.map" />
+    <Content Include="Views\Shared\_DateTime.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Infrastructure\Filters\" />
+    <Folder Include="ViewModels\Album\" />
     <Folder Include="Views\Message\" />
     <Folder Include="Views\Review\" />
-    <Folder Include="Views\Shared\Albums\" />
-    <Folder Include="Views\Shared\Locations\" />
+    <Folder Include="Views\Shared\Album\" />
+    <Folder Include="Views\Shared\DisplayTemplates\" />
+    <Folder Include="Views\Shared\Location\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

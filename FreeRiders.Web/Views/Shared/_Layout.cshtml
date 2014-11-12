@@ -1,4 +1,6 @@
-﻿<!DOCTYPE html>
+﻿@using Microsoft.AspNet.Identity
+
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
@@ -24,10 +26,15 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Locations", "Index", "Locations", new { area = "" }, null)</li>
+                    <li>@Html.ActionLink("Locations", "Index", "Location", new { area = "" }, null)</li>
                     <li>@Html.ActionLink("Albums", "Index", "Album", new { area = "" }, null)</li>
-                    <li>@Html.ActionLink("Events", "Index", "Events", new { area = "" }, null)</li>
-                    <li>@Html.ActionLink("Create Location", "Create", "Location", new { Area = "Administration" }, new { })</li>
+                    <li>@Html.ActionLink("Events", "Index", "Event", new { area = "" }, null)</li>
+
+                    @if (Request.IsAuthenticated)
+                    {
+                        <li>@Html.ActionLink("Create Location", "Create", "Location", new { Area = "Administration" }, new { })</li>
+                        <li>@Html.ActionLink("Create Album", "Create", "Album", new { Area = "Administration" }, new { })</li>
+                    }
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>

@@ -20,12 +20,19 @@
         [Key]
         public int ID { get; set; }
 
+        public bool IsPassed { get; set; }
+
         [Required]
         public string CreatorID { get; set; }
 
         public virtual ApplicationUser Creator { get; set; }
 
-        public bool Passed { get; set; }
+        [Required]
+        [StringLength(100, MinimumLength = 10)]
+        public string Title { get; set; }
+
+        [Required]
+        public string Description { get; set; }
 
         //[Required]
         //public int LocationID { get; set; }

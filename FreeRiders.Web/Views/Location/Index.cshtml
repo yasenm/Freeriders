@@ -1,0 +1,52 @@
+﻿@using FreeRiders.Web.ViewModels;
+
+@model ICollection<LocationViewModel>
+
+@{
+    var headerArguments = new HeaderViewModel
+    {
+        ImageUrl = "../Images/locations-cover.jpg",
+        Title = "Locations",
+        Subtitle = "Collection of locations that were already visited with reviews"
+    };
+}
+
+@Html.Partial("_PageHeader", headerArguments)
+
+<div class="container">
+    @foreach (var location in Model)
+    {
+        <div class="row">
+            <div class="col-md-3">
+                <img class="image-in-container" src="@location.Picture.ImageUrl" alt="No location image found" />
+            </div>
+            <div class="col-md-6">
+                <a href="@Url.Action("LocationDetails", "Location", new { id = location.ID })">
+                    <h4>
+                        <strong>@location.Name (see details)</strong>
+                    </h4>
+                </a>
+                <div class="row">
+                    <p class="description-container">
+                        @if (location.Description.Length < 300)
+                        {
+                            @location.Description
+                        }
+                        else
+                        {
+                            @location.Description.Substring(0, 300)
+                            <span>
+                                ...
+                            </span>
+                        }
+                    </p>
+                </div>
+
+            </div>
+            <div class="col-md-3">
+                <h4>google map photo will go here</h4>
+            </div>
+        </div>
+        <br />
+    }
+</div>

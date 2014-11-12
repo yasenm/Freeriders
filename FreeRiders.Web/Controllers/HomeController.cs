@@ -6,10 +6,15 @@
     using System.Web;
     using System.Web.Mvc;
 
+    using AutoMapper;
+    using AutoMapper.QueryableExtensions;
+
     using FreeRiders.Models;
     using FreeRiders.Web.Infrastructure;
     using FreeRiders.Web.ViewModels;
     using FreeRiders.Data.UnitsOfWork;
+    using FreeRiders.Web.ViewModels.Home;
+    using FreeRiders.Web.ViewModels.Event;
 
     public class HomeController : BaseController
     {
@@ -20,12 +25,30 @@
 
         public ActionResult Index()
         {
-            var locations = this.Data.Locations
+            var indexViewResult = new HomeViewModel();
+
+            indexViewResult.Albums = this.Data.Albums
                 .All()
-                .Select(LocationViewModel.FromLocation)
+                .AsQueryable()
+                .Project()
+                .To<AlbumIndexViewModel>()
                 .ToList();
 
-            return View(locations);
+            indexViewResult.Locations = this.Data.Locations
+                .All()
+                .AsQueryable()
+                .Project()
+                .To<LocationViewModel>()
+                .ToList();
+
+            indexViewResult.Events = this.Data.Events
+                .All()
+                .AsQueryable()
+                .Project()
+                .To<EventsViewModel>()
+                .ToList();
+
+            return View(indexViewResult);
         }
 
         public ActionResult About()

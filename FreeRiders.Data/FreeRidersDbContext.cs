@@ -55,7 +55,7 @@
         public override int SaveChanges()
         {
             this.ApplyAuditInfoRules();
-            this.ApplyDeletableEntityRules();
+            //this.ApplyDeletableEntityRules();
             return base.SaveChanges();
         }
 
