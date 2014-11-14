@@ -7,6 +7,7 @@
 
     using FreeRiders.Data.UnitsOfWork;
     using FreeRiders.Web.ViewModels;
+using System.Collections.Generic;
 
     public class LocationController : BaseController
     {
@@ -33,6 +34,13 @@
             var result = this.Data.Locations.GetById(id);
 
             return View(result);
+        }
+
+        [HttpGet]
+        [ChildActionOnly]
+        public ActionResult RenderLocationsHome(ICollection<LocationViewModel> collection)
+        {
+            return this.PartialView("LocationsHome", collection);
         }
     }
 }

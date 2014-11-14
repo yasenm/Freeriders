@@ -21,21 +21,22 @@
         public int ID { get; set; }
 
         [Required]
+        [StringLength(150, MinimumLength = 3)]
+        public string Title { get; set; }
+
+        [Required]
+        [StringLength(5000, MinimumLength = 50)]
+        public string Description { get; set; }
+
+        [Required]
         public string CreatorID { get; set; }
 
         public virtual User Creator { get; set; }
 
         [Required]
-        [StringLength(100, MinimumLength = 10)]
-        public string Title { get; set; }
+        public int LocationID { get; set; }
 
-        [Required]
-        public string Description { get; set; }
-
-        //[Required]
-        //public int LocationID { get; set; }
-
-        //public virtual Location Location { get; set; }
+        public virtual Location Location { get; set; }
 
         [Required]
         public DateTime DateOfEvent { get; set; }

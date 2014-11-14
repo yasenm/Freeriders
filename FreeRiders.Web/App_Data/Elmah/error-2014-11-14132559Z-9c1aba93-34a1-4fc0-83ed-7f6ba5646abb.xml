@@ -1,0 +1,168 @@
+﻿<error errorId="9c1aba93-34a1-4fc0-83ed-7f6ba5646abb" application="/LM/W3SVC/231/ROOT" host="YASENPC" type="System.InvalidOperationException" message="Unable to determine the principal end of an association between the types 'FreeRiders.Models.Picture' and 'FreeRiders.Models.Location'. The principal end of this association must be explicitly configured using either the relationship fluent API or data annotations." source="EntityFramework" detail="System.InvalidOperationException: Unable to determine the principal end of an association between the types 'FreeRiders.Models.Picture' and 'FreeRiders.Models.Location'. The principal end of this association must be explicitly configured using either the relationship fluent API or data annotations.&#xD;&#xA;   at System.Data.Entity.ModelConfiguration.Edm.Services.AssociationTypeMappingGenerator.GenerateIndependentAssociationType(AssociationType associationType, DbDatabaseMapping databaseMapping)&#xD;&#xA;   at System.Data.Entity.ModelConfiguration.Edm.Services.AssociationTypeMappingGenerator.Generate(AssociationType associationType, DbDatabaseMapping databaseMapping)&#xD;&#xA;   at System.Data.Entity.ModelConfiguration.Edm.Services.DatabaseMappingGenerator.GenerateAssociationTypes(DbDatabaseMapping databaseMapping)&#xD;&#xA;   at System.Data.Entity.ModelConfiguration.Edm.Services.DatabaseMappingGenerator.Generate(EdmModel conceptualModel)&#xD;&#xA;   at System.Data.Entity.ModelConfiguration.Edm.EdmModelExtensions.GenerateDatabaseMapping(EdmModel model, DbProviderInfo providerInfo, DbProviderManifest providerManifest)&#xD;&#xA;   at System.Data.Entity.DbModelBuilder.Build(DbProviderManifest providerManifest, DbProviderInfo providerInfo)&#xD;&#xA;   at System.Data.Entity.DbModelBuilder.Build(DbConnection providerConnection)&#xD;&#xA;   at System.Data.Entity.Internal.LazyInternalContext.CreateModel(LazyInternalContext internalContext)&#xD;&#xA;   at System.Data.Entity.Internal.RetryLazy`2.GetValue(TInput input)&#xD;&#xA;   at System.Data.Entity.Internal.LazyInternalContext.InitializeContext()&#xD;&#xA;   at System.Data.Entity.Internal.InternalContext.Initialize()&#xD;&#xA;   at System.Data.Entity.Internal.InternalContext.GetEntitySetAndBaseTypeForType(Type entityType)&#xD;&#xA;   at System.Data.Entity.Internal.Linq.InternalSet`1.Initialize()&#xD;&#xA;   at System.Data.Entity.Internal.Linq.InternalSet`1.Include(String path)&#xD;&#xA;   at System.Data.Entity.Infrastructure.DbQuery`1.Include(String path)&#xD;&#xA;   at System.Data.Entity.QueryableExtensions.Include[T](IQueryable`1 source, String path)&#xD;&#xA;   at System.Data.Entity.QueryableExtensions.Include[T,TProperty](IQueryable`1 source, Expression`1 path)&#xD;&#xA;   at Microsoft.AspNet.Identity.EntityFramework.UserStore`6.GetUserAggregateAsync(Expression`1 filter)&#xD;&#xA;   at Microsoft.AspNet.Identity.EntityFramework.UserStore`6.FindByIdAsync(TKey userId)&#xD;&#xA;   at Microsoft.AspNet.Identity.UserManager`2.FindByIdAsync(TKey userId)&#xD;&#xA;   at Microsoft.AspNet.Identity.Owin.SecurityStampValidator.&lt;&gt;c__DisplayClass2`3.&lt;&lt;OnValidateIdentity&gt;b__1&gt;d__4.MoveNext()&#xD;&#xA;--- End of stack trace from previous location where exception was thrown ---&#xD;&#xA;   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)&#xD;&#xA;   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)&#xD;&#xA;   at System.Runtime.CompilerServices.TaskAwaiter.GetResult()&#xD;&#xA;   at Microsoft.Owin.Security.Cookies.CookieAuthenticationHandler.&lt;AuthenticateCoreAsync&gt;d__0.MoveNext()&#xD;&#xA;--- End of stack trace from previous location where exception was thrown ---&#xD;&#xA;   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)&#xD;&#xA;   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)&#xD;&#xA;   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()&#xD;&#xA;   at Microsoft.Owin.Security.Infrastructure.AuthenticationHandler.&lt;BaseInitializeAsync&gt;d__0.MoveNext()&#xD;&#xA;--- End of stack trace from previous location where exception was thrown ---&#xD;&#xA;   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)&#xD;&#xA;   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)&#xD;&#xA;   at System.Runtime.CompilerServices.TaskAwaiter.GetResult()&#xD;&#xA;   at Microsoft.Owin.Security.Infrastructure.AuthenticationMiddleware`1.&lt;Invoke&gt;d__0.MoveNext()&#xD;&#xA;--- End of stack trace from previous location where exception was thrown ---&#xD;&#xA;   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)&#xD;&#xA;   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)&#xD;&#xA;   at System.Runtime.CompilerServices.TaskAwaiter.GetResult()&#xD;&#xA;   at Microsoft.AspNet.Identity.Owin.IdentityFactoryMiddleware`2.&lt;Invoke&gt;d__0.MoveNext()&#xD;&#xA;--- End of stack trace from previous location where exception was thrown ---&#xD;&#xA;   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)&#xD;&#xA;   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)&#xD;&#xA;   at System.Runtime.CompilerServices.TaskAwaiter.GetResult()&#xD;&#xA;   at Microsoft.AspNet.Identity.Owin.IdentityFactoryMiddleware`2.&lt;Invoke&gt;d__0.MoveNext()&#xD;&#xA;--- End of stack trace from previous location where exception was thrown ---&#xD;&#xA;   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)&#xD;&#xA;   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)&#xD;&#xA;   at System.Runtime.CompilerServices.TaskAwaiter.GetResult()&#xD;&#xA;   at Microsoft.AspNet.Identity.Owin.IdentityFactoryMiddleware`2.&lt;Invoke&gt;d__0.MoveNext()&#xD;&#xA;--- End of stack trace from previous location where exception was thrown ---&#xD;&#xA;   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()&#xD;&#xA;   at Microsoft.Owin.Host.SystemWeb.Infrastructure.ErrorState.Rethrow()&#xD;&#xA;   at Microsoft.Owin.Host.SystemWeb.IntegratedPipeline.StageAsyncResult.End(IAsyncResult ar)&#xD;&#xA;   at Microsoft.Owin.Host.SystemWeb.IntegratedPipeline.IntegratedPipelineContext.EndFinalWork(IAsyncResult ar)&#xD;&#xA;   at System.Web.HttpApplication.AsyncEventExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()&#xD;&#xA;   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean&amp; completedSynchronously)" time="2014-11-14T13:25:59.4980871Z">
+  <serverVariables>
+    <item name="ALL_HTTP">
+      <value string="HTTP_CONNECTION:keep-alive&#xD;&#xA;HTTP_ACCEPT:text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8&#xD;&#xA;HTTP_ACCEPT_ENCODING:gzip,deflate,sdch&#xD;&#xA;HTTP_ACCEPT_LANGUAGE:en-US,en;q=0.8,bg;q=0.6&#xD;&#xA;HTTP_COOKIE:glimpsePolicy=On; glimpseId=Chrome 38.0; __RequestVerificationToken=H9q46zbj_QR5Ygrq5lW3RP1eXilZEA4MZ6hCKsF3Aiw6rM0axe21c3gkoQXioLK_H6Uv5TSAf-7Cfxp68-SyKgykRfVQ_VsZl9qBdirGsJM1; .AspNet.ApplicationCookie=4jzSpj98lA8U7OhVqsTEfmoG82Ocyd6xlbDaf2LGauXzgXmLYMPjorQgitLlmzdv1bmwk2qirpW9ikmwMZouX4356VRQqDZTXCZTpwR7kFwndvS9kekOrV2EfOXKYAal7sSAuxETf5xoe8VMPLSPY_oxgHORPUZpHpKQ4HK7ynF79Tr65Y6xOkla08JT4FmOXRfJo7tz0PpdaEThlia7Yar07e9JzmEFzB8ScrwpwsuWhHyMvE3442iEF-PmpG0xo3dEUU5NP5NmqVdx8s2H4LXzz-VVmkOwls3C6XwZE_0gqXo4Vy10FahhCb5Ktjm3TwChAgJGY3iufURh3L19ll0Gd40z6TUNiCp_XHUInZB4VEUbHNWrYlNKkktBb848WmvVys5RqCq-K1_ygYdio4A0FEaWI3kZSc6yNyIZ50BMrqWkhxtJB9WOAaYi-HF51UmWN3rlSWkf3dSc5dYohBjH4mknPZZDDOCE4equxU4o-3MmRL_myw1Q9wqkePBb5zyg5por4gBeSWB_Ns4zZg&#xD;&#xA;HTTP_HOST:localhost:62576&#xD;&#xA;HTTP_USER_AGENT:Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/38.0.2125.111 Safari/537.36&#xD;&#xA;" />
+    </item>
+    <item name="ALL_RAW">
+      <value string="Connection: keep-alive&#xD;&#xA;Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8&#xD;&#xA;Accept-Encoding: gzip,deflate,sdch&#xD;&#xA;Accept-Language: en-US,en;q=0.8,bg;q=0.6&#xD;&#xA;Cookie: glimpsePolicy=On; glimpseId=Chrome 38.0; __RequestVerificationToken=H9q46zbj_QR5Ygrq5lW3RP1eXilZEA4MZ6hCKsF3Aiw6rM0axe21c3gkoQXioLK_H6Uv5TSAf-7Cfxp68-SyKgykRfVQ_VsZl9qBdirGsJM1; .AspNet.ApplicationCookie=4jzSpj98lA8U7OhVqsTEfmoG82Ocyd6xlbDaf2LGauXzgXmLYMPjorQgitLlmzdv1bmwk2qirpW9ikmwMZouX4356VRQqDZTXCZTpwR7kFwndvS9kekOrV2EfOXKYAal7sSAuxETf5xoe8VMPLSPY_oxgHORPUZpHpKQ4HK7ynF79Tr65Y6xOkla08JT4FmOXRfJo7tz0PpdaEThlia7Yar07e9JzmEFzB8ScrwpwsuWhHyMvE3442iEF-PmpG0xo3dEUU5NP5NmqVdx8s2H4LXzz-VVmkOwls3C6XwZE_0gqXo4Vy10FahhCb5Ktjm3TwChAgJGY3iufURh3L19ll0Gd40z6TUNiCp_XHUInZB4VEUbHNWrYlNKkktBb848WmvVys5RqCq-K1_ygYdio4A0FEaWI3kZSc6yNyIZ50BMrqWkhxtJB9WOAaYi-HF51UmWN3rlSWkf3dSc5dYohBjH4mknPZZDDOCE4equxU4o-3MmRL_myw1Q9wqkePBb5zyg5por4gBeSWB_Ns4zZg&#xD;&#xA;Host: localhost:62576&#xD;&#xA;User-Agent: Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/38.0.2125.111 Safari/537.36&#xD;&#xA;" />
+    </item>
+    <item name="APPL_MD_PATH">
+      <value string="/LM/W3SVC/231/ROOT" />
+    </item>
+    <item name="APPL_PHYSICAL_PATH">
+      <value string="C:\Users\Yasen\Documents\GitHub\Freeriders\FreeRiders.Web\" />
+    </item>
+    <item name="AUTH_TYPE">
+      <value string="" />
+    </item>
+    <item name="AUTH_USER">
+      <value string="" />
+    </item>
+    <item name="AUTH_PASSWORD">
+      <value string="" />
+    </item>
+    <item name="LOGON_USER">
+      <value string="" />
+    </item>
+    <item name="REMOTE_USER">
+      <value string="" />
+    </item>
+    <item name="CERT_COOKIE">
+      <value string="" />
+    </item>
+    <item name="CERT_FLAGS">
+      <value string="" />
+    </item>
+    <item name="CERT_ISSUER">
+      <value string="" />
+    </item>
+    <item name="CERT_KEYSIZE">
+      <value string="" />
+    </item>
+    <item name="CERT_SECRETKEYSIZE">
+      <value string="" />
+    </item>
+    <item name="CERT_SERIALNUMBER">
+      <value string="" />
+    </item>
+    <item name="CERT_SERVER_ISSUER">
+      <value string="" />
+    </item>
+    <item name="CERT_SERVER_SUBJECT">
+      <value string="" />
+    </item>
+    <item name="CERT_SUBJECT">
+      <value string="" />
+    </item>
+    <item name="CONTENT_LENGTH">
+      <value string="0" />
+    </item>
+    <item name="CONTENT_TYPE">
+      <value string="" />
+    </item>
+    <item name="GATEWAY_INTERFACE">
+      <value string="CGI/1.1" />
+    </item>
+    <item name="HTTPS">
+      <value string="off" />
+    </item>
+    <item name="HTTPS_KEYSIZE">
+      <value string="" />
+    </item>
+    <item name="HTTPS_SECRETKEYSIZE">
+      <value string="" />
+    </item>
+    <item name="HTTPS_SERVER_ISSUER">
+      <value string="" />
+    </item>
+    <item name="HTTPS_SERVER_SUBJECT">
+      <value string="" />
+    </item>
+    <item name="INSTANCE_ID">
+      <value string="231" />
+    </item>
+    <item name="INSTANCE_META_PATH">
+      <value string="/LM/W3SVC/231" />
+    </item>
+    <item name="LOCAL_ADDR">
+      <value string="::1" />
+    </item>
+    <item name="PATH_INFO">
+      <value string="/" />
+    </item>
+    <item name="PATH_TRANSLATED">
+      <value string="C:\Users\Yasen\Documents\GitHub\Freeriders\FreeRiders.Web" />
+    </item>
+    <item name="QUERY_STRING">
+      <value string="" />
+    </item>
+    <item name="REMOTE_ADDR">
+      <value string="::1" />
+    </item>
+    <item name="REMOTE_HOST">
+      <value string="::1" />
+    </item>
+    <item name="REMOTE_PORT">
+      <value string="65421" />
+    </item>
+    <item name="REQUEST_METHOD">
+      <value string="GET" />
+    </item>
+    <item name="SCRIPT_NAME">
+      <value string="/" />
+    </item>
+    <item name="SERVER_NAME">
+      <value string="localhost" />
+    </item>
+    <item name="SERVER_PORT">
+      <value string="62576" />
+    </item>
+    <item name="SERVER_PORT_SECURE">
+      <value string="0" />
+    </item>
+    <item name="SERVER_PROTOCOL">
+      <value string="HTTP/1.1" />
+    </item>
+    <item name="SERVER_SOFTWARE">
+      <value string="Microsoft-IIS/8.0" />
+    </item>
+    <item name="URL">
+      <value string="/" />
+    </item>
+    <item name="HTTP_CONNECTION">
+      <value string="keep-alive" />
+    </item>
+    <item name="HTTP_ACCEPT">
+      <value string="text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8" />
+    </item>
+    <item name="HTTP_ACCEPT_ENCODING">
+      <value string="gzip,deflate,sdch" />
+    </item>
+    <item name="HTTP_ACCEPT_LANGUAGE">
+      <value string="en-US,en;q=0.8,bg;q=0.6" />
+    </item>
+    <item name="HTTP_COOKIE">
+      <value string="glimpsePolicy=On; glimpseId=Chrome 38.0; __RequestVerificationToken=H9q46zbj_QR5Ygrq5lW3RP1eXilZEA4MZ6hCKsF3Aiw6rM0axe21c3gkoQXioLK_H6Uv5TSAf-7Cfxp68-SyKgykRfVQ_VsZl9qBdirGsJM1; .AspNet.ApplicationCookie=4jzSpj98lA8U7OhVqsTEfmoG82Ocyd6xlbDaf2LGauXzgXmLYMPjorQgitLlmzdv1bmwk2qirpW9ikmwMZouX4356VRQqDZTXCZTpwR7kFwndvS9kekOrV2EfOXKYAal7sSAuxETf5xoe8VMPLSPY_oxgHORPUZpHpKQ4HK7ynF79Tr65Y6xOkla08JT4FmOXRfJo7tz0PpdaEThlia7Yar07e9JzmEFzB8ScrwpwsuWhHyMvE3442iEF-PmpG0xo3dEUU5NP5NmqVdx8s2H4LXzz-VVmkOwls3C6XwZE_0gqXo4Vy10FahhCb5Ktjm3TwChAgJGY3iufURh3L19ll0Gd40z6TUNiCp_XHUInZB4VEUbHNWrYlNKkktBb848WmvVys5RqCq-K1_ygYdio4A0FEaWI3kZSc6yNyIZ50BMrqWkhxtJB9WOAaYi-HF51UmWN3rlSWkf3dSc5dYohBjH4mknPZZDDOCE4equxU4o-3MmRL_myw1Q9wqkePBb5zyg5por4gBeSWB_Ns4zZg" />
+    </item>
+    <item name="HTTP_HOST">
+      <value string="localhost:62576" />
+    </item>
+    <item name="HTTP_USER_AGENT">
+      <value string="Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/38.0.2125.111 Safari/537.36" />
+    </item>
+  </serverVariables>
+  <cookies>
+    <item name="glimpsePolicy">
+      <value string="On" />
+    </item>
+    <item name="glimpseId">
+      <value string="Chrome 38.0" />
+    </item>
+    <item name="__RequestVerificationToken">
+      <value string="H9q46zbj_QR5Ygrq5lW3RP1eXilZEA4MZ6hCKsF3Aiw6rM0axe21c3gkoQXioLK_H6Uv5TSAf-7Cfxp68-SyKgykRfVQ_VsZl9qBdirGsJM1" />
+    </item>
+    <item name=".AspNet.ApplicationCookie">
+      <value string="4jzSpj98lA8U7OhVqsTEfmoG82Ocyd6xlbDaf2LGauXzgXmLYMPjorQgitLlmzdv1bmwk2qirpW9ikmwMZouX4356VRQqDZTXCZTpwR7kFwndvS9kekOrV2EfOXKYAal7sSAuxETf5xoe8VMPLSPY_oxgHORPUZpHpKQ4HK7ynF79Tr65Y6xOkla08JT4FmOXRfJo7tz0PpdaEThlia7Yar07e9JzmEFzB8ScrwpwsuWhHyMvE3442iEF-PmpG0xo3dEUU5NP5NmqVdx8s2H4LXzz-VVmkOwls3C6XwZE_0gqXo4Vy10FahhCb5Ktjm3TwChAgJGY3iufURh3L19ll0Gd40z6TUNiCp_XHUInZB4VEUbHNWrYlNKkktBb848WmvVys5RqCq-K1_ygYdio4A0FEaWI3kZSc6yNyIZ50BMrqWkhxtJB9WOAaYi-HF51UmWN3rlSWkf3dSc5dYohBjH4mknPZZDDOCE4equxU4o-3MmRL_myw1Q9wqkePBb5zyg5por4gBeSWB_Ns4zZg" />
+    </item>
+  </cookies>
+</error>

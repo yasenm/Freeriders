@@ -9,11 +9,13 @@
     {
         private ICollection<Album> albums;
         private ICollection<Review> reviews;
+        private ICollection<Event> events;
 
         public Location()
         {
             this.albums = new HashSet<Album>();
             this.reviews = new HashSet<Review>();
+            this.events = new HashSet<Event>();
         }
 
         [Key]
@@ -24,9 +26,11 @@
         public double Longitude { get; set; }
 
         [Required]
+        [StringLength(150, MinimumLength = 3)]
         public string Name { get; set; }
 
         [Required]
+        [StringLength(10000, MinimumLength = 50)]
         public string Description { get; set; }
 
         [Required]
@@ -49,6 +53,12 @@
         {
             get { return this.reviews; }
             set { this.reviews = value; }
+        }
+
+        public virtual ICollection<Event> Events
+        {
+            get { return this.events; }
+            set { this.events = value; }
         }
     }
 }

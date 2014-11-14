@@ -1,4 +1,6 @@
-﻿@model FreeRiders.Web.Areas.Administration.ViewModels.EditAlbumModel
+﻿@using FreeRiders.Web.Areas.Administration.ViewModels;
+
+@model EditAlbumModel
 
 <div class="container">
     @using (Html.BeginForm("Edit", "Album", FormMethod.Post, new { enctype = "multipart/form-data", @class = "form-horizontal" }))

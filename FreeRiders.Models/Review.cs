@@ -10,6 +10,7 @@
         public int ID { get; set; }
 
         [Required]
+        [StringLength(5000, MinimumLength = 50)]
         public string Content { get; set; }
 
         [Required]
@@ -24,6 +25,6 @@
 
         [Required]
         [Range(0, 5)]
-        public int Stars { get; set; }
+        public double Stars { get; set; }
     }
 }

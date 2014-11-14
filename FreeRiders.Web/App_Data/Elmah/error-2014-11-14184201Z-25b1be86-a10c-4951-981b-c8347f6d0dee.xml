@@ -1,0 +1,203 @@
+﻿<error errorId="25b1be86-a10c-4951-981b-c8347f6d0dee" application="/LM/W3SVC/231/ROOT" host="YASENPC" type="System.InvalidOperationException" message="A circular reference was detected while serializing an object of type 'System.Data.Entity.DynamicProxies.Location_B46A14F8C65370F895FD7527A92EA1A04A3BCDEF35A3C28F0D5E73E2DF3E6579'." source="System.Web.Extensions" detail="System.InvalidOperationException: A circular reference was detected while serializing an object of type 'System.Data.Entity.DynamicProxies.Location_B46A14F8C65370F895FD7527A92EA1A04A3BCDEF35A3C28F0D5E73E2DF3E6579'.&#xD;&#xA;   at System.Web.Script.Serialization.JavaScriptSerializer.SerializeValueInternal(Object o, StringBuilder sb, Int32 depth, Hashtable objectsInUse, SerializationFormat serializationFormat, MemberInfo currentMember)&#xD;&#xA;   at System.Web.Script.Serialization.JavaScriptSerializer.SerializeValue(Object o, StringBuilder sb, Int32 depth, Hashtable objectsInUse, SerializationFormat serializationFormat, MemberInfo currentMember)&#xD;&#xA;   at System.Web.Script.Serialization.JavaScriptSerializer.SerializeCustomObject(Object o, StringBuilder sb, Int32 depth, Hashtable objectsInUse, SerializationFormat serializationFormat)&#xD;&#xA;   at System.Web.Script.Serialization.JavaScriptSerializer.SerializeValueInternal(Object o, StringBuilder sb, Int32 depth, Hashtable objectsInUse, SerializationFormat serializationFormat, MemberInfo currentMember)&#xD;&#xA;   at System.Web.Script.Serialization.JavaScriptSerializer.SerializeValue(Object o, StringBuilder sb, Int32 depth, Hashtable objectsInUse, SerializationFormat serializationFormat, MemberInfo currentMember)&#xD;&#xA;   at System.Web.Script.Serialization.JavaScriptSerializer.SerializeEnumerable(IEnumerable enumerable, StringBuilder sb, Int32 depth, Hashtable objectsInUse, SerializationFormat serializationFormat)&#xD;&#xA;   at System.Web.Script.Serialization.JavaScriptSerializer.SerializeValueInternal(Object o, StringBuilder sb, Int32 depth, Hashtable objectsInUse, SerializationFormat serializationFormat, MemberInfo currentMember)&#xD;&#xA;   at System.Web.Script.Serialization.JavaScriptSerializer.SerializeValue(Object o, StringBuilder sb, Int32 depth, Hashtable objectsInUse, SerializationFormat serializationFormat, MemberInfo currentMember)&#xD;&#xA;   at System.Web.Script.Serialization.JavaScriptSerializer.SerializeCustomObject(Object o, StringBuilder sb, Int32 depth, Hashtable objectsInUse, SerializationFormat serializationFormat)&#xD;&#xA;   at System.Web.Script.Serialization.JavaScriptSerializer.SerializeValueInternal(Object o, StringBuilder sb, Int32 depth, Hashtable objectsInUse, SerializationFormat serializationFormat, MemberInfo currentMember)&#xD;&#xA;   at System.Web.Script.Serialization.JavaScriptSerializer.SerializeValue(Object o, StringBuilder sb, Int32 depth, Hashtable objectsInUse, SerializationFormat serializationFormat, MemberInfo currentMember)&#xD;&#xA;   at System.Web.Script.Serialization.JavaScriptSerializer.SerializeCustomObject(Object o, StringBuilder sb, Int32 depth, Hashtable objectsInUse, SerializationFormat serializationFormat)&#xD;&#xA;   at System.Web.Script.Serialization.JavaScriptSerializer.SerializeValueInternal(Object o, StringBuilder sb, Int32 depth, Hashtable objectsInUse, SerializationFormat serializationFormat, MemberInfo currentMember)&#xD;&#xA;   at System.Web.Script.Serialization.JavaScriptSerializer.SerializeValue(Object o, StringBuilder sb, Int32 depth, Hashtable objectsInUse, SerializationFormat serializationFormat, MemberInfo currentMember)&#xD;&#xA;   at System.Web.Script.Serialization.JavaScriptSerializer.SerializeEnumerable(IEnumerable enumerable, StringBuilder sb, Int32 depth, Hashtable objectsInUse, SerializationFormat serializationFormat)&#xD;&#xA;   at System.Web.Script.Serialization.JavaScriptSerializer.SerializeValueInternal(Object o, StringBuilder sb, Int32 depth, Hashtable objectsInUse, SerializationFormat serializationFormat, MemberInfo currentMember)&#xD;&#xA;   at System.Web.Script.Serialization.JavaScriptSerializer.SerializeValue(Object o, StringBuilder sb, Int32 depth, Hashtable objectsInUse, SerializationFormat serializationFormat, MemberInfo currentMember)&#xD;&#xA;   at System.Web.Script.Serialization.JavaScriptSerializer.SerializeCustomObject(Object o, StringBuilder sb, Int32 depth, Hashtable objectsInUse, SerializationFormat serializationFormat)&#xD;&#xA;   at System.Web.Script.Serialization.JavaScriptSerializer.SerializeValueInternal(Object o, StringBuilder sb, Int32 depth, Hashtable objectsInUse, SerializationFormat serializationFormat, MemberInfo currentMember)&#xD;&#xA;   at System.Web.Script.Serialization.JavaScriptSerializer.SerializeValue(Object o, StringBuilder sb, Int32 depth, Hashtable objectsInUse, SerializationFormat serializationFormat, MemberInfo currentMember)&#xD;&#xA;   at System.Web.Script.Serialization.JavaScriptSerializer.Serialize(Object obj, StringBuilder output, SerializationFormat serializationFormat)&#xD;&#xA;   at System.Web.Script.Serialization.JavaScriptSerializer.Serialize(Object obj, SerializationFormat serializationFormat)&#xD;&#xA;   at System.Web.Script.Serialization.JavaScriptSerializer.Serialize(Object obj)&#xD;&#xA;   at System.Web.Mvc.JsonResult.ExecuteResult(ControllerContext context)&#xD;&#xA;   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResult(ControllerContext controllerContext, ActionResult actionResult)&#xD;&#xA;   at Castle.Proxies.AsyncControllerActionInvokerProxy.InvokeActionResult_callback(ControllerContext controllerContext, ActionResult actionResult)&#xD;&#xA;   at Castle.Proxies.Invocations.ControllerActionInvoker_InvokeActionResult.InvokeMethodOnTarget()&#xD;&#xA;   at Castle.DynamicProxy.AbstractInvocation.Proceed()&#xD;&#xA;   at Glimpse.Core.Extensibility.CastleInvocationToAlternateMethodContextAdapter.Proceed()&#xD;&#xA;   at Glimpse.Core.Extensibility.ExecutionTimer.Time(Action action)&#xD;&#xA;   at Glimpse.Core.Extensions.AlternateMethodContextExtensions.TryProceedWithTimer(IAlternateMethodContext context, TimerResult&amp; timerResult)&#xD;&#xA;   at Glimpse.Core.Extensibility.AlternateMethod.NewImplementation(IAlternateMethodContext context)&#xD;&#xA;   at Glimpse.Core.Extensibility.AlternateTypeToCastleInterceptorAdapter.Intercept(IInvocation invocation)&#xD;&#xA;   at Castle.DynamicProxy.AbstractInvocation.Proceed()&#xD;&#xA;   at Castle.Proxies.AsyncControllerActionInvokerProxy.InvokeActionResult(ControllerContext controllerContext, ActionResult actionResult)&#xD;&#xA;   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilterRecursive(IList`1 filters, Int32 filterIndex, ResultExecutingContext preContext, ControllerContext controllerContext, ActionResult actionResult)&#xD;&#xA;   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilterRecursive(IList`1 filters, Int32 filterIndex, ResultExecutingContext preContext, ControllerContext controllerContext, ActionResult actionResult)&#xD;&#xA;   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultWithFilters(ControllerContext controllerContext, IList`1 filters, ActionResult actionResult)&#xD;&#xA;   at System.Web.Mvc.Async.AsyncControllerActionInvoker.&lt;&gt;c__DisplayClass21.&lt;&gt;c__DisplayClass2b.&lt;BeginInvokeAction&gt;b__1c()&#xD;&#xA;   at System.Web.Mvc.Async.AsyncControllerActionInvoker.&lt;&gt;c__DisplayClass21.&lt;BeginInvokeAction&gt;b__1e(IAsyncResult asyncResult)&#xD;&#xA;   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.CallEndDelegate(IAsyncResult asyncResult)&#xD;&#xA;   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()&#xD;&#xA;   at System.Web.Mvc.Async.AsyncResultWrapper.End[TResult](IAsyncResult asyncResult, Object tag)&#xD;&#xA;   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeAction(IAsyncResult asyncResult)&#xD;&#xA;   at System.Web.Mvc.Controller.&lt;BeginExecuteCore&gt;b__1d(IAsyncResult asyncResult, ExecuteCoreState innerState)&#xD;&#xA;   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)&#xD;&#xA;   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()&#xD;&#xA;   at System.Web.Mvc.Async.AsyncResultWrapper.End[TResult](IAsyncResult asyncResult, Object tag)&#xD;&#xA;   at System.Web.Mvc.Async.AsyncResultWrapper.End(IAsyncResult asyncResult, Object tag)&#xD;&#xA;   at System.Web.Mvc.Controller.EndExecuteCore(IAsyncResult asyncResult)&#xD;&#xA;   at System.Web.Mvc.Controller.&lt;BeginExecute&gt;b__15(IAsyncResult asyncResult, Controller controller)&#xD;&#xA;   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)&#xD;&#xA;   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()&#xD;&#xA;   at System.Web.Mvc.Async.AsyncResultWrapper.End[TResult](IAsyncResult asyncResult, Object tag)&#xD;&#xA;   at System.Web.Mvc.Async.AsyncResultWrapper.End(IAsyncResult asyncResult, Object tag)&#xD;&#xA;   at System.Web.Mvc.Controller.EndExecute(IAsyncResult asyncResult)&#xD;&#xA;   at System.Web.Mvc.Controller.System.Web.Mvc.Async.IAsyncController.EndExecute(IAsyncResult asyncResult)&#xD;&#xA;   at System.Web.Mvc.MvcHandler.&lt;BeginProcessRequest&gt;b__5(IAsyncResult asyncResult, ProcessRequestState innerState)&#xD;&#xA;   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)&#xD;&#xA;   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()&#xD;&#xA;   at System.Web.Mvc.Async.AsyncResultWrapper.End[TResult](IAsyncResult asyncResult, Object tag)&#xD;&#xA;   at System.Web.Mvc.Async.AsyncResultWrapper.End(IAsyncResult asyncResult, Object tag)&#xD;&#xA;   at System.Web.Mvc.MvcHandler.EndProcessRequest(IAsyncResult asyncResult)&#xD;&#xA;   at System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.EndProcessRequest(IAsyncResult result)&#xD;&#xA;   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()&#xD;&#xA;   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean&amp; completedSynchronously)" user="admin@freeriders.com" time="2014-11-14T18:42:01.0850847Z">
+  <serverVariables>
+    <item name="ALL_HTTP">
+      <value string="HTTP_CONNECTION:keep-alive&#xD;&#xA;HTTP_CONTENT_LENGTH:52&#xD;&#xA;HTTP_CONTENT_TYPE:application/x-www-form-urlencoded; charset=UTF-8&#xD;&#xA;HTTP_ACCEPT:*/*&#xD;&#xA;HTTP_ACCEPT_ENCODING:gzip,deflate&#xD;&#xA;HTTP_ACCEPT_LANGUAGE:en-US,en;q=0.8,bg;q=0.6&#xD;&#xA;HTTP_COOKIE:glimpsePolicy=On; glimpseId=Chrome 38.0; __RequestVerificationToken=H9q46zbj_QR5Ygrq5lW3RP1eXilZEA4MZ6hCKsF3Aiw6rM0axe21c3gkoQXioLK_H6Uv5TSAf-7Cfxp68-SyKgykRfVQ_VsZl9qBdirGsJM1; .AspNet.ApplicationCookie=9su0DNA1Mk3Gv6AnkssjaIQsZPxwfXIKF-n1uSNCPchVwLtOuU7FDeI7PRbGzpIwsP-HMqu38O9W3BmKIOiROzVa5xnVOaSPGyYrP0dI2f4qw5KBdkD2zhcwj4_fbLOvduStdu3V535qQWwgE5-qZuGxXkijRKN7JTk6z-vJ8Yu7zplm1VZiv4RU0zH6vkvsBVJhkhx5Enn3CiWnAJj-eXP3C3nFpx2y9bey_TvioH19BiLKTacXYVqZ2s7whtYSqKxninq-kk7Fp7UKC28hwhLgN4JtWkSS4mr1IyW4b46p9-1zXrLn94WfZhdDxhkhIxburw09kS6_LwG3sms-ajZA6AP7XR15gCYEZOF-b1HrSrO7SiV2NexgJp6ImlMb0Tp9bT841T0W6VvUCoio6BuLGV6USBsGNOjQUVfIG4-SNJXrQkFIsM-_JOl7Uh9A65q6oBBQn4e0x4120NsgwKaYAqVNs9KhkoTh_AWHPyZpv7kHBgOcmMdTAGKFIdWCA6PfhDmgx-mMfznnLUKfPw&#xD;&#xA;HTTP_HOST:localhost:62576&#xD;&#xA;HTTP_REFERER:http://localhost:62576/Administration/Event/Index&#xD;&#xA;HTTP_USER_AGENT:Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/38.0.2125.111 Safari/537.36&#xD;&#xA;HTTP_GLIMPSE_PARENT_REQUESTID:0cd1535b-e900-4605-bda0-d3fa49093658&#xD;&#xA;HTTP_ORIGIN:http://localhost:62576&#xD;&#xA;HTTP_X_REQUESTED_WITH:XMLHttpRequest&#xD;&#xA;" />
+    </item>
+    <item name="ALL_RAW">
+      <value string="Connection: keep-alive&#xD;&#xA;Content-Length: 52&#xD;&#xA;Content-Type: application/x-www-form-urlencoded; charset=UTF-8&#xD;&#xA;Accept: */*&#xD;&#xA;Accept-Encoding: gzip,deflate&#xD;&#xA;Accept-Language: en-US,en;q=0.8,bg;q=0.6&#xD;&#xA;Cookie: glimpsePolicy=On; glimpseId=Chrome 38.0; __RequestVerificationToken=H9q46zbj_QR5Ygrq5lW3RP1eXilZEA4MZ6hCKsF3Aiw6rM0axe21c3gkoQXioLK_H6Uv5TSAf-7Cfxp68-SyKgykRfVQ_VsZl9qBdirGsJM1; .AspNet.ApplicationCookie=9su0DNA1Mk3Gv6AnkssjaIQsZPxwfXIKF-n1uSNCPchVwLtOuU7FDeI7PRbGzpIwsP-HMqu38O9W3BmKIOiROzVa5xnVOaSPGyYrP0dI2f4qw5KBdkD2zhcwj4_fbLOvduStdu3V535qQWwgE5-qZuGxXkijRKN7JTk6z-vJ8Yu7zplm1VZiv4RU0zH6vkvsBVJhkhx5Enn3CiWnAJj-eXP3C3nFpx2y9bey_TvioH19BiLKTacXYVqZ2s7whtYSqKxninq-kk7Fp7UKC28hwhLgN4JtWkSS4mr1IyW4b46p9-1zXrLn94WfZhdDxhkhIxburw09kS6_LwG3sms-ajZA6AP7XR15gCYEZOF-b1HrSrO7SiV2NexgJp6ImlMb0Tp9bT841T0W6VvUCoio6BuLGV6USBsGNOjQUVfIG4-SNJXrQkFIsM-_JOl7Uh9A65q6oBBQn4e0x4120NsgwKaYAqVNs9KhkoTh_AWHPyZpv7kHBgOcmMdTAGKFIdWCA6PfhDmgx-mMfznnLUKfPw&#xD;&#xA;Host: localhost:62576&#xD;&#xA;Referer: http://localhost:62576/Administration/Event/Index&#xD;&#xA;User-Agent: Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/38.0.2125.111 Safari/537.36&#xD;&#xA;Glimpse-Parent-RequestID: 0cd1535b-e900-4605-bda0-d3fa49093658&#xD;&#xA;Origin: http://localhost:62576&#xD;&#xA;X-Requested-With: XMLHttpRequest&#xD;&#xA;" />
+    </item>
+    <item name="APPL_MD_PATH">
+      <value string="/LM/W3SVC/231/ROOT" />
+    </item>
+    <item name="APPL_PHYSICAL_PATH">
+      <value string="C:\Users\Yasen\Documents\GitHub\Freeriders\FreeRiders.Web\" />
+    </item>
+    <item name="AUTH_TYPE">
+      <value string="ApplicationCookie" />
+    </item>
+    <item name="AUTH_USER">
+      <value string="admin@freeriders.com" />
+    </item>
+    <item name="AUTH_PASSWORD">
+      <value string="" />
+    </item>
+    <item name="LOGON_USER">
+      <value string="" />
+    </item>
+    <item name="REMOTE_USER">
+      <value string="admin@freeriders.com" />
+    </item>
+    <item name="CERT_COOKIE">
+      <value string="" />
+    </item>
+    <item name="CERT_FLAGS">
+      <value string="" />
+    </item>
+    <item name="CERT_ISSUER">
+      <value string="" />
+    </item>
+    <item name="CERT_KEYSIZE">
+      <value string="" />
+    </item>
+    <item name="CERT_SECRETKEYSIZE">
+      <value string="" />
+    </item>
+    <item name="CERT_SERIALNUMBER">
+      <value string="" />
+    </item>
+    <item name="CERT_SERVER_ISSUER">
+      <value string="" />
+    </item>
+    <item name="CERT_SERVER_SUBJECT">
+      <value string="" />
+    </item>
+    <item name="CERT_SUBJECT">
+      <value string="" />
+    </item>
+    <item name="CONTENT_LENGTH">
+      <value string="52" />
+    </item>
+    <item name="CONTENT_TYPE">
+      <value string="application/x-www-form-urlencoded; charset=UTF-8" />
+    </item>
+    <item name="GATEWAY_INTERFACE">
+      <value string="CGI/1.1" />
+    </item>
+    <item name="HTTPS">
+      <value string="off" />
+    </item>
+    <item name="HTTPS_KEYSIZE">
+      <value string="" />
+    </item>
+    <item name="HTTPS_SECRETKEYSIZE">
+      <value string="" />
+    </item>
+    <item name="HTTPS_SERVER_ISSUER">
+      <value string="" />
+    </item>
+    <item name="HTTPS_SERVER_SUBJECT">
+      <value string="" />
+    </item>
+    <item name="INSTANCE_ID">
+      <value string="231" />
+    </item>
+    <item name="INSTANCE_META_PATH">
+      <value string="/LM/W3SVC/231" />
+    </item>
+    <item name="LOCAL_ADDR">
+      <value string="::1" />
+    </item>
+    <item name="PATH_INFO">
+      <value string="/Administration/Event/Read" />
+    </item>
+    <item name="PATH_TRANSLATED">
+      <value string="C:\Users\Yasen\Documents\GitHub\Freeriders\FreeRiders.Web\Administration\Event\Read" />
+    </item>
+    <item name="QUERY_STRING">
+      <value string="" />
+    </item>
+    <item name="REMOTE_ADDR">
+      <value string="::1" />
+    </item>
+    <item name="REMOTE_HOST">
+      <value string="::1" />
+    </item>
+    <item name="REMOTE_PORT">
+      <value string="53725" />
+    </item>
+    <item name="REQUEST_METHOD">
+      <value string="POST" />
+    </item>
+    <item name="SCRIPT_NAME">
+      <value string="/Administration/Event/Read" />
+    </item>
+    <item name="SERVER_NAME">
+      <value string="localhost" />
+    </item>
+    <item name="SERVER_PORT">
+      <value string="62576" />
+    </item>
+    <item name="SERVER_PORT_SECURE">
+      <value string="0" />
+    </item>
+    <item name="SERVER_PROTOCOL">
+      <value string="HTTP/1.1" />
+    </item>
+    <item name="SERVER_SOFTWARE">
+      <value string="Microsoft-IIS/8.0" />
+    </item>
+    <item name="URL">
+      <value string="/Administration/Event/Read" />
+    </item>
+    <item name="HTTP_CONNECTION">
+      <value string="keep-alive" />
+    </item>
+    <item name="HTTP_CONTENT_LENGTH">
+      <value string="52" />
+    </item>
+    <item name="HTTP_CONTENT_TYPE">
+      <value string="application/x-www-form-urlencoded; charset=UTF-8" />
+    </item>
+    <item name="HTTP_ACCEPT">
+      <value string="*/*" />
+    </item>
+    <item name="HTTP_ACCEPT_ENCODING">
+      <value string="gzip,deflate" />
+    </item>
+    <item name="HTTP_ACCEPT_LANGUAGE">
+      <value string="en-US,en;q=0.8,bg;q=0.6" />
+    </item>
+    <item name="HTTP_COOKIE">
+      <value string="glimpsePolicy=On; glimpseId=Chrome 38.0; __RequestVerificationToken=H9q46zbj_QR5Ygrq5lW3RP1eXilZEA4MZ6hCKsF3Aiw6rM0axe21c3gkoQXioLK_H6Uv5TSAf-7Cfxp68-SyKgykRfVQ_VsZl9qBdirGsJM1; .AspNet.ApplicationCookie=9su0DNA1Mk3Gv6AnkssjaIQsZPxwfXIKF-n1uSNCPchVwLtOuU7FDeI7PRbGzpIwsP-HMqu38O9W3BmKIOiROzVa5xnVOaSPGyYrP0dI2f4qw5KBdkD2zhcwj4_fbLOvduStdu3V535qQWwgE5-qZuGxXkijRKN7JTk6z-vJ8Yu7zplm1VZiv4RU0zH6vkvsBVJhkhx5Enn3CiWnAJj-eXP3C3nFpx2y9bey_TvioH19BiLKTacXYVqZ2s7whtYSqKxninq-kk7Fp7UKC28hwhLgN4JtWkSS4mr1IyW4b46p9-1zXrLn94WfZhdDxhkhIxburw09kS6_LwG3sms-ajZA6AP7XR15gCYEZOF-b1HrSrO7SiV2NexgJp6ImlMb0Tp9bT841T0W6VvUCoio6BuLGV6USBsGNOjQUVfIG4-SNJXrQkFIsM-_JOl7Uh9A65q6oBBQn4e0x4120NsgwKaYAqVNs9KhkoTh_AWHPyZpv7kHBgOcmMdTAGKFIdWCA6PfhDmgx-mMfznnLUKfPw" />
+    </item>
+    <item name="HTTP_HOST">
+      <value string="localhost:62576" />
+    </item>
+    <item name="HTTP_REFERER">
+      <value string="http://localhost:62576/Administration/Event/Index" />
+    </item>
+    <item name="HTTP_USER_AGENT">
+      <value string="Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/38.0.2125.111 Safari/537.36" />
+    </item>
+    <item name="HTTP_GLIMPSE_PARENT_REQUESTID">
+      <value string="0cd1535b-e900-4605-bda0-d3fa49093658" />
+    </item>
+    <item name="HTTP_ORIGIN">
+      <value string="http://localhost:62576" />
+    </item>
+    <item name="HTTP_X_REQUESTED_WITH">
+      <value string="XMLHttpRequest" />
+    </item>
+  </serverVariables>
+  <form>
+    <item name="sort">
+      <value string="CreatedOn-asc" />
+    </item>
+    <item name="page">
+      <value string="1" />
+    </item>
+    <item name="pageSize">
+      <value string="10" />
+    </item>
+    <item name="group">
+      <value string="" />
+    </item>
+    <item name="filter">
+      <value string="" />
+    </item>
+  </form>
+  <cookies>
+    <item name="glimpsePolicy">
+      <value string="On" />
+    </item>
+    <item name="glimpseId">
+      <value string="Chrome 38.0" />
+    </item>
+    <item name="__RequestVerificationToken">
+      <value string="H9q46zbj_QR5Ygrq5lW3RP1eXilZEA4MZ6hCKsF3Aiw6rM0axe21c3gkoQXioLK_H6Uv5TSAf-7Cfxp68-SyKgykRfVQ_VsZl9qBdirGsJM1" />
+    </item>
+    <item name=".AspNet.ApplicationCookie">
+      <value string="9su0DNA1Mk3Gv6AnkssjaIQsZPxwfXIKF-n1uSNCPchVwLtOuU7FDeI7PRbGzpIwsP-HMqu38O9W3BmKIOiROzVa5xnVOaSPGyYrP0dI2f4qw5KBdkD2zhcwj4_fbLOvduStdu3V535qQWwgE5-qZuGxXkijRKN7JTk6z-vJ8Yu7zplm1VZiv4RU0zH6vkvsBVJhkhx5Enn3CiWnAJj-eXP3C3nFpx2y9bey_TvioH19BiLKTacXYVqZ2s7whtYSqKxninq-kk7Fp7UKC28hwhLgN4JtWkSS4mr1IyW4b46p9-1zXrLn94WfZhdDxhkhIxburw09kS6_LwG3sms-ajZA6AP7XR15gCYEZOF-b1HrSrO7SiV2NexgJp6ImlMb0Tp9bT841T0W6VvUCoio6BuLGV6USBsGNOjQUVfIG4-SNJXrQkFIsM-_JOl7Uh9A65q6oBBQn4e0x4120NsgwKaYAqVNs9KhkoTh_AWHPyZpv7kHBgOcmMdTAGKFIdWCA6PfhDmgx-mMfznnLUKfPw" />
+    </item>
+  </cookies>
+</error>

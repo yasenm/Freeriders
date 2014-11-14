@@ -16,9 +16,11 @@
         public virtual User Author { get; set; }
 
         [Required]
+        [StringLength(500, MinimumLength = 20)]
         public string Text { get; set; }
 
-        [Required]
-        public DateTime DateCreated { get; set; }
+        public int EventID { get; set; }
+
+        public virtual Event Event { get; set; }
     }
 }

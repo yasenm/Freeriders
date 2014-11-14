@@ -15,6 +15,8 @@
 
         public string CreatorID { get; set; }
 
+        public int LocationID { get; set; }
+
         [Required]
         public string Title { get; set; }
 

@@ -1,6 +1,7 @@
 ﻿namespace FreeRiders.Web
 {
     using System.Reflection;
+    using System.Web;
     using System.Web.Mvc;
     using System.Web.Optimization;
     using System.Web.Routing;
@@ -8,7 +9,7 @@
     using FreeRiders.Web.Infrastructure.Mapping;
     using FreeRiders.Web.App_Start;
 
-    public class MvcApplication : System.Web.HttpApplication
+    public class MvcApplication : HttpApplication
     {
         protected void Application_Start()
         {

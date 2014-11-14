@@ -17,7 +17,7 @@
             :base(data)
         {
         }
-
+        
         // GET: Administration/AlbumCategory
         public ActionResult Index()
         {

@@ -19,7 +19,7 @@
             <div class="row album-details-text-content">
                 <h2><strong>@Model.Title</strong></h2>
                 <span> in </span>
-                <a href="@Url.Action("LocationDetails", "Locations", new { id = Model.Location.ID })">
+                <a href="@Url.Action("LocationDetails", "Location", new { id = Model.Location.ID })">
                     <h2>
                         <strong>@Model.Location.Name</strong>
                     </h2>

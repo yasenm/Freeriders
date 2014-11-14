@@ -32,8 +32,22 @@
 
                     @if (Request.IsAuthenticated)
                     {
-                        <li>@Html.ActionLink("Create Location", "Create", "Location", new { Area = "Administration" }, new { })</li>
-                        <li>@Html.ActionLink("Create Album", "Create", "Album", new { Area = "Administration" }, new { })</li>
+                        if (User.IsInRole(GlobalConstants.TrustedUserRole))
+                        {
+                            <li>@Html.ActionLink("Create Location", "Create", "Location", new { Area = "" }, new { })</li>
+                            <li>@Html.ActionLink("Create Album", "Create", "Album", new { Area = "" }, new { })</li>
+                        }
+
+                        if (User.IsInRole(GlobalConstants.AdminRole) || User.IsInRole(GlobalConstants.ModeratorRole))
+                        {
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">Administration <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    <li>@Html.ActionLink("Create Location", "Create", "Location", new { Area = "Administration" }, new { })</li>
+                                    <li>@Html.ActionLink("Create Album", "Create", "Album", new { Area = "Administration" }, new { })</li>
+                                </ul>
+                            </li>
+                        }
                     }
                 </ul>
                 @Html.Partial("_LoginPartial")

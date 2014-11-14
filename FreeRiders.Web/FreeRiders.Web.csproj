@@ -66,7 +66,17 @@
     <Reference Include="Kendo.Mvc">
       <HintPath>Libraries\Kendo.Mvc.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.AspNet.SignalR.Core">
+      <HintPath>..\packages\Microsoft.AspNet.SignalR.Core.2.1.2\lib\net45\Microsoft.AspNet.SignalR.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.SignalR.SystemWeb">
+      <HintPath>..\packages\Microsoft.AspNet.SignalR.SystemWeb.2.1.2\lib\net45\Microsoft.AspNet.SignalR.SystemWeb.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="Ninject">
       <HintPath>..\packages\Ninject.3.2.0.0\lib\net45-full\Ninject.dll</HintPath>
     </Reference>
@@ -142,9 +152,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="Newtonsoft.Json">
-      <HintPath>..\packages\Newtonsoft.Json.6.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
-    </Reference>
     <Reference Include="EntityFramework">
       <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
@@ -217,29 +224,41 @@
     <Compile Include="Areas\Administration\ViewModels\Location\InputLocationModel.cs" />
     <Compile Include="Areas\Administration\ViewModels\LocationCategory\LocationCategoryModel.cs" />
     <Compile Include="Controllers\AccountController.cs" />
-    <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Controllers\Base\Roles\AdminController.cs" />
     <Compile Include="Controllers\AlbumController.cs" />
-    <Compile Include="Controllers\AuthorizeUserController.cs" />
-    <Compile Include="Controllers\BaseController.cs" />
+    <Compile Include="Controllers\Base\Roles\AuthorizeUserController.cs" />
+    <Compile Include="Controllers\Base\BaseController.cs" />
     <Compile Include="Controllers\EventController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LocationController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\MessageController.cs" />
+    <Compile Include="Controllers\Base\Roles\ModeratorController.cs" />
     <Compile Include="Controllers\ReviewController.cs" />
+    <Compile Include="Controllers\Base\Roles\TrustedUserController.cs" />
     <Compile Include="GlimpseSecurityPolicy.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="App_Start\ViewEnginesConfiguration.cs" />
     <Compile Include="Infrastructure\ImageUploader.cs" />
-    <Compile Include="ViewModels\AccountViewModels.cs" />
-    <Compile Include="ViewModels\AlbumIndexViewModel.cs" />
+    <Compile Include="ViewModels\Account\ExternalLoginConfirmationViewModel.cs" />
+    <Compile Include="ViewModels\Account\ExternalLoginListViewModel.cs" />
+    <Compile Include="ViewModels\Account\ForgotPasswordViewModel.cs" />
+    <Compile Include="ViewModels\Account\ForgotViewModel.cs" />
+    <Compile Include="ViewModels\Account\LoginViewModel.cs" />
+    <Compile Include="ViewModels\Account\RegisterViewModel.cs" />
+    <Compile Include="ViewModels\Account\ResetPasswordViewModel.cs" />
+    <Compile Include="ViewModels\Account\SendCodeViewModel.cs" />
+    <Compile Include="ViewModels\Account\VerifyCodeViewModel.cs" />
+    <Compile Include="ViewModels\Album\AlbumIndexViewModel.cs" />
+    <Compile Include="ViewModels\Event\EventsIndexViewModel.cs" />
     <Compile Include="ViewModels\Event\EventsViewModel.cs" />
-    <Compile Include="ViewModels\HeaderViewModel.cs" />
+    <Compile Include="ViewModels\Custom\HeaderViewModel.cs" />
+    <Compile Include="ViewModels\Event\UserEventListViewModel.cs" />
     <Compile Include="ViewModels\Home\HomeViewModel.cs" />
-    <Compile Include="ViewModels\LocationViewModel.cs" />
-    <Compile Include="ViewModels\ManageViewModels.cs" />
+    <Compile Include="ViewModels\Location\LocationViewModel.cs" />
+    <Compile Include="ViewModels\Manage\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -466,6 +485,7 @@
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="Images\albums-cover.jpg" />
+    <Content Include="Images\events-cover.jpg" />
     <Content Include="Images\home-cover.jpg" />
     <Content Include="Images\locations-cover.jpg" />
     <Content Include="Scripts\bootstrap.js" />
@@ -504,6 +524,8 @@
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.signalR-2.1.2.js" />
+    <Content Include="Scripts\jquery.signalR-2.1.2.min.js" />
     <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
     <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
     <Content Include="Scripts\jquery.validate.js" />
@@ -560,7 +582,7 @@
     <Content Include="Views\Album\Index.cshtml" />
     <Content Include="Views\Album\AlbumDetails.cshtml" />
     <Content Include="Views\Location\Index.cshtml" />
-    <Content Include="Views\Events\Index.cshtml" />
+    <Content Include="Views\Event\Index.cshtml" />
     <Content Include="Views\Location\LocationDetails.cshtml" />
     <Content Include="Views\Shared\_PageHeader.cshtml" />
     <Content Include="Views\Shared\_AlbumGridLink.cshtml" />
@@ -568,17 +590,20 @@
     <Content Include="Scripts\kendo\kendo.all.min.js.map" />
     <Content Include="Scripts\kendo\kendo.aspnetmvc.min.js.map" />
     <Content Include="Views\Shared\_DateTime.cshtml" />
+    <Content Include="Views\Location\LocationsHome.cshtml" />
+    <Content Include="Views\Shared\_DescriptionContainer.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\Elmah\" />
     <Folder Include="bin\" />
     <Folder Include="Infrastructure\Filters\" />
-    <Folder Include="ViewModels\Album\" />
     <Folder Include="Views\Message\" />
+    <Folder Include="Views\Moderator\" />
     <Folder Include="Views\Review\" />
     <Folder Include="Views\Shared\Album\" />
     <Folder Include="Views\Shared\DisplayTemplates\" />
     <Folder Include="Views\Shared\Location\" />
+    <Folder Include="Views\TrustedUser\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

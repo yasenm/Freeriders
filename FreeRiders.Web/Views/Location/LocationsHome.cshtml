@@ -1,0 +1,22 @@
+﻿@using FreeRiders.Web.ViewModels;
+
+@model ICollection<LocationViewModel>
+
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        <h3 class="panel-title">Locations</h3>
+    </div>
+    @foreach (var location in Model)
+    {
+        <div class="panel-body album-grid-container">
+            <a href="@Url.Action("LocationDetails", "Location", new { id = location.ID })">
+                <div class="row text-center base-album-grid album-link" style="background-image: url(@location.Picture.ImageUrl); background-size: 100% 100%;">
+                    <h1>
+                        <strong>@location.Name</strong>
+                    </h1>
+                </div>
+                @Html.Partial("_DescriptionContainer", location.Description)
+            </a>
+        </div>
+    }
+</div>

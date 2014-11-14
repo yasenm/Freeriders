@@ -20,9 +20,11 @@
         public int ID { get; set; }
 
         [Required]
+        [StringLength(150, MinimumLength = 3)]
         public string Title { get; set; }
 
         [Required]
+        [StringLength(10000, MinimumLength = 50)]
         public string Description { get; set; }
 
         [Required]

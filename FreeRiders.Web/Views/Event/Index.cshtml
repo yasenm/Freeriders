@@ -1,0 +1,77 @@
+﻿@using FreeRiders.Web.ViewModels.Event
+@using FreeRiders.Web.ViewModels;
+
+@model ICollection<EventsIndexViewModel>
+
+@{
+    var headerArguments = new HeaderViewModel
+    {
+        ImageUrl = "../Images/events-cover.jpg",
+        Title = "Events",
+        Subtitle = "Join event and go skiing with friends"
+    };
+}
+
+@Html.Partial("_PageHeader", headerArguments)
+
+<div class="container">
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <div class="row body-content">
+                <h3>
+                    <strong>Current events</strong>
+                </h3>
+            </div>
+            <hr />
+            <div class="row text-center">
+                <div class="col-md-6">
+                    <h4>
+                        <strong>Name</strong>
+                    </h4>
+                </div>
+                <div class="col-md-2">
+                    <h4>
+                        <strong>Creator</strong>
+                    </h4>
+                </div>
+                <div class="col-md-2">
+                    <h4>
+                        <strong>Location</strong>
+                    </h4>
+                </div>
+                <div class="col-md-2">
+                    <h4>
+                        <strong>Date</strong>
+                    </h4>
+                </div>
+            </div>
+        </div>
+
+        @foreach (var ev in Model)
+        {
+            <div class="panel-body text-wraped">
+                <div class="col-md-6">
+                    <h4>
+                        <strong>
+                            @Html.ActionLink(ev.Title, "Details", "Event", new { Area = string.Empty, id = ev.ID }, null)
+                        </strong>
+                    </h4>
+                    <p>
+                        @Html.Partial("_DescriptionContainer", ev.Description)
+                    </p>
+                </div>
+                <div class="col-md-2 text-center">
+                    <strong>@ev.CreatorName</strong>
+                </div>
+                <div class="col-md-2 text-center">
+                    <strong>
+                        @Html.ActionLink(@ev.LocationName, "LocationDetails", "Location", new { Area = string.Empty, id = ev.LocationID }, null)
+                    </strong>
+                </div>
+                <div class="col-md-2 text-center">
+                    @Html.Partial("_DateTime", ev.DateOfEvent)
+                </div>
+            </div>
+        }
+    </div>
+</div>
