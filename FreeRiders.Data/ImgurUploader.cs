@@ -1,33 +1,19 @@
-﻿namespace FreeRiders.Web.Infrastructure
+﻿namespace FreeRiders.Data
 {
+    using System.Linq;
     using System;
     using System.Collections.Specialized;
-    using System.Linq;
     using System.IO;
     using System.Net;
     using System.Text;
     using System.Text.RegularExpressions;
     using System.Web;
 
-    using FreeRiders.Data.UnitsOfWork;
     using FreeRiders.Models;
-    using FreeRiders.Web.Areas.Administration.ViewModels;
 
-    public static class ImageUploader
+    public static class ImgurUploader
     {
         private const string ClientId = "253ceccb0eb6e36";
-
-        public static void UploadAvatarToUser(HttpPostedFileBase file, User user, IFreeRidersData Data)
-        {
-            using (var memory = new MemoryStream())
-            {
-                file.InputStream.CopyTo(memory);
-
-                user.Avatar = memory.GetBuffer();
-                Data.Users.Update(user);
-                Data.SaveChanges();
-            }
-        }
 
         public static string UploadImageToImgur(byte[] image)
         {
@@ -55,7 +41,7 @@
             }
         }
 
-        public static Picture SavePictureInDb(HttpPostedFileBase inputPicture, IFreeRidersData Data)
+        public static Picture SavePictureInDb(HttpPostedFileBase inputPicture, IFreeRidersDbContext Data)
         {
             if (null != inputPicture)
             {
@@ -67,7 +53,7 @@
                     {
                         file.InputStream.CopyTo(memory);
                         var image = memory.GetBuffer();
-                        var pictureUrl = ImageUploader.UploadImageToImgur(image);
+                        var pictureUrl = ImgurUploader.UploadImageToImgur(image);
 
                         if (pictureUrl != "error")
                         {
@@ -83,18 +69,18 @@
                         }
                         else
                         {
-                            return Data.Pictures.All().FirstOrDefault();
+                            return Data.Pictures.FirstOrDefault();
                         }
                     }
                 }
                 else
                 {
-                    return Data.Pictures.All().FirstOrDefault();
+                    return Data.Pictures.FirstOrDefault();
                 }
             }
             else
             {
-                return Data.Pictures.All().FirstOrDefault();
+                return Data.Pictures.FirstOrDefault();
             }
         }
     }

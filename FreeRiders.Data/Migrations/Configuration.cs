@@ -30,9 +30,63 @@ namespace FreeRiders.Data.Migrations
 
             this.SeedRoles(context);
             this.SeedUsers(context);
+            this.SeedPictures(context);
             this.SeedLocationCategories(context);
             this.SeedAlbumCategories(context);
             this.SeedLocations(context);
+            this.SeedEvents(context);
+        }
+
+        private void SeedEvents(FreeRidersDbContext context)
+        {
+            if(context.Events.Any())
+            {
+                return;
+            }
+
+            var users = context.Users.ToList();
+            var locations = context.Locations.ToList();
+
+            for (int i = 0; i < users.Count; i++)
+            {
+                for (int j = 0; j < RandomGenerator.RandomNumber(3, 10); j++)
+                {
+                    var newEvent = new Event
+                    {
+                        Description = RandomGenerator.RandomStringWithSpaces(50, 500),
+                        Title = RandomGenerator.RandomStringWithoutSpaces(10, 30),
+                        LocationID = RandomGenerator.RandomNumber(1, locations.Count - 1),
+                        CreatorID = users[i].Id,
+                        DateOfEvent = DateTime.Now.AddDays(RandomGenerator.RandomNumber(4, 30)),
+                    };
+
+                    context.Events.Add(newEvent);
+                }
+
+                context.SaveChanges();
+            }
+        }
+
+        private void SeedPictures(FreeRidersDbContext context)
+        {
+            if (context.Pictures.Any())
+            {
+                return;
+            }
+
+            for (int i = 0; i < 10; i++)
+            {
+                var imgUrl = ImgurUploader.UploadImageToImgur(this.GetUserAvatar());
+
+                var newImage = new Picture
+                {
+                    ImageUrl = imgUrl,
+                };
+
+                context.Pictures.Add(newImage);
+            }
+
+            context.SaveChanges();
         }
 
         private void SeedLocations(FreeRidersDbContext context)
@@ -43,17 +97,19 @@ namespace FreeRiders.Data.Migrations
             }
 
             var categories = context.LocationCategories.ToList();
+            var pictures = context.Pictures.ToList();
 
             for (int i = 0; i < 10; i++)
             {
                 var location = new Location
                 {
-                    CategoryID = categories[ RandomGenerator.RandomNumber(0, categories.Count - 1)].ID,
-                    PictureID = 1,
+                    CategoryID = categories[RandomGenerator.RandomNumber(0, categories.Count - 1)].ID,
+                    PictureID = pictures[i].ID,
                     Latitude = RandomGenerator.RandomNumber(1, 100),
                     Longitude = RandomGenerator.RandomNumber(1, 100),
                     Name = RandomGenerator.RandomStringWithoutSpaces(10, 50),
                     Description = RandomGenerator.RandomStringWithSpaces(200, 500),
+                    Rating = RandomGenerator.RandomNumber(0, 10),
                 };
 
                 context.Locations.Add(location);
@@ -104,6 +160,7 @@ namespace FreeRiders.Data.Migrations
             {
                 Email = GlobalConstants.AdminEmailUsername,
                 UserName = GlobalConstants.AdminEmailUsername,
+                Avatar = this.GetUserAvatar(),
             };
 
             userManager.Create(admin, GlobalConstants.AdminPassword);
@@ -172,7 +229,7 @@ namespace FreeRiders.Data.Migrations
         private byte[] GetUserAvatar()
         {
             var directory = AssemblyHelpers.GetDirectoryForAssembyl(Assembly.GetExecutingAssembly());
-            var file = File.ReadAllBytes(directory + "/Migrations/Imgs/default-avatar.jpg");
+            var file = File.ReadAllBytes(directory + "/DefaultImgs/default-avatar.jpg");
 
             return file;
         }

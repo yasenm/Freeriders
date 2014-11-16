@@ -30,6 +30,8 @@
             indexViewResult.Albums = this.Data.Albums
                 .All()
                 .AsQueryable()
+                .OrderByDescending(a => a.Rating)
+                .Take(10)
                 .Project()
                 .To<AlbumIndexViewModel>()
                 .ToList();
@@ -37,6 +39,8 @@
             indexViewResult.Locations = this.Data.Locations
                 .All()
                 .AsQueryable()
+                .OrderByDescending(a => a.Rating)
+                .Take(10)
                 .Project()
                 .To<LocationViewModel>()
                 .ToList();
@@ -44,6 +48,8 @@
             indexViewResult.Events = this.Data.Events
                 .All()
                 .AsQueryable()
+                .OrderByDescending(ev =>ev.DateOfEvent)
+                .Take(10)
                 .Project()
                 .To<EventsViewModel>()
                 .ToList();
@@ -100,7 +106,6 @@
                             {
                                 var uploadedPicture = new Picture
                                 {
-                                    DateCreated = DateTime.Now,
                                     ImageUrl = url,
                                 };
 

@@ -27,6 +27,9 @@
         [StringLength(10000, MinimumLength = 50)]
         public string Description { get; set; }
 
+        [Range(0, 10)]
+        public double Rating { get; set; }
+
         [Required]
         public int LocationID { get; set; }
 

@@ -20,7 +20,5 @@
 
         [Required]
         public string ImageUrl { get; set; }
-
-        public DateTime DateCreated { get; set; }
     }
 }

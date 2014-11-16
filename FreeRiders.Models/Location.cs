@@ -25,6 +25,9 @@
 
         public double Longitude { get; set; }
 
+        [Range(0, 10)]
+        public double Rating { get; set; }
+
         [Required]
         [StringLength(150, MinimumLength = 3)]
         public string Name { get; set; }
