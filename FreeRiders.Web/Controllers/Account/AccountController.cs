@@ -179,7 +179,12 @@
                 var directory = AssemblyHelpers.GetDirectoryForAssembyl(Assembly.GetExecutingAssembly());
                 var file = System.IO.File.ReadAllBytes(directory.Substring(0, directory.Length - 3) + "/Images/default-avatar.jpg");
 
-                var user = new User { UserName = model.Email, Email = model.Email, Avatar = file };
+                var user = new User
+                {
+                    UserName = model.Email,
+                    Email = model.Email,
+                    //Avatar = file
+                };
                 var result = await UserManager.CreateAsync(user, model.Password);
 
                 // Default role added to registration
