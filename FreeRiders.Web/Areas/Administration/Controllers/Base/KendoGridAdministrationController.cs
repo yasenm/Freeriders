@@ -2,9 +2,12 @@
 {
     using System.Collections;
     using System.Data.Entity;
+    using System.Linq;
     using System.Web.Mvc;
 
     using AutoMapper;
+    using AutoMapper.QueryableExtensions;
+
     using Kendo.Mvc.UI;
     using Kendo.Mvc.Extensions;
 
@@ -20,7 +23,7 @@
         {
         }
 
-        protected abstract IEnumerable GetData();
+        protected abstract IQueryable GetData();
 
         protected abstract T GetById<T>(object id) where T : class;
 
@@ -29,7 +32,7 @@
         {
             var collectionResult = this.GetData().ToDataSourceResult(request);
 
-            return this.Json(collectionResult);
+            return this.Json(collectionResult, JsonRequestBehavior.AllowGet);
         }
 
         [NonAction]

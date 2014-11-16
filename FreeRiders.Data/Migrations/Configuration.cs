@@ -30,6 +30,34 @@ namespace FreeRiders.Data.Migrations
             this.SeedUsers(context);
             this.SeedLocationCategories(context);
             this.SeedAlbumCategories(context);
+            this.SeedLocations(context);
+        }
+
+        private void SeedLocations(FreeRidersDbContext context)
+        {
+            if (context.Locations.Any())
+            {
+                return;
+            }
+
+            var categories = context.LocationCategories.ToList();
+
+            for (int i = 0; i < 10; i++)
+            {
+                var location = new Location
+                {
+                    CategoryID = categories[ RandomGenerator.RandomNumber(0, categories.Count - 1)].ID,
+                    PictureID = 1,
+                    Latitude = RandomGenerator.RandomNumber(1, 100),
+                    Longitude = RandomGenerator.RandomNumber(1, 100),
+                    Name = RandomGenerator.RandomStringWithoutSpaces(10, 50),
+                    Description = RandomGenerator.RandomStringWithSpaces(200, 500),
+                };
+
+                context.Locations.Add(location);
+            }
+
+            context.SaveChanges();
         }
 
         private void SeedRoles(FreeRidersDbContext context)
@@ -85,7 +113,7 @@ namespace FreeRiders.Data.Migrations
         {
             for (int i = 0; i < count; i++)
             {
-                var usernameAndEmail = string.Format("{0}@{0}.com", RandomGenerator.RandomString(2, 10));
+                var usernameAndEmail = string.Format("{0}@{0}.com", RandomGenerator.RandomStringWithoutSpaces(2, 10));
                 var user = new User
                 {
                     Email = usernameAndEmail,
@@ -109,7 +137,7 @@ namespace FreeRiders.Data.Migrations
             {
                 var category = new LocationCategory
                 {
-                    Name = RandomGenerator.RandomString(5, 40),
+                    Name = RandomGenerator.RandomStringWithoutSpaces(5, 40),
                 };
 
                 context.LocationCategories.AddOrUpdate(category);
@@ -129,7 +157,7 @@ namespace FreeRiders.Data.Migrations
             {
                 var category = new AlbumCategory
                 {
-                    Name = RandomGenerator.RandomString(5, 40),
+                    Name = RandomGenerator.RandomStringWithoutSpaces(5, 40),
                 };
 
                 context.AlbumCategories.AddOrUpdate(category);

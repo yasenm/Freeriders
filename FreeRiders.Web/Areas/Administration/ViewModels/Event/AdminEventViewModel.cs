@@ -24,9 +24,6 @@
         public string Description { get; set; }
 
         [Required]
-        public DateTime DateCreated { get; set; }
-
-        [Required]
         public DateTime DateOfEvent { get; set; }
     }
 }

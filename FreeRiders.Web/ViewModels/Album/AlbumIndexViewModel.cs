@@ -1,4 +1,4 @@
-﻿namespace FreeRiders.Web.ViewModels
+﻿namespace FreeRiders.Web.ViewModels.Album
 {
     using FreeRiders.Models;
     using FreeRiders.Web.Infrastructure.Mapping;

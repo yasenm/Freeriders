@@ -6,15 +6,15 @@
     using System.Web;
     using System.Web.Mvc;
 
-    using AutoMapper;
     using AutoMapper.QueryableExtensions;
 
+    using FreeRiders.Data.UnitsOfWork;
     using FreeRiders.Models;
     using FreeRiders.Web.Infrastructure;
     using FreeRiders.Web.ViewModels;
-    using FreeRiders.Data.UnitsOfWork;
     using FreeRiders.Web.ViewModels.Home;
     using FreeRiders.Web.ViewModels.Event;
+    using FreeRiders.Web.ViewModels.Album;
 
     public class HomeController : BaseController
     {

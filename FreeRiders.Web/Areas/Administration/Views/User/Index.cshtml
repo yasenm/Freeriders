@@ -1,0 +1,34 @@
+﻿@using FreeRiders.Web.Areas.Administration.ViewModels.User
+
+@{
+    Layout = "~/Areas/Administration/Views/Shared/_Layout.cshtml";
+    const string ControllerName = "User";
+}
+
+<div class="container">
+    @(Html.Kendo()
+    .Grid<UserAdminViewModel>()
+    .Name("events-grid")
+    .Columns(columns =>
+    {
+        columns.AutoGenerate(true);
+        columns.Command(command =>
+        {
+            command.Edit();
+        });
+    })
+    .Editable(edit => edit.Mode(GridEditMode.PopUp))
+    .Sortable()
+    .Pageable()
+    .Groupable()
+    .DataSource(dataSource =>
+    {
+        dataSource.Ajax()
+            .Model(m => m.Id(user => user.Id))
+            .PageSize(10)
+            .Read("Read", ControllerName)
+            .Update(update => update.Action("Update", ControllerName));
+    }))
+</div>
+
+

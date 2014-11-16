@@ -2,6 +2,7 @@
 {
     using System.Collections.Generic;
 
+    using FreeRiders.Web.ViewModels.Album;
     using FreeRiders.Web.ViewModels.Event;
 
     public class HomeViewModel

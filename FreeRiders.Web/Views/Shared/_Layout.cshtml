@@ -32,6 +32,8 @@
 
                     @if (Request.IsAuthenticated)
                     {
+                        <li>@Html.ActionLink("Create Event", "Create", "Event", new { area = "" }, null)</li>
+                        
                         if (User.IsInRole(GlobalConstants.TrustedUserRole))
                         {
                             <li>@Html.ActionLink("Create Location", "Create", "Location", new { Area = "" }, new { })</li>
@@ -45,6 +47,15 @@
                                 <ul class="dropdown-menu">
                                     <li>@Html.ActionLink("Create Location", "Create", "Location", new { Area = "Administration" }, new { })</li>
                                     <li>@Html.ActionLink("Create Album", "Create", "Album", new { Area = "Administration" }, new { })</li>
+                                    <li class="divider"></li>
+                                    <li>@Html.ActionLink("Manage Locations", "Index", "Location", new { Area = "Administration" }, new { })</li>
+                                    <li>@Html.ActionLink("Manage Albums", "Index", "Album", new { Area = "Administration" }, new { })</li>
+                                    <li>@Html.ActionLink("Manage Events", "Index", "Event", new { Area = "Administration" }, new { })</li>
+                                    <li>@Html.ActionLink("Manage Users", "Index", "User", new { Area = "Administration" }, new { })</li>
+                                    <li>@Html.ActionLink("Manage Messages", "Index", "Message", new { Area = "Administration" }, new { })</li>
+                                    <li class="divider"></li>
+                                    <li>@Html.ActionLink("Manage Locations categories", "Index", "LocationCategory", new { Area = "Administration" }, new { })</li>
+                                    <li>@Html.ActionLink("Manage Albums categories", "Index", "AlbumCategory", new { Area = "Administration" }, new { })</li>
                                 </ul>
                             </li>
                         }

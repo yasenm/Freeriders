@@ -1,0 +1,55 @@
+﻿@using FreeRiders.Web.ViewModels.Event
+@using FreeRiders.Web.ViewModels;
+
+@model EventDetailsViewModel
+
+@{
+    var headerArguments = new HeaderViewModel
+    {
+        ImageUrl = "../Images/events-cover.jpg",
+        Title = "Create event",
+        Subtitle = "Have fun with others riding"
+    };
+}
+
+@Html.Partial("_PageHeader", headerArguments)
+
+<div class="container">
+    @using (Html.BeginForm("Create", "Event", FormMethod.Post))
+    {
+        <h3>Create Event</h3>
+        <br />
+        <div class="form-group">
+            @Html.EditorFor(ev => ev.Title)
+        </div>
+        <div class="form-group">
+            @Html.EditorFor(ev => ev.Description)
+        </div>
+        <div class="form-group">
+            @Html.EditorFor(ev => ev.DateOfEvent)
+        </div>
+        <div class="row"></div>
+        <br />
+        <div class="form-group">
+            <div class="row">
+                <div class="col-md-2 text-right">
+                    <strong>
+                        @Html.LabelFor(ev => ev.LocationID)
+                    </strong>
+                </div>
+                <div class="col-md-5">
+                    @Html.DropDownListFor(ev => ev.LocationID, (SelectList)ViewBag.Categories, new { id = "location-input", @class = "form-control" })
+                </div>
+                <div>
+                    @Html.ValidationMessageFor(date => date)
+                </div>
+            </div>
+        </div>
+        <div class="row form-group">
+            <div>
+                <input type="submit" value="Create" id="submitBtn" class="btn btn-success" />
+                <input type="reset" value="Reset" id="resetBtn" class="btn btn-danger" />
+            </div>
+        </div>
+    }
+</div>

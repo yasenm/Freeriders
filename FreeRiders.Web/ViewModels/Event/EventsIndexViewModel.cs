@@ -7,6 +7,7 @@
 
     using FreeRiders.Models;
     using FreeRiders.Web.Infrastructure.Mapping;
+    using System.ComponentModel.DataAnnotations;
 
     public class EventsIndexViewModel : IHaveCustomMappings
     {

@@ -1,0 +1,22 @@
+﻿@model DateTime
+
+<div class="form-group input-group-sm">
+    <div class="col-md-2 text-right">
+        <strong>
+            @Html.LabelFor(date => date)
+        </strong>
+    </div>
+    <div class="col-md-5">
+        @Html.TextBoxFor(date => date, new { @class = "form-control datepicker", placeholder = "Enter Drop-off date here..." })
+    </div>
+    <div>
+        @Html.ValidationMessageFor(date => date)
+    </div>
+</div>
+
+<script type="text/javascript">
+    $(function () {
+        // will trigger when the document is ready
+        $('.datepicker').datepicker(); //Initialise any date pickers
+    });
+</script>

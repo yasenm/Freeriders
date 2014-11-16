@@ -1,0 +1,61 @@
+﻿@using FreeRiders.Web.ViewModels.User
+
+@model UserProfileViewModel
+
+<div class="container">
+    <div class="jumbotron">
+        <h2>
+            User <strong>@Model.UserName</strong>
+        </h2>
+        <h2>
+            Email <strong>@Model.Id</strong>
+        </h2>
+    </div>
+    <div class="row">
+        <div class="col-md-4">
+            <div class="panel panel-primary text-center">
+                <div class="panel-heading">
+                    <h4>
+                        <strong>Events created</strong>
+                    </h4>
+                </div>
+                @foreach (var ev in Model.EventsCreated)
+                {
+                    <div class="panel-body row">
+                        @Html.ActionLink(ev.Title, "Details", "Event", new { Area = string.Empty, id = ev.ID }, null)
+                    </div>
+                }
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="panel panel-primary text-center">
+                <div class="panel-heading">
+                    <h4>
+                        <strong>Events Joined</strong>
+                    </h4>
+                </div>
+                @foreach (var ev in Model.EventsJoined)
+                {
+                    <div class="panel-body row">
+                        @Html.ActionLink(ev.Title, "Details", "Event", new { Area = string.Empty, id = ev.ID }, null)
+                    </div>
+                }
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="panel panel-primary text-center">
+                <div class="panel-heading">
+                    <h4>
+                        <strong>Albums</strong>
+                    </h4>
+                </div>
+                @foreach (var album in Model.AlbumsCreated)
+                {
+                    <div class="panel-body row">
+                        @Html.ActionLink(album.Title, "AlbumDetails", "Album", new { Area = string.Empty, id = album.ID }, null)
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>

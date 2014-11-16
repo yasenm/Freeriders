@@ -42,11 +42,11 @@
                 @foreach (var ev in Model.Events)
                 {
                     <div class="panel-body album-grid-container">
-                        <a href="@Url.Action("EventDetails", "Event", new { id = ev.ID })">
+                        <a href="@Url.Action("Details", "Event", new { id = ev.ID })">
                             <h2>
                                 @ev.Title
                             </h2>
-                            @Html.Partial("_DateTime", ev.DateOfEvent)
+                            @Html.DisplayFor(o => ev.DateOfEvent)
                         </a>
                     </div>
                 }

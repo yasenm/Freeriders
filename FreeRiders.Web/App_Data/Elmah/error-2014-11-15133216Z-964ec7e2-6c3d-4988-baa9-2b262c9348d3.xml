@@ -1,0 +1,212 @@
+﻿<error errorId="964ec7e2-6c3d-4988-baa9-2b262c9348d3" application="/LM/W3SVC/231/ROOT" host="YASENPC" type="System.Data.Entity.Core.EntitySqlException" message="The argument types 'Edm.Int32' and 'Edm.String' are incompatible for this operation. Near WHERE predicate, line 1, column 70." source="EntityFramework" detail="System.ArgumentException: The type of one of the primary key values did not match the type defined in the entity. See inner exception for details.&#xD;&#xA;Parameter name: keyValues ---&gt; System.Data.Entity.Core.EntitySqlException: The argument types 'Edm.Int32' and 'Edm.String' are incompatible for this operation. Near WHERE predicate, line 1, column 70.&#xD;&#xA;   at System.Data.Entity.Core.Common.EntitySql.SemanticAnalyzer.ConvertEqualCompArgs(BuiltInExpr astBuiltInExpr, SemanticResolver sr)&#xD;&#xA;   at System.Data.Entity.Core.Common.EntitySql.SemanticAnalyzer.&lt;CreateBuiltInExprConverter&gt;b__83(BuiltInExpr bltInExpr, SemanticResolver sr)&#xD;&#xA;   at System.Data.Entity.Core.Common.EntitySql.SemanticAnalyzer.ConvertBuiltIn(Node astExpr, SemanticResolver sr)&#xD;&#xA;   at System.Data.Entity.Core.Common.EntitySql.SemanticAnalyzer.Convert(Node astExpr, SemanticResolver sr)&#xD;&#xA;   at System.Data.Entity.Core.Common.EntitySql.SemanticAnalyzer.ConvertValueExpressionAllowUntypedNulls(Node astExpr, SemanticResolver sr)&#xD;&#xA;   at System.Data.Entity.Core.Common.EntitySql.SemanticAnalyzer.ConvertValueExpression(Node astExpr, SemanticResolver sr)&#xD;&#xA;   at System.Data.Entity.Core.Common.EntitySql.SemanticAnalyzer.ProcessWhereHavingClausePredicate(DbExpressionBinding source, Node predicate, ErrorContext errCtx, String bindingNameTemplate, SemanticResolver sr)&#xD;&#xA;   at System.Data.Entity.Core.Common.EntitySql.SemanticAnalyzer.ProcessWhereClause(DbExpressionBinding source, Node whereClause, SemanticResolver sr)&#xD;&#xA;   at System.Data.Entity.Core.Common.EntitySql.SemanticAnalyzer.ConvertQueryExpr(Node expr, SemanticResolver sr)&#xD;&#xA;   at System.Data.Entity.Core.Common.EntitySql.SemanticAnalyzer.Convert(Node astExpr, SemanticResolver sr)&#xD;&#xA;   at System.Data.Entity.Core.Common.EntitySql.SemanticAnalyzer.ConvertValueExpressionAllowUntypedNulls(Node astExpr, SemanticResolver sr)&#xD;&#xA;   at System.Data.Entity.Core.Common.EntitySql.SemanticAnalyzer.ConvertQueryStatementToDbExpression(Statement astStatement, SemanticResolver sr, List`1&amp; functionDefs)&#xD;&#xA;   at System.Data.Entity.Core.Common.EntitySql.SemanticAnalyzer.AnalyzeQueryCommand(Node astExpr)&#xD;&#xA;   at System.Data.Entity.Core.Common.EntitySql.CqlQuery.&lt;AnalyzeQueryExpressionSemantics&gt;b__8(SemanticAnalyzer analyzer, Node astExpr)&#xD;&#xA;   at System.Data.Entity.Core.Common.EntitySql.CqlQuery.AnalyzeSemanticsCommon[TResult](Node astExpr, Perspective perspective, ParserOptions parserOptions, IEnumerable`1 parameters, IEnumerable`1 variables, Func`3 analysisFunction)&#xD;&#xA;   at System.Data.Entity.Core.Common.EntitySql.CqlQuery.AnalyzeQueryExpressionSemantics(Node astQueryCommand, Perspective perspective, ParserOptions parserOptions, IEnumerable`1 parameters, IEnumerable`1 variables)&#xD;&#xA;   at System.Data.Entity.Core.Common.EntitySql.CqlQuery.&lt;&gt;c__DisplayClass4.&lt;CompileQueryCommandLambda&gt;b__3(Node astCommand, ParserOptions validatedParserOptions)&#xD;&#xA;   at System.Data.Entity.Core.Common.EntitySql.CqlQuery.CompileCommon[TResult](String commandText, ParserOptions parserOptions, Func`3 compilationFunction)&#xD;&#xA;   at System.Data.Entity.Core.Common.EntitySql.CqlQuery.CompileQueryCommandLambda(String queryCommandText, Perspective perspective, ParserOptions parserOptions, IEnumerable`1 parameters, IEnumerable`1 variables)&#xD;&#xA;   at System.Data.Entity.Core.Objects.EntitySqlQueryState.Parse()&#xD;&#xA;   at System.Data.Entity.Core.Objects.ELinq.ExpressionConverter.TranslateInlineQueryOfT(ObjectQuery inlineQuery)&#xD;&#xA;   at System.Data.Entity.Core.Objects.ELinq.ExpressionConverter.ConstantTranslator.TypedTranslate(ExpressionConverter parent, ConstantExpression linq)&#xD;&#xA;   at System.Data.Entity.Core.Objects.ELinq.ExpressionConverter.TypedTranslator`1.Translate(ExpressionConverter parent, Expression linq)&#xD;&#xA;   at System.Data.Entity.Core.Objects.ELinq.ExpressionConverter.TranslateExpression(Expression linq)&#xD;&#xA;   at System.Data.Entity.Core.Objects.ELinq.ExpressionConverter.MethodCallTranslator.ObjectQueryMergeAsTranslator.Translate(ExpressionConverter parent, MethodCallExpression call)&#xD;&#xA;   at System.Data.Entity.Core.Objects.ELinq.ExpressionConverter.MethodCallTranslator.TypedTranslate(ExpressionConverter parent, MethodCallExpression linq)&#xD;&#xA;   at System.Data.Entity.Core.Objects.ELinq.ExpressionConverter.TypedTranslator`1.Translate(ExpressionConverter parent, Expression linq)&#xD;&#xA;   at System.Data.Entity.Core.Objects.ELinq.ExpressionConverter.TranslateExpression(Expression linq)&#xD;&#xA;   at System.Data.Entity.Core.Objects.ELinq.ExpressionConverter.MethodCallTranslator.ObjectQueryMergeAsTranslator.Translate(ExpressionConverter parent, MethodCallExpression call)&#xD;&#xA;   at System.Data.Entity.Core.Objects.ELinq.ExpressionConverter.MethodCallTranslator.TypedTranslate(ExpressionConverter parent, MethodCallExpression linq)&#xD;&#xA;   at System.Data.Entity.Core.Objects.ELinq.ExpressionConverter.TypedTranslator`1.Translate(ExpressionConverter parent, Expression linq)&#xD;&#xA;   at System.Data.Entity.Core.Objects.ELinq.ExpressionConverter.TranslateExpression(Expression linq)&#xD;&#xA;   at System.Data.Entity.Core.Objects.ELinq.ExpressionConverter.TranslateSet(Expression linq)&#xD;&#xA;   at System.Data.Entity.Core.Objects.ELinq.ExpressionConverter.MethodCallTranslator.UnarySequenceMethodTranslator.Translate(ExpressionConverter parent, MethodCallExpression call)&#xD;&#xA;   at System.Data.Entity.Core.Objects.ELinq.ExpressionConverter.MethodCallTranslator.SequenceMethodTranslator.Translate(ExpressionConverter parent, MethodCallExpression call, SequenceMethod sequenceMethod)&#xD;&#xA;   at System.Data.Entity.Core.Objects.ELinq.ExpressionConverter.MethodCallTranslator.TypedTranslate(ExpressionConverter parent, MethodCallExpression linq)&#xD;&#xA;   at System.Data.Entity.Core.Objects.ELinq.ExpressionConverter.TypedTranslator`1.Translate(ExpressionConverter parent, Expression linq)&#xD;&#xA;   at System.Data.Entity.Core.Objects.ELinq.ExpressionConverter.TranslateExpression(Expression linq)&#xD;&#xA;   at System.Data.Entity.Core.Objects.ELinq.ExpressionConverter.Convert()&#xD;&#xA;   at System.Data.Entity.Core.Objects.ELinq.ELinqQueryState.GetExecutionPlan(Nullable`1 forMergeOption)&#xD;&#xA;   at System.Data.Entity.Core.Objects.ObjectQuery`1.&lt;&gt;c__DisplayClass7.&lt;GetResults&gt;b__6()&#xD;&#xA;   at System.Data.Entity.Core.Objects.ObjectContext.ExecuteInTransaction[T](Func`1 func, IDbExecutionStrategy executionStrategy, Boolean startLocalTransaction, Boolean releaseConnectionOnSuccess)&#xD;&#xA;   at System.Data.Entity.Core.Objects.ObjectQuery`1.&lt;&gt;c__DisplayClass7.&lt;GetResults&gt;b__5()&#xD;&#xA;   at System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute[TResult](Func`1 operation)&#xD;&#xA;   at System.Data.Entity.Core.Objects.ObjectQuery`1.GetResults(Nullable`1 forMergeOption)&#xD;&#xA;   at System.Data.Entity.Core.Objects.ObjectQuery`1.&lt;System.Collections.Generic.IEnumerable&lt;T&gt;.GetEnumerator&gt;b__0()&#xD;&#xA;   at System.Data.Entity.Internal.LazyEnumerator`1.MoveNext()&#xD;&#xA;   at System.Linq.Enumerable.SingleOrDefault[TSource](IEnumerable`1 source)&#xD;&#xA;   at System.Data.Entity.Core.Objects.ELinq.ObjectQueryProvider.&lt;GetElementFunction&gt;b__2[TResult](IEnumerable`1 sequence)&#xD;&#xA;   at System.Data.Entity.Core.Objects.ELinq.ObjectQueryProvider.ExecuteSingle[TResult](IEnumerable`1 query, Expression queryRoot)&#xD;&#xA;   at System.Data.Entity.Core.Objects.ELinq.ObjectQueryProvider.System.Linq.IQueryProvider.Execute[TResult](Expression expression)&#xD;&#xA;   at System.Linq.Queryable.SingleOrDefault[TSource](IQueryable`1 source)&#xD;&#xA;   at System.Data.Entity.Internal.Linq.InternalSet`1.FindInStore(WrappedEntityKey key, String keyValuesParamName)&#xD;&#xA;   --- End of inner exception stack trace ---&#xD;&#xA;   at System.Data.Entity.Internal.Linq.InternalSet`1.FindInStore(WrappedEntityKey key, String keyValuesParamName)&#xD;&#xA;   at System.Data.Entity.Internal.Linq.InternalSet`1.Find(Object[] keyValues)&#xD;&#xA;   at System.Data.Entity.DbSet`1.Find(Object[] keyValues)&#xD;&#xA;   at FreeRiders.Data.Repositories.GenericRepository`1.GetById(Object id) in c:\Users\Yasen\Documents\GitHub\Freeriders\FreeRiders.Data\Repositories\GenericRepository.cs:line 35&#xD;&#xA;   at FreeRiders.Data.Repositories.GenericRepository`1.Delete(Object id) in c:\Users\Yasen\Documents\GitHub\Freeriders\FreeRiders.Data\Repositories\GenericRepository.cs:line 55&#xD;&#xA;   at FreeRiders.Web.Areas.Administration.Controllers.UserController.Destroy(DataSourceRequest request, UserAdminViewModel model) in c:\Users\Yasen\Documents\GitHub\Freeriders\FreeRiders.Web\Areas\Administration\Controllers\User\UserController.cs:line 60&#xD;&#xA;   at lambda_method(Closure , ControllerBase , Object[] )&#xD;&#xA;   at System.Web.Mvc.ActionMethodDispatcher.Execute(ControllerBase controller, Object[] parameters)&#xD;&#xA;   at System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)&#xD;&#xA;   at System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)&#xD;&#xA;   at System.Web.Mvc.Async.AsyncControllerActionInvoker.ActionInvocation.InvokeSynchronousActionMethod()&#xD;&#xA;   at System.Web.Mvc.Async.AsyncControllerActionInvoker.&lt;BeginInvokeSynchronousActionMethod&gt;b__39(IAsyncResult asyncResult, ActionInvocation innerInvokeState)&#xD;&#xA;   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`2.CallEndDelegate(IAsyncResult asyncResult)&#xD;&#xA;   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()&#xD;&#xA;   at System.Web.Mvc.Async.AsyncResultWrapper.End[TResult](IAsyncResult asyncResult, Object tag)&#xD;&#xA;   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethod(IAsyncResult asyncResult)&#xD;&#xA;   at Castle.Proxies.AsyncControllerActionInvokerProxy.EndInvokeActionMethod_callback(IAsyncResult asyncResult)&#xD;&#xA;   at Castle.Proxies.Invocations.AsyncControllerActionInvoker_EndInvokeActionMethod.InvokeMethodOnTarget()&#xD;&#xA;   at Castle.DynamicProxy.AbstractInvocation.Proceed()&#xD;&#xA;   at Glimpse.Core.Extensibility.CastleInvocationToAlternateMethodContextAdapter.Proceed()&#xD;&#xA;   at Glimpse.Mvc.AlternateType.AsyncActionInvoker.EndInvokeActionMethod.NewImplementation(IAlternateMethodContext context)&#xD;&#xA;   at Glimpse.Core.Extensibility.AlternateTypeToCastleInterceptorAdapter.Intercept(IInvocation invocation)&#xD;&#xA;   at Castle.DynamicProxy.AbstractInvocation.Proceed()&#xD;&#xA;   at Castle.Proxies.AsyncControllerActionInvokerProxy.EndInvokeActionMethod(IAsyncResult asyncResult)&#xD;&#xA;   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.&lt;InvokeActionMethodFilterAsynchronouslyRecursive&gt;b__3d()&#xD;&#xA;   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.&lt;&gt;c__DisplayClass46.&lt;InvokeActionMethodFilterAsynchronouslyRecursive&gt;b__3f()&#xD;&#xA;   at System.Web.Mvc.Async.AsyncControllerActionInvoker.&lt;&gt;c__DisplayClass33.&lt;BeginInvokeActionMethodWithFilters&gt;b__32(IAsyncResult asyncResult)&#xD;&#xA;   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.CallEndDelegate(IAsyncResult asyncResult)&#xD;&#xA;   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()&#xD;&#xA;   at System.Web.Mvc.Async.AsyncResultWrapper.End[TResult](IAsyncResult asyncResult, Object tag)&#xD;&#xA;   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters(IAsyncResult asyncResult)&#xD;&#xA;   at System.Web.Mvc.Async.AsyncControllerActionInvoker.&lt;&gt;c__DisplayClass21.&lt;&gt;c__DisplayClass2b.&lt;BeginInvokeAction&gt;b__1c()&#xD;&#xA;   at System.Web.Mvc.Async.AsyncControllerActionInvoker.&lt;&gt;c__DisplayClass21.&lt;BeginInvokeAction&gt;b__1e(IAsyncResult asyncResult)&#xD;&#xA;   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.CallEndDelegate(IAsyncResult asyncResult)&#xD;&#xA;   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()&#xD;&#xA;   at System.Web.Mvc.Async.AsyncResultWrapper.End[TResult](IAsyncResult asyncResult, Object tag)&#xD;&#xA;   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeAction(IAsyncResult asyncResult)&#xD;&#xA;   at System.Web.Mvc.Controller.&lt;BeginExecuteCore&gt;b__1d(IAsyncResult asyncResult, ExecuteCoreState innerState)&#xD;&#xA;   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)&#xD;&#xA;   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()&#xD;&#xA;   at System.Web.Mvc.Async.AsyncResultWrapper.End[TResult](IAsyncResult asyncResult, Object tag)&#xD;&#xA;   at System.Web.Mvc.Async.AsyncResultWrapper.End(IAsyncResult asyncResult, Object tag)&#xD;&#xA;   at System.Web.Mvc.Controller.EndExecuteCore(IAsyncResult asyncResult)&#xD;&#xA;   at System.Web.Mvc.Controller.&lt;BeginExecute&gt;b__15(IAsyncResult asyncResult, Controller controller)&#xD;&#xA;   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)&#xD;&#xA;   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()&#xD;&#xA;   at System.Web.Mvc.Async.AsyncResultWrapper.End[TResult](IAsyncResult asyncResult, Object tag)&#xD;&#xA;   at System.Web.Mvc.Async.AsyncResultWrapper.End(IAsyncResult asyncResult, Object tag)&#xD;&#xA;   at System.Web.Mvc.Controller.EndExecute(IAsyncResult asyncResult)&#xD;&#xA;   at System.Web.Mvc.Controller.System.Web.Mvc.Async.IAsyncController.EndExecute(IAsyncResult asyncResult)&#xD;&#xA;   at System.Web.Mvc.MvcHandler.&lt;BeginProcessRequest&gt;b__5(IAsyncResult asyncResult, ProcessRequestState innerState)&#xD;&#xA;   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)&#xD;&#xA;   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()&#xD;&#xA;   at System.Web.Mvc.Async.AsyncResultWrapper.End[TResult](IAsyncResult asyncResult, Object tag)&#xD;&#xA;   at System.Web.Mvc.Async.AsyncResultWrapper.End(IAsyncResult asyncResult, Object tag)&#xD;&#xA;   at System.Web.Mvc.MvcHandler.EndProcessRequest(IAsyncResult asyncResult)&#xD;&#xA;   at System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.EndProcessRequest(IAsyncResult result)&#xD;&#xA;   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()&#xD;&#xA;   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean&amp; completedSynchronously)" user="admin@freeriders.com" time="2014-11-15T13:32:16.3697019Z">
+  <serverVariables>
+    <item name="ALL_HTTP">
+      <value string="HTTP_CONNECTION:keep-alive&#xD;&#xA;HTTP_CONTENT_LENGTH:173&#xD;&#xA;HTTP_CONTENT_TYPE:application/x-www-form-urlencoded; charset=UTF-8&#xD;&#xA;HTTP_ACCEPT:*/*&#xD;&#xA;HTTP_ACCEPT_ENCODING:gzip,deflate&#xD;&#xA;HTTP_ACCEPT_LANGUAGE:en-US,en;q=0.8,bg;q=0.6&#xD;&#xA;HTTP_COOKIE:glimpsePolicy=On; glimpseId=Chrome 38.0; __RequestVerificationToken=fkruR7FePfBhwJGbRvFeDN0wpurkr-97rTPTZKmP6JG8kuqMM1ib5SErZN8yb98qPxVvZiZZvQcO_wRiDcxXbtfAHJyJpZ0cFSTrz5GbCsg1; .AspNet.ApplicationCookie=JDvhGGYSbe1ICw4TK0LUPnkQx1w1_pZssj-4WF2LIoONq6AL1h5LGGDsEJ5MnPlCx29a-dwPrlq7h5qNEEiH_6qCVj4nf4aEcTfGTXGSmrPxILC7qfNT6cGegN1QgMqIfSvQcXVgSzGYsNTdg3cyOJD3xwckXvB6wSgOGZd5e0_oifio8r5pvLFyFcWpVZy1KD8_qULgBN8Cl_vhR_0VwphYgET5MXCaTWZ4CMMtYHkdQJJxWjB8mLLE65esmeQ68NYGeAv-pD_v5lYc4mkRuTV7KJe34lC006UEO4KPxhAJcc6D5yXbE3kRhBC-9PmB5XujRY6-fNnVsQrMAoxjo8FoOY3QDRJ5FmpJ_z_houp9I2nne8upR69OxJ6aZCxRaZblxKyFRxqEsqV9nQMQgoowO0Co_QUHGm0LkVdkzBapHyTW1axeOpzIJo8-19F7lNNGkgn0kHdhjRdxSQKW684G7z08t4jJLCQjidi4L8vIUMtWqnM3PBx6CFOCCR675ybqaojzx6SM7KGGTa46eA&#xD;&#xA;HTTP_HOST:localhost:62576&#xD;&#xA;HTTP_REFERER:http://localhost:62576/Administration/User/Index&#xD;&#xA;HTTP_USER_AGENT:Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/38.0.2125.111 Safari/537.36&#xD;&#xA;HTTP_GLIMPSE_PARENT_REQUESTID:1b499d53-1d1c-49bd-8cf0-b5e8f3455f86&#xD;&#xA;HTTP_ORIGIN:http://localhost:62576&#xD;&#xA;HTTP_X_REQUESTED_WITH:XMLHttpRequest&#xD;&#xA;" />
+    </item>
+    <item name="ALL_RAW">
+      <value string="Connection: keep-alive&#xD;&#xA;Content-Length: 173&#xD;&#xA;Content-Type: application/x-www-form-urlencoded; charset=UTF-8&#xD;&#xA;Accept: */*&#xD;&#xA;Accept-Encoding: gzip,deflate&#xD;&#xA;Accept-Language: en-US,en;q=0.8,bg;q=0.6&#xD;&#xA;Cookie: glimpsePolicy=On; glimpseId=Chrome 38.0; __RequestVerificationToken=fkruR7FePfBhwJGbRvFeDN0wpurkr-97rTPTZKmP6JG8kuqMM1ib5SErZN8yb98qPxVvZiZZvQcO_wRiDcxXbtfAHJyJpZ0cFSTrz5GbCsg1; .AspNet.ApplicationCookie=JDvhGGYSbe1ICw4TK0LUPnkQx1w1_pZssj-4WF2LIoONq6AL1h5LGGDsEJ5MnPlCx29a-dwPrlq7h5qNEEiH_6qCVj4nf4aEcTfGTXGSmrPxILC7qfNT6cGegN1QgMqIfSvQcXVgSzGYsNTdg3cyOJD3xwckXvB6wSgOGZd5e0_oifio8r5pvLFyFcWpVZy1KD8_qULgBN8Cl_vhR_0VwphYgET5MXCaTWZ4CMMtYHkdQJJxWjB8mLLE65esmeQ68NYGeAv-pD_v5lYc4mkRuTV7KJe34lC006UEO4KPxhAJcc6D5yXbE3kRhBC-9PmB5XujRY6-fNnVsQrMAoxjo8FoOY3QDRJ5FmpJ_z_houp9I2nne8upR69OxJ6aZCxRaZblxKyFRxqEsqV9nQMQgoowO0Co_QUHGm0LkVdkzBapHyTW1axeOpzIJo8-19F7lNNGkgn0kHdhjRdxSQKW684G7z08t4jJLCQjidi4L8vIUMtWqnM3PBx6CFOCCR675ybqaojzx6SM7KGGTa46eA&#xD;&#xA;Host: localhost:62576&#xD;&#xA;Referer: http://localhost:62576/Administration/User/Index&#xD;&#xA;User-Agent: Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/38.0.2125.111 Safari/537.36&#xD;&#xA;Glimpse-Parent-RequestID: 1b499d53-1d1c-49bd-8cf0-b5e8f3455f86&#xD;&#xA;Origin: http://localhost:62576&#xD;&#xA;X-Requested-With: XMLHttpRequest&#xD;&#xA;" />
+    </item>
+    <item name="APPL_MD_PATH">
+      <value string="/LM/W3SVC/231/ROOT" />
+    </item>
+    <item name="APPL_PHYSICAL_PATH">
+      <value string="C:\Users\Yasen\Documents\GitHub\Freeriders\FreeRiders.Web\" />
+    </item>
+    <item name="AUTH_TYPE">
+      <value string="ApplicationCookie" />
+    </item>
+    <item name="AUTH_USER">
+      <value string="admin@freeriders.com" />
+    </item>
+    <item name="AUTH_PASSWORD">
+      <value string="" />
+    </item>
+    <item name="LOGON_USER">
+      <value string="" />
+    </item>
+    <item name="REMOTE_USER">
+      <value string="admin@freeriders.com" />
+    </item>
+    <item name="CERT_COOKIE">
+      <value string="" />
+    </item>
+    <item name="CERT_FLAGS">
+      <value string="" />
+    </item>
+    <item name="CERT_ISSUER">
+      <value string="" />
+    </item>
+    <item name="CERT_KEYSIZE">
+      <value string="" />
+    </item>
+    <item name="CERT_SECRETKEYSIZE">
+      <value string="" />
+    </item>
+    <item name="CERT_SERIALNUMBER">
+      <value string="" />
+    </item>
+    <item name="CERT_SERVER_ISSUER">
+      <value string="" />
+    </item>
+    <item name="CERT_SERVER_SUBJECT">
+      <value string="" />
+    </item>
+    <item name="CERT_SUBJECT">
+      <value string="" />
+    </item>
+    <item name="CONTENT_LENGTH">
+      <value string="173" />
+    </item>
+    <item name="CONTENT_TYPE">
+      <value string="application/x-www-form-urlencoded; charset=UTF-8" />
+    </item>
+    <item name="GATEWAY_INTERFACE">
+      <value string="CGI/1.1" />
+    </item>
+    <item name="HTTPS">
+      <value string="off" />
+    </item>
+    <item name="HTTPS_KEYSIZE">
+      <value string="" />
+    </item>
+    <item name="HTTPS_SECRETKEYSIZE">
+      <value string="" />
+    </item>
+    <item name="HTTPS_SERVER_ISSUER">
+      <value string="" />
+    </item>
+    <item name="HTTPS_SERVER_SUBJECT">
+      <value string="" />
+    </item>
+    <item name="INSTANCE_ID">
+      <value string="231" />
+    </item>
+    <item name="INSTANCE_META_PATH">
+      <value string="/LM/W3SVC/231" />
+    </item>
+    <item name="LOCAL_ADDR">
+      <value string="::1" />
+    </item>
+    <item name="PATH_INFO">
+      <value string="/Administration/User/Destroy" />
+    </item>
+    <item name="PATH_TRANSLATED">
+      <value string="C:\Users\Yasen\Documents\GitHub\Freeriders\FreeRiders.Web\Administration\User\Destroy" />
+    </item>
+    <item name="QUERY_STRING">
+      <value string="" />
+    </item>
+    <item name="REMOTE_ADDR">
+      <value string="::1" />
+    </item>
+    <item name="REMOTE_HOST">
+      <value string="::1" />
+    </item>
+    <item name="REMOTE_PORT">
+      <value string="52693" />
+    </item>
+    <item name="REQUEST_METHOD">
+      <value string="POST" />
+    </item>
+    <item name="SCRIPT_NAME">
+      <value string="/Administration/User/Destroy" />
+    </item>
+    <item name="SERVER_NAME">
+      <value string="localhost" />
+    </item>
+    <item name="SERVER_PORT">
+      <value string="62576" />
+    </item>
+    <item name="SERVER_PORT_SECURE">
+      <value string="0" />
+    </item>
+    <item name="SERVER_PROTOCOL">
+      <value string="HTTP/1.1" />
+    </item>
+    <item name="SERVER_SOFTWARE">
+      <value string="Microsoft-IIS/8.0" />
+    </item>
+    <item name="URL">
+      <value string="/Administration/User/Destroy" />
+    </item>
+    <item name="HTTP_CONNECTION">
+      <value string="keep-alive" />
+    </item>
+    <item name="HTTP_CONTENT_LENGTH">
+      <value string="173" />
+    </item>
+    <item name="HTTP_CONTENT_TYPE">
+      <value string="application/x-www-form-urlencoded; charset=UTF-8" />
+    </item>
+    <item name="HTTP_ACCEPT">
+      <value string="*/*" />
+    </item>
+    <item name="HTTP_ACCEPT_ENCODING">
+      <value string="gzip,deflate" />
+    </item>
+    <item name="HTTP_ACCEPT_LANGUAGE">
+      <value string="en-US,en;q=0.8,bg;q=0.6" />
+    </item>
+    <item name="HTTP_COOKIE">
+      <value string="glimpsePolicy=On; glimpseId=Chrome 38.0; __RequestVerificationToken=fkruR7FePfBhwJGbRvFeDN0wpurkr-97rTPTZKmP6JG8kuqMM1ib5SErZN8yb98qPxVvZiZZvQcO_wRiDcxXbtfAHJyJpZ0cFSTrz5GbCsg1; .AspNet.ApplicationCookie=JDvhGGYSbe1ICw4TK0LUPnkQx1w1_pZssj-4WF2LIoONq6AL1h5LGGDsEJ5MnPlCx29a-dwPrlq7h5qNEEiH_6qCVj4nf4aEcTfGTXGSmrPxILC7qfNT6cGegN1QgMqIfSvQcXVgSzGYsNTdg3cyOJD3xwckXvB6wSgOGZd5e0_oifio8r5pvLFyFcWpVZy1KD8_qULgBN8Cl_vhR_0VwphYgET5MXCaTWZ4CMMtYHkdQJJxWjB8mLLE65esmeQ68NYGeAv-pD_v5lYc4mkRuTV7KJe34lC006UEO4KPxhAJcc6D5yXbE3kRhBC-9PmB5XujRY6-fNnVsQrMAoxjo8FoOY3QDRJ5FmpJ_z_houp9I2nne8upR69OxJ6aZCxRaZblxKyFRxqEsqV9nQMQgoowO0Co_QUHGm0LkVdkzBapHyTW1axeOpzIJo8-19F7lNNGkgn0kHdhjRdxSQKW684G7z08t4jJLCQjidi4L8vIUMtWqnM3PBx6CFOCCR675ybqaojzx6SM7KGGTa46eA" />
+    </item>
+    <item name="HTTP_HOST">
+      <value string="localhost:62576" />
+    </item>
+    <item name="HTTP_REFERER">
+      <value string="http://localhost:62576/Administration/User/Index" />
+    </item>
+    <item name="HTTP_USER_AGENT">
+      <value string="Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/38.0.2125.111 Safari/537.36" />
+    </item>
+    <item name="HTTP_GLIMPSE_PARENT_REQUESTID">
+      <value string="1b499d53-1d1c-49bd-8cf0-b5e8f3455f86" />
+    </item>
+    <item name="HTTP_ORIGIN">
+      <value string="http://localhost:62576" />
+    </item>
+    <item name="HTTP_X_REQUESTED_WITH">
+      <value string="XMLHttpRequest" />
+    </item>
+  </serverVariables>
+  <form>
+    <item name="sort">
+      <value string="" />
+    </item>
+    <item name="group">
+      <value string="" />
+    </item>
+    <item name="filter">
+      <value string="" />
+    </item>
+    <item name="Id">
+      <value string="0e1bf753-80c2-46ee-8966-28158c0bd947" />
+    </item>
+    <item name="UserName">
+      <value string="aPTJQOmp@aPTJQOmp.com" />
+    </item>
+    <item name="Email">
+      <value string="aPTJQOmp@aPTJQOmp.com" />
+    </item>
+    <item name="CreatedOn">
+      <value string="1/1/0001 2:00:00 AM" />
+    </item>
+    <item name="ModifiedOn">
+      <value string="" />
+    </item>
+  </form>
+  <cookies>
+    <item name="glimpsePolicy">
+      <value string="On" />
+    </item>
+    <item name="glimpseId">
+      <value string="Chrome 38.0" />
+    </item>
+    <item name="__RequestVerificationToken">
+      <value string="fkruR7FePfBhwJGbRvFeDN0wpurkr-97rTPTZKmP6JG8kuqMM1ib5SErZN8yb98qPxVvZiZZvQcO_wRiDcxXbtfAHJyJpZ0cFSTrz5GbCsg1" />
+    </item>
+    <item name=".AspNet.ApplicationCookie">
+      <value string="JDvhGGYSbe1ICw4TK0LUPnkQx1w1_pZssj-4WF2LIoONq6AL1h5LGGDsEJ5MnPlCx29a-dwPrlq7h5qNEEiH_6qCVj4nf4aEcTfGTXGSmrPxILC7qfNT6cGegN1QgMqIfSvQcXVgSzGYsNTdg3cyOJD3xwckXvB6wSgOGZd5e0_oifio8r5pvLFyFcWpVZy1KD8_qULgBN8Cl_vhR_0VwphYgET5MXCaTWZ4CMMtYHkdQJJxWjB8mLLE65esmeQ68NYGeAv-pD_v5lYc4mkRuTV7KJe34lC006UEO4KPxhAJcc6D5yXbE3kRhBC-9PmB5XujRY6-fNnVsQrMAoxjo8FoOY3QDRJ5FmpJ_z_houp9I2nne8upR69OxJ6aZCxRaZblxKyFRxqEsqV9nQMQgoowO0Co_QUHGm0LkVdkzBapHyTW1axeOpzIJo8-19F7lNNGkgn0kHdhjRdxSQKW684G7z08t4jJLCQjidi4L8vIUMtWqnM3PBx6CFOCCR675ybqaojzx6SM7KGGTa46eA" />
+    </item>
+  </cookies>
+</error>

@@ -1,0 +1,65 @@
+﻿@using FreeRiders.Web.ViewModels.Event;
+@using FreeRiders.Web.ViewModels.Message
+
+@model FreeRiders.Web.ViewModels.Event.EventDetailsViewModel
+
+<div class="container">
+    <div class="row">
+        <h1>@Model.Title</h1>
+        <h3>@Model.LocationName</h3>
+        <h3>
+            By @Html.ActionLink(Model.CreatorName, "Profile", "User",
+                        new
+                        {
+                            Area = string.Empty,
+                            username = Model.CreatorName
+                        },
+                        new {  })
+        </h3>
+        <p>@Model.Description</p>
+    </div>
+    <br />
+    <div class="row">
+        <div class="col-md-8">
+            @if (User.Identity.IsAuthenticated)
+            {
+                <div id="joined-or-not" class="row">
+                    @*@if (Model.Users.AsQueryable().FirstOrDefault(u => u.UserName == this.User.Identity.Name) != null)
+                        {*@
+                    @Html.Partial("_PostMessagePartial", new MessageViewModel(Model.ID))
+                    @*}
+                        else
+                        {
+                            @Ajax.ActionLink("Join event", "Join", "Event",
+                            new
+                            {
+                                eventID = Model.ID,
+                            },
+                            new AjaxOptions
+                            {
+                                HttpMethod = "POST",
+                                UpdateTargetId = "joined-or-not",
+                                InsertionMode = InsertionMode.Replace,
+                            },
+                            new { @class = "btn btn-success" })
+                        }*@
+                </div>
+
+                <div id="messages" class="row">
+                    @Html.Action("MessagesOfEvent", "Message", new { eventID = Model.ID })
+                </div>
+            }
+        </div>
+        <div class="col-md-4">
+            <div class="row body-content">
+                <h2>Map position here...</h2>
+            </div>
+            <div class="row">
+                @foreach (var participant in Model.Users)
+                {
+
+                }
+            </div>
+        </div>
+    </div>
+</div>

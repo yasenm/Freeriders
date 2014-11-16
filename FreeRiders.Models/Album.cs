@@ -32,6 +32,11 @@
 
         public virtual Location Location { get; set; }
 
+        //[Required]
+        public string CreatorID { get; set; }
+
+        public virtual User Creator { get; set; }
+
         [Required]
         public int CategoryID { get; set; }
 

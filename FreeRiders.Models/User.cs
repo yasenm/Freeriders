@@ -12,12 +12,14 @@
         private ICollection<Review> reviews;
         private ICollection<Album> albums;
         private ICollection<Message> messages;
+        private ICollection<Event> events;
 
         public User()
         {
             this.reviews = new HashSet<Review>();
             this.albums = new HashSet<Album>();
             this.messages = new HashSet<Message>();
+            this.events = new HashSet<Event>();
         }
 
         public byte[] Avatar { get; set; }
@@ -38,6 +40,12 @@
         {
             get { return this.messages; }
             set { this.messages = value; }
+        }
+
+        public virtual ICollection<Event> Events
+        {
+            get { return this.events; }
+            set { this.events = value; }
         }
 
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<User> manager)

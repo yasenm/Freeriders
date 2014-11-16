@@ -1,5 +1,10 @@
 ﻿@model ICollection<FreeRiders.Web.Areas.Administration.ViewModels.AdminAlbumModel>
 
+@{
+    Layout = "~/Areas/Administration/Views/Shared/_Layout.cshtml";
+    const string ControllerName = "Album";
+}
+
 <br />
 <br />
 <br />
@@ -22,9 +27,12 @@
                         @album.Description.Substring(0, 300)
                     }
                 </p>
-                <div>
-                    @Html.ActionLink("Edit", "Edit", "Album", new { id = album.ID }, new { area = "Administration" })
-                    @Html.ActionLink("AlbumDetails", "AlbumDetails", "Albums", new { area = string.Empty, id = album.ID }, new { })
+                <div class="row">
+                    <div class="col-md-6 col-md-offset-3">
+                        @Html.ActionLink("Edit", "Edit", "Album", new { area = "Administration", id = album.ID }, new { @class = "btn btn-warning" })
+                        @Html.ActionLink("AlbumDetails", "AlbumDetails", "Albums", new { area = string.Empty, id = album.ID }, new { @class = "btn btn-success" })
+                        @Html.ActionLink("Delete", "DeleteAlbum", "Albums", new { area = string.Empty, id = album.ID }, new { @class = "btn btn-danger" })
+                    </div>
                 </div>
             </div>
         </div>

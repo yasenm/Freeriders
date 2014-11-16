@@ -29,7 +29,7 @@
             this.Data = data;
         }
 
-        private string GetUserId()
+        public string GetUserId()
         {
             return Thread.CurrentPrincipal.Identity.GetUserId();
         }

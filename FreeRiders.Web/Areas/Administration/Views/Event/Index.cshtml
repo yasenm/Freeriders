@@ -8,25 +8,33 @@
 <div class="container">
     @(Html.Kendo()
     .Grid<Event>()
-    .Name("grid")
+    .Name("events-grid")
     .Columns(columns =>
     {
-        columns.AutoGenerate(true);
-        columns.Command(command => { command.Edit(); command.Destroy(); }).Width(160);
+        columns.Bound(ev => ev.ID);
+        columns.Bound(ev => ev.CreatedOn).Format("{0:dd-MM-yyyy HH:mm}").Filterable(false); ;
+        columns.Bound(ev => ev.Title);
+        columns.Bound(ev => ev.Description);
+        columns.Bound(ev => ev.DateOfEvent).Format("{0:dd-MM-yyyy HH:mm}").Filterable(false); ;
+        columns.Command(command =>
+        {
+            command.Destroy().Text("Remove");
+            command.Edit();
+        });
     })
     .ToolBar(toolbar => toolbar.Create())
     .Editable(edit => edit.Mode(GridEditMode.PopUp))
-    .Pageable(page => page.Refresh(true))
     .Sortable()
+    .Pageable()
     .Groupable()
-    .DataSource(data =>
-        data
-        .Ajax()
-        .Model(model => model.Id(ev => ev.ID))
-        .Read(read => read.Action("Read", ControllerName))
-        .Create(create => create.Action("Create", ControllerName))
-        .Update(update => update.Action("Update", ControllerName))
-        .Destroy(update => update.Action("Destroy", ControllerName)))
-    )
+    .DataSource(dataSource =>
+    {
+        dataSource.Ajax()
+            .Model(m => m.Id(ev => ev.ID))
+            .PageSize(10)
+            .Read("Read", ControllerName)
+            .Create(create => create.Action("Create", ControllerName))
+            .Update(update => update.Action("Update", ControllerName))
+            .Destroy(update => update.Action("Destroy", ControllerName));
+    }))
 </div>
-

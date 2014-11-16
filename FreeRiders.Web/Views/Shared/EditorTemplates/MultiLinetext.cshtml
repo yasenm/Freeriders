@@ -1,0 +1,15 @@
+﻿﻿@model string
+
+<div class="row">
+    <div class="col-md-2 text-right">
+        <strong>
+            @Html.LabelFor(m => m)
+        </strong>
+    </div>
+    <div class="col-md-5">
+        @Html.TextAreaFor(m => m, new { @class = "form-control" })
+    </div>
+    <div>
+        @Html.ValidationMessageFor(m => m)
+    </div>
+</div>

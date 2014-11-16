@@ -1,0 +1,33 @@
+﻿@using FreeRiders.Web.ViewModels.Message
+
+@model ICollection<MessageViewModel>
+
+<div class="row">
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <h3 class="panel-title">
+                <strong>Event chat</strong>
+            </h3>
+        </div>
+        @foreach (var message in Model)
+        {
+            <div class="panel-body">
+                <div class="row body-content">
+                    @message.Text
+                </div>
+                <hr style="width: 80%;" />
+                <div class="row body-content">
+                    <strong>
+                        @Html.ActionLink(message.AuthorName, "Profile", "User",
+                        new
+                        {
+                            Area = string.Empty,
+                            username = message.AuthorName
+                        },
+                        new { @class = "pull-right" })
+                    </strong>
+                </div>
+            </div>
+        }
+    </div>
+</div>
