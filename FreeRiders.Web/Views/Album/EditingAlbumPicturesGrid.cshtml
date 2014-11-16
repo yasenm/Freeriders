@@ -1,0 +1,51 @@
+﻿@using FreeRiders.Models
+
+@model ICollection<Picture>
+
+<div class="col-md-6 text-center" id="pictures-list">
+    @foreach (var currentPicture in Model)
+    {
+        if (currentPicture.ID == ViewBag.CoverPictureID)
+        {
+            continue;
+        }
+
+        <div class="col-md-3 edit-album-grid-cell">
+            <div class="edit-image-container">
+                <img src="@currentPicture.ImageUrl" class="image-in-container" alt="No picture found..." />
+            </div>
+            <div>
+                @Ajax.ActionLink("Delete", "DeletePictureFromAlbum", "Album",
+                    new
+                 {
+                     area = string.Empty,
+                        pictureID = currentPicture.ID,
+                        albumID = ViewBag.AlbumID,
+                    },
+                    new AjaxOptions
+                    {
+                        HttpMethod = "POST",
+                        InsertionMode = InsertionMode.Replace,
+                        UpdateTargetId = "edit-pictures-grid",
+                    },
+                    new { @class = "btn btn-xs btn-danger" })
+            </div>
+            <div>
+                @Ajax.ActionLink("Make Cover", "EditPictureToCover", "Album",
+                    new
+                    {
+                        area = string.Empty,
+                        pictureID = currentPicture.ID,
+                        albumID = ViewBag.AlbumID,
+                    },
+                    new AjaxOptions
+                    {
+                        HttpMethod = "POST",
+                        InsertionMode = InsertionMode.Replace,
+                        UpdateTargetId = "edit-pictures-grid",
+                    },
+                    new { @class = "btn btn-xs btn-default" })
+            </div>
+        </div>
+    }
+</div>

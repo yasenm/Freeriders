@@ -1,0 +1,26 @@
+﻿@model FreeRiders.Web.ViewModels.User.UserProfileViewModel
+
+@if (this.User.Identity.Name == Model.UserName)
+{
+    using (Html.BeginForm("PostAvatar", "User", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-group">
+            <div>
+                <label for="PostedAvatar">Chose avatar</label>
+                <input type="file" name="PostedAvatar" id="PostedAvatar" class="btn btn-default" />
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div>
+                <input type="submit" value="Upload" id="submitBtn" class="btn btn-primary" />
+            </div>
+        </div>
+    }
+}
+
+@section scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

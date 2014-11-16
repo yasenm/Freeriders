@@ -1,6 +1,8 @@
 ﻿namespace FreeRiders.Web.ViewModels.User
 {
     using System.Collections.Generic;
+    using System.IO;
+    using System.Web;
 
     using FreeRiders.Models;
     using FreeRiders.Web.Infrastructure.Mapping;
@@ -15,7 +17,11 @@
 
         public string Email { get; set; }
 
-        public ICollection<EventsViewModel> EventsJoined { get; set; }
+        public byte[] Avatar { get; set; }
+
+        public HttpPostedFileBase PostedAvatar { get; set; }
+
+        public ICollection<EventUserProfileViewModel> EventsJoined { get; set; }
 
         public ICollection<AlbumIndexViewModel> AlbumsCreated { get; set; }
 

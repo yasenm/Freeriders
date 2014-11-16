@@ -233,12 +233,12 @@
     <Compile Include="Controllers\Base\Roles\AuthorizeUserController.cs" />
     <Compile Include="Controllers\Base\BaseController.cs" />
     <Compile Include="Controllers\Event\EventController.cs" />
-    <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\LocationController.cs" />
-    <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\Home\HomeController.cs" />
+    <Compile Include="Controllers\Location\LocationController.cs" />
+    <Compile Include="Controllers\Manage\ManageController.cs" />
     <Compile Include="Controllers\Message\MessageController.cs" />
     <Compile Include="Controllers\Base\Roles\ModeratorController.cs" />
-    <Compile Include="Controllers\ReviewController.cs" />
+    <Compile Include="Controllers\Review\ReviewController.cs" />
     <Compile Include="Controllers\Base\Roles\TrustedUserController.cs" />
     <Compile Include="Controllers\User\UserController.cs" />
     <Compile Include="GlimpseSecurityPolicy.cs" />
@@ -260,10 +260,12 @@
     <Compile Include="ViewModels\Account\VerifyCodeViewModel.cs" />
     <Compile Include="ViewModels\Album\AlbumCreateViewModel.cs" />
     <Compile Include="ViewModels\Album\AlbumIndexViewModel.cs" />
+    <Compile Include="ViewModels\Album\EditAlbumViewModel.cs" />
     <Compile Include="ViewModels\Event\EventDetailsViewModel.cs" />
     <Compile Include="ViewModels\Event\EventsIndexViewModel.cs" />
     <Compile Include="ViewModels\Event\EventsViewModel.cs" />
     <Compile Include="ViewModels\Custom\HeaderViewModel.cs" />
+    <Compile Include="ViewModels\Event\EventUserProfileViewModel.cs" />
     <Compile Include="ViewModels\Event\UserEventListViewModel.cs" />
     <Compile Include="ViewModels\Home\HomeViewModel.cs" />
     <Compile Include="ViewModels\Location\LocationViewModel.cs" />
@@ -272,6 +274,7 @@
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModels\Message\MessageViewModel.cs" />
     <Compile Include="ViewModels\Message\PostMessageViewModel.cs" />
+    <Compile Include="ViewModels\User\UserBasicViewModel.cs" />
     <Compile Include="ViewModels\User\UserProfileViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -668,6 +671,9 @@
     <Content Include="Views\Shared\EditorTemplates\SingleLineText.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\DateTimePicker.cshtml" />
     <Content Include="Views\Album\Create.cshtml" />
+    <Content Include="Views\Album\Edit.cshtml" />
+    <Content Include="Views\Album\EditingAlbumPicturesGrid.cshtml" />
+    <Content Include="Views\User\PostAvatarForUser.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\Elmah\" />

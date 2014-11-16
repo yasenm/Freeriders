@@ -14,7 +14,7 @@
                             Area = string.Empty,
                             username = Model.CreatorName
                         },
-                        new {  })
+                        new { })
         </h3>
         <p>@Model.Description</p>
     </div>
@@ -24,13 +24,13 @@
             @if (User.Identity.IsAuthenticated)
             {
                 <div id="joined-or-not" class="row">
-                    @*@if (Model.Users.AsQueryable().FirstOrDefault(u => u.UserName == this.User.Identity.Name) != null)
-                        {*@
-                    @Html.Partial("_PostMessagePartial", new MessageViewModel(Model.ID))
-                    @*}
-                        else
-                        {
-                            @Ajax.ActionLink("Join event", "Join", "Event",
+                    @if (Model.Users.AsQueryable().FirstOrDefault(u => u.UserName == this.User.Identity.Name) != null)
+                    {
+                        @Html.Partial("_PostMessagePartial", new MessageViewModel(Model.ID))
+                    }
+                    else
+                    {
+                        @Ajax.ActionLink("Join event", "Join", "Event",
                             new
                             {
                                 eventID = Model.ID,
@@ -39,10 +39,11 @@
                             {
                                 HttpMethod = "POST",
                                 UpdateTargetId = "joined-or-not",
+                                OnSuccess = "reloadAjaxForm",
                                 InsertionMode = InsertionMode.Replace,
                             },
                             new { @class = "btn btn-success" })
-                        }*@
+                    }
                 </div>
 
                 <div id="messages" class="row">
@@ -50,16 +51,25 @@
                 </div>
             }
         </div>
-        <div class="col-md-4">
+        <div class="col-md-4 body-content">
             <div class="row body-content">
                 <h2>Map position here...</h2>
             </div>
             <div class="row">
                 @foreach (var participant in Model.Users)
                 {
-
+                    <h3>
+                        <strong>@Html.ActionLink(participant.UserName, "Profile", "User", new { username = participant.UserName }, null)</strong>
+                    </h3>
                 }
             </div>
         </div>
     </div>
 </div>
+
+
+<script>
+    function reloadAjaxForm() {
+        $('#joined-or-not').load();
+    }
+</script>

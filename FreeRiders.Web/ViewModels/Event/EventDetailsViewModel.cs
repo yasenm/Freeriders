@@ -38,7 +38,7 @@
         [DataType(DataType.Date)]
         public DateTime DateOfEvent { get; set; }
 
-        public ICollection<UserProfileViewModel> Users { get; set; }
+        public ICollection<UserBasicViewModel> Users { get; set; }
 
         public void CreateMappings(IConfiguration configuration)
         {

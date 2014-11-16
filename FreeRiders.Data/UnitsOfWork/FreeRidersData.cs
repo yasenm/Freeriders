@@ -93,6 +93,14 @@
             }
         }
 
+        public IRepository<EventsUsers> EventsUsers
+        {
+            get
+            {
+                return this.GetRepository<EventsUsers>();
+            }
+        }
+
         public int SaveChanges()
         {
             return this.Context.SaveChanges();

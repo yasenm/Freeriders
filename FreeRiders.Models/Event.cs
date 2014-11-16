@@ -10,11 +10,13 @@
     {
         private ICollection<User> joinedUsers;
         private ICollection<Message> messages;
+        private ICollection<EventsUsers> eventsUsers;
 
         public Event()
         {
             this.joinedUsers = new HashSet<User>();
             this.messages = new HashSet<Message>();
+            this.eventsUsers = new HashSet<EventsUsers>();
         }
 
         [Key]
@@ -51,6 +53,12 @@
         {
             get { return this.messages; }
             set { this.messages = value; }
+        }
+
+        public virtual ICollection<EventsUsers> EventsUsers
+        {
+            get { return this.eventsUsers; }
+            set { this.eventsUsers = value; }
         }
     }
 }

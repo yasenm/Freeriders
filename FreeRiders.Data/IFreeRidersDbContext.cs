@@ -25,6 +25,8 @@
 
         IDbSet<Message> Messages { get; set; }
 
+        IDbSet<EventsUsers> EventsUsers { get; set; }
+
         DbContext DbContext { get; }
 
         int SaveChanges();

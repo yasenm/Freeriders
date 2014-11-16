@@ -13,6 +13,7 @@
         private ICollection<Album> albums;
         private ICollection<Message> messages;
         private ICollection<Event> events;
+        private ICollection<EventsUsers> eventsUsers;
 
         public User()
         {
@@ -20,6 +21,7 @@
             this.albums = new HashSet<Album>();
             this.messages = new HashSet<Message>();
             this.events = new HashSet<Event>();
+            this.eventsUsers = new HashSet<EventsUsers>();
         }
 
         public byte[] Avatar { get; set; }
@@ -46,6 +48,12 @@
         {
             get { return this.events; }
             set { this.events = value; }
+        }
+
+        public virtual ICollection<EventsUsers> EventsUsers
+        {
+            get { return this.eventsUsers; }
+            set { this.eventsUsers = value; }
         }
 
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<User> manager)

@@ -54,6 +54,7 @@
   <ItemGroup>
     <Compile Include="Album.cs" />
     <Compile Include="AlbumCategory.cs" />
+    <Compile Include="EventsUsers.cs" />
     <Compile Include="User.cs" />
     <Compile Include="Event.cs" />
     <Compile Include="Location.cs" />

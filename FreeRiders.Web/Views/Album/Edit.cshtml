@@ -1,0 +1,64 @@
+﻿@using FreeRiders.Web.ViewModels.Album;
+
+@{
+    const string ControllerName = "Album";
+}
+
+@model EditAlbumViewModel
+
+<div class="container">
+    @using (Html.BeginForm("Edit", "Album", FormMethod.Post, new { enctype = "multipart/form-data", @class = "form-horizontal" }))
+    {
+        @Html.AntiForgeryToken()
+
+
+        <div class="row">
+            <h3>Edit Album</h3>
+            <br />
+            <div class="col-md-6">
+                <div class="form-group">
+                    <div>
+                        @Html.LabelFor(l => l.Title)
+                        @Html.TextBoxFor(l => l.Title, new { @class = "form-control", @Value = Model.Title })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div>
+                        <label for="Pictures">Chose picture</label>
+                        <input type="file" multiple name="Pictures" id="Pictures" class="btn btn-default" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div>
+                        @Html.LabelFor(l => l.Description)
+                        @Html.TextAreaFor(l => l.Description, new { @class = "form-control location-desctioption-text-area", Rows = 6 })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div>
+                        <label for="category-input">Category for the album</label>
+                        @Html.DropDownListFor(l => l.CategoryID, (SelectList)ViewBag.AlbumCategories, new { id = "category-input", @class = "form-control" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div>
+                        <label for="category-input">Location from which is the album</label>
+                        @Html.DropDownListFor(l => l.LocationID, (SelectList)ViewBag.Locations, new { id = "category-input", @class = "form-control" })
+                    </div>
+                </div>
+            </div>
+            <div id="edit-pictures-grid">
+                @Html.Action("LoadPicturesGrid", new { albumID = Model.ID })
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group">
+                <div>
+                    <input type="submit" value="Update" id="submitBtn" class="btn btn-success" />
+                    <input type="reset" value="Reset" id="resetBtn" class="btn btn-danger" />
+                </div>
+            </div>
+        </div>
+    }
+</div>
+

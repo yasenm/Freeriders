@@ -1,4 +1,4 @@
-﻿@model FreeRiders.Models.Album
+﻿@model FreeRiders.Web.ViewModels.Album.EditAlbumViewModel
 
 @using FreeRiders.Web.ViewModels;
 
@@ -7,7 +7,7 @@
     {
         ImageUrl = Model.Picture.ImageUrl,
         Title = Model.Title,
-        Subtitle = Model.Location.Name,
+        Subtitle = Model.LocationName,
     };
 }
 
@@ -20,14 +20,18 @@
             <div class="row album-details-text-content">
                 <h2><strong>@Model.Title</strong></h2>
                 <span> in </span>
-                <a href="@Url.Action("LocationDetails", "Location", new { id = Model.Location.ID })">
+                <a href="@Url.Action("LocationDetails", "Location", new { id = Model.LocationID })">
                     <h2>
-                        <strong>@Model.Location.Name</strong>
+                        <strong>@Model.LocationName</strong>
                     </h2>
                 </a>
                 <p class="subheading">
                     @Model.Description
                 </p>
+                @if (Model.CreatorName == this.User.Identity.Name)
+                {
+                    @Html.ActionLink("Edit", "Edit", "Album", new { area = string.Empty, id = Model.ID }, new { @class = "btn btn-warning" })
+                }
             </div>
             <div class="row">
                 <h2>

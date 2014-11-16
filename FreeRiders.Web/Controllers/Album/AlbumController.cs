@@ -12,6 +12,7 @@
     using FreeRiders.Models;
     using FreeRiders.Web.Infrastructure;
     using FreeRiders.Data.Common;
+    using System.Web;
 
     public class AlbumController : BaseController
     {
@@ -40,7 +41,12 @@
         [Authorize]
         public ActionResult AlbumDetails(int id)
         {
-            var albumResult = this.Data.Albums.All().FirstOrDefault(a => a.ID == id);
+            var albumResult = this.Data.Albums
+                .All()
+                .Where(a=>a.ID == id)
+                .Project()
+                .To<EditAlbumViewModel>()
+                .FirstOrDefault();
 
             return View(albumResult);
         }
@@ -83,6 +89,120 @@
             }
 
             return View(albumModel);
+        }
+
+        [HttpGet]
+        public ActionResult Edit(int id)
+        {
+            var album = this.Data.Albums
+                .All()
+                .Where(a => a.ID == id)
+                .Project()
+                .To<EditAlbumViewModel>()
+                .FirstOrDefault();
+
+            ViewBag.Locations = this.ddlServices.LocationsDDL;
+            ViewBag.AlbumCategories = this.ddlServices.AlbumsCategoriesDDL;
+
+            if (album.CreatorID != this.CurrentUser.Id)
+            {
+                throw new HttpException(404, "Forbiden address you are not the author of the album");
+            }
+
+            if (album != null)
+            {
+                return View(album);
+            }
+            else
+            {
+                return RedirectToAction("Index", "Album", new { area = "Administration" });
+            }
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit(int id, EditAlbumViewModel album)
+        {
+            if (album != null && ModelState.IsValid)
+            {
+                var albumToUpdate = this.Data.Albums.GetById(id);
+
+                if (albumToUpdate.CreatorID != this.CurrentUser.Id)
+                {
+                    throw new HttpException(404, "Forbiden address you are not the author of the album");
+                }
+
+                foreach (var picture in album.PicturesAdded)
+                {
+                    var albumPicture = ImageUploader.SavePictureInDb(picture, this.Data);
+                    albumToUpdate.Pictures.Add(albumPicture);
+                }
+
+                this.Data.SaveChanges();
+                return RedirectToAction("Index", "Album", new { area = "Administration" });
+            }
+
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult DeleteAlbum(int albumID)
+        {
+            var albumToDelete = this.Data.Albums.GetById(albumID);
+
+            if (albumToDelete.CreatorID != this.CurrentUser.Id)
+            {
+                throw new HttpException(404, "Forbiden address you are not the author of the album");
+            }
+
+            this.Data.Albums.Delete(albumToDelete);
+            this.Data.SaveChanges();
+
+            return this.Index();
+        }
+
+        [HttpGet]
+        public ActionResult LoadPicturesGrid(int albumID)
+        {
+            var album = this.Data.Albums.GetById(albumID);
+            var collection = album.Pictures.Where(p => p.IsDeleted != true).ToList();
+
+            ViewBag.CoverPictureID = album.PictureID;
+            ViewBag.AlbumID = albumID;
+
+            return PartialView("EditingAlbumPicturesGrid", collection);
+        }
+
+        [HttpPost]
+        public ActionResult DeletePictureFromAlbum(int pictureID, int albumID)
+        {
+            var albumToDelete = this.Data.Albums.GetById(albumID);
+
+            if (albumToDelete.CreatorID != this.CurrentUser.Id)
+            {
+                throw new HttpException(404, "Forbiden address you are not the author of the album");
+            }
+
+            this.Data.Pictures.Delete(pictureID);
+            this.Data.SaveChanges();
+
+            return this.LoadPicturesGrid(albumID);
+        }
+
+        [HttpPost]
+        public ActionResult EditPictureToCover(int pictureID, int albumID)
+        {
+            var album = this.Data.Albums.GetById(albumID);
+
+            if (album.CreatorID != this.CurrentUser.Id)
+            {
+                throw new HttpException(404, "Forbiden address you are not the author of the album");
+            }
+
+            album.PictureID = pictureID;
+            this.Data.SaveChanges();
+
+            return this.LoadPicturesGrid(albumID);
         }
     }
 }

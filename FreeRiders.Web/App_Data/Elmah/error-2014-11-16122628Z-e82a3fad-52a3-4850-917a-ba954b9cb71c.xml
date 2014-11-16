@@ -1,0 +1,194 @@
+﻿<error errorId="e82a3fad-52a3-4850-917a-ba954b9cb71c" application="/LM/W3SVC/231/ROOT" host="YASENPC" type="System.InvalidOperationException" message="The view 'PostAvatar' or its master was not found or no view engine supports the searched locations. The following locations were searched:&#xD;&#xA;~/Views/User/PostAvatar.cshtml&#xD;&#xA;~/Views/User/PostAvatar.vbhtml&#xD;&#xA;~/Views/Shared/PostAvatar.cshtml&#xD;&#xA;~/Views/Shared/PostAvatar.vbhtml" source="System.Web.Mvc" detail="System.InvalidOperationException: The view 'PostAvatar' or its master was not found or no view engine supports the searched locations. The following locations were searched:&#xD;&#xA;~/Views/User/PostAvatar.cshtml&#xD;&#xA;~/Views/User/PostAvatar.vbhtml&#xD;&#xA;~/Views/Shared/PostAvatar.cshtml&#xD;&#xA;~/Views/Shared/PostAvatar.vbhtml&#xD;&#xA;   at System.Web.Mvc.ViewResult.FindView(ControllerContext context)&#xD;&#xA;   at System.Web.Mvc.ViewResultBase.ExecuteResult(ControllerContext context)&#xD;&#xA;   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResult(ControllerContext controllerContext, ActionResult actionResult)&#xD;&#xA;   at Castle.Proxies.AsyncControllerActionInvokerProxy.InvokeActionResult_callback(ControllerContext controllerContext, ActionResult actionResult)&#xD;&#xA;   at Castle.Proxies.Invocations.ControllerActionInvoker_InvokeActionResult.InvokeMethodOnTarget()&#xD;&#xA;   at Castle.DynamicProxy.AbstractInvocation.Proceed()&#xD;&#xA;   at Glimpse.Core.Extensibility.CastleInvocationToAlternateMethodContextAdapter.Proceed()&#xD;&#xA;   at Glimpse.Core.Extensibility.ExecutionTimer.Time(Action action)&#xD;&#xA;   at Glimpse.Core.Extensions.AlternateMethodContextExtensions.TryProceedWithTimer(IAlternateMethodContext context, TimerResult&amp; timerResult)&#xD;&#xA;   at Glimpse.Core.Extensibility.AlternateMethod.NewImplementation(IAlternateMethodContext context)&#xD;&#xA;   at Glimpse.Core.Extensibility.AlternateTypeToCastleInterceptorAdapter.Intercept(IInvocation invocation)&#xD;&#xA;   at Castle.DynamicProxy.AbstractInvocation.Proceed()&#xD;&#xA;   at Castle.Proxies.AsyncControllerActionInvokerProxy.InvokeActionResult(ControllerContext controllerContext, ActionResult actionResult)&#xD;&#xA;   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilterRecursive(IList`1 filters, Int32 filterIndex, ResultExecutingContext preContext, ControllerContext controllerContext, ActionResult actionResult)&#xD;&#xA;   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilterRecursive(IList`1 filters, Int32 filterIndex, ResultExecutingContext preContext, ControllerContext controllerContext, ActionResult actionResult)&#xD;&#xA;   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultWithFilters(ControllerContext controllerContext, IList`1 filters, ActionResult actionResult)&#xD;&#xA;   at System.Web.Mvc.Async.AsyncControllerActionInvoker.&lt;&gt;c__DisplayClass21.&lt;&gt;c__DisplayClass2b.&lt;BeginInvokeAction&gt;b__1c()&#xD;&#xA;   at System.Web.Mvc.Async.AsyncControllerActionInvoker.&lt;&gt;c__DisplayClass21.&lt;BeginInvokeAction&gt;b__1e(IAsyncResult asyncResult)&#xD;&#xA;   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.CallEndDelegate(IAsyncResult asyncResult)&#xD;&#xA;   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()&#xD;&#xA;   at System.Web.Mvc.Async.AsyncResultWrapper.End[TResult](IAsyncResult asyncResult, Object tag)&#xD;&#xA;   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeAction(IAsyncResult asyncResult)&#xD;&#xA;   at System.Web.Mvc.Controller.&lt;BeginExecuteCore&gt;b__1d(IAsyncResult asyncResult, ExecuteCoreState innerState)&#xD;&#xA;   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)&#xD;&#xA;   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()&#xD;&#xA;   at System.Web.Mvc.Async.AsyncResultWrapper.End[TResult](IAsyncResult asyncResult, Object tag)&#xD;&#xA;   at System.Web.Mvc.Async.AsyncResultWrapper.End(IAsyncResult asyncResult, Object tag)&#xD;&#xA;   at System.Web.Mvc.Controller.EndExecuteCore(IAsyncResult asyncResult)&#xD;&#xA;   at System.Web.Mvc.Controller.&lt;BeginExecute&gt;b__15(IAsyncResult asyncResult, Controller controller)&#xD;&#xA;   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)&#xD;&#xA;   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()&#xD;&#xA;   at System.Web.Mvc.Async.AsyncResultWrapper.End[TResult](IAsyncResult asyncResult, Object tag)&#xD;&#xA;   at System.Web.Mvc.Async.AsyncResultWrapper.End(IAsyncResult asyncResult, Object tag)&#xD;&#xA;   at System.Web.Mvc.Controller.EndExecute(IAsyncResult asyncResult)&#xD;&#xA;   at System.Web.Mvc.Controller.System.Web.Mvc.Async.IAsyncController.EndExecute(IAsyncResult asyncResult)&#xD;&#xA;   at System.Web.Mvc.MvcHandler.&lt;BeginProcessRequest&gt;b__5(IAsyncResult asyncResult, ProcessRequestState innerState)&#xD;&#xA;   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)&#xD;&#xA;   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()&#xD;&#xA;   at System.Web.Mvc.Async.AsyncResultWrapper.End[TResult](IAsyncResult asyncResult, Object tag)&#xD;&#xA;   at System.Web.Mvc.Async.AsyncResultWrapper.End(IAsyncResult asyncResult, Object tag)&#xD;&#xA;   at System.Web.Mvc.MvcHandler.EndProcessRequest(IAsyncResult asyncResult)&#xD;&#xA;   at System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.EndProcessRequest(IAsyncResult result)&#xD;&#xA;   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()&#xD;&#xA;   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean&amp; completedSynchronously)" user="admin@freeriders.com" time="2014-11-16T12:26:28.2889649Z">
+  <serverVariables>
+    <item name="ALL_HTTP">
+      <value string="HTTP_CONNECTION:keep-alive&#xD;&#xA;HTTP_CONTENT_LENGTH:210&#xD;&#xA;HTTP_CONTENT_TYPE:application/x-www-form-urlencoded; charset=UTF-8&#xD;&#xA;HTTP_ACCEPT:*/*&#xD;&#xA;HTTP_ACCEPT_ENCODING:gzip,deflate&#xD;&#xA;HTTP_ACCEPT_LANGUAGE:en-US,en;q=0.8,bg;q=0.6&#xD;&#xA;HTTP_COOKIE:glimpsePolicy=On; glimpseId=Chrome 38.0; __RequestVerificationToken=BWpEdENrllnlLpI4md1SInqJ9uV-GdywYl4ugQ0GDuJyE9Nl-iPZIa_ygqiAQqZTSaPvKZ55bgY7Z1epn8OyDZJgGJhSzXl6gTVz3nngw0w1; .AspNet.ApplicationCookie=59NGcGAymTrfmpOpWimSL7QEjCF3-6BWaZkgKISO_n8CitX_w6as9xImJVA69vOsQf81m7jLOhdnMBDeBTwHhWT_HV7olnommrX_gw7orf6Povio2ZRE03IjyaS5yffSN0KIkIcyqaSGuuKc-2kVjksApFpCC3ITWOwHNl_na_eCi3WodI2b_HwzLrqr29NWPhPZp0vxtX3KxUI5b1BVvcC_HW-3lgbnG-gxTZde0gZhqC9EKuMxpI05JBsi81CoPChIcwGIIm8PI49u9bTR6en3tfW7GPc94Tsnh7ny4WZODTbWKDhZQmiPWTqXj3nLB-1yckKbxqJenrt_oDcj6NT2G0CgG2i7gthBK9PT6EBLTUMHeA39uU21mVaITrkvrgRx4C45IKTMFggzQ0bnccyOk8sZFycfBgcwhH-qLyxmqnTmGS4rGRJDo-nff7MWIPjFjs-msj1RumHGGSYjBeZF0KNnytHsBrVXVK5Dac-ID17crHcCAaszTw0QRXpC_hlG0kk4PZIPwSE1l_oJXQ&#xD;&#xA;HTTP_HOST:localhost:62576&#xD;&#xA;HTTP_REFERER:http://localhost:62576/User/Profile?username=admin%40freeriders.com&#xD;&#xA;HTTP_USER_AGENT:Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/38.0.2125.111 Safari/537.36&#xD;&#xA;HTTP_ORIGIN:http://localhost:62576&#xD;&#xA;HTTP_GLIMPSE_PARENT_REQUESTID:fa095671-75b8-4041-bb91-d5e39dfe1d5d&#xD;&#xA;HTTP_X_REQUESTED_WITH:XMLHttpRequest&#xD;&#xA;" />
+    </item>
+    <item name="ALL_RAW">
+      <value string="Connection: keep-alive&#xD;&#xA;Content-Length: 210&#xD;&#xA;Content-Type: application/x-www-form-urlencoded; charset=UTF-8&#xD;&#xA;Accept: */*&#xD;&#xA;Accept-Encoding: gzip,deflate&#xD;&#xA;Accept-Language: en-US,en;q=0.8,bg;q=0.6&#xD;&#xA;Cookie: glimpsePolicy=On; glimpseId=Chrome 38.0; __RequestVerificationToken=BWpEdENrllnlLpI4md1SInqJ9uV-GdywYl4ugQ0GDuJyE9Nl-iPZIa_ygqiAQqZTSaPvKZ55bgY7Z1epn8OyDZJgGJhSzXl6gTVz3nngw0w1; .AspNet.ApplicationCookie=59NGcGAymTrfmpOpWimSL7QEjCF3-6BWaZkgKISO_n8CitX_w6as9xImJVA69vOsQf81m7jLOhdnMBDeBTwHhWT_HV7olnommrX_gw7orf6Povio2ZRE03IjyaS5yffSN0KIkIcyqaSGuuKc-2kVjksApFpCC3ITWOwHNl_na_eCi3WodI2b_HwzLrqr29NWPhPZp0vxtX3KxUI5b1BVvcC_HW-3lgbnG-gxTZde0gZhqC9EKuMxpI05JBsi81CoPChIcwGIIm8PI49u9bTR6en3tfW7GPc94Tsnh7ny4WZODTbWKDhZQmiPWTqXj3nLB-1yckKbxqJenrt_oDcj6NT2G0CgG2i7gthBK9PT6EBLTUMHeA39uU21mVaITrkvrgRx4C45IKTMFggzQ0bnccyOk8sZFycfBgcwhH-qLyxmqnTmGS4rGRJDo-nff7MWIPjFjs-msj1RumHGGSYjBeZF0KNnytHsBrVXVK5Dac-ID17crHcCAaszTw0QRXpC_hlG0kk4PZIPwSE1l_oJXQ&#xD;&#xA;Host: localhost:62576&#xD;&#xA;Referer: http://localhost:62576/User/Profile?username=admin%40freeriders.com&#xD;&#xA;User-Agent: Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/38.0.2125.111 Safari/537.36&#xD;&#xA;Origin: http://localhost:62576&#xD;&#xA;Glimpse-Parent-RequestID: fa095671-75b8-4041-bb91-d5e39dfe1d5d&#xD;&#xA;X-Requested-With: XMLHttpRequest&#xD;&#xA;" />
+    </item>
+    <item name="APPL_MD_PATH">
+      <value string="/LM/W3SVC/231/ROOT" />
+    </item>
+    <item name="APPL_PHYSICAL_PATH">
+      <value string="C:\Users\Yasen\Documents\GitHub\Freeriders\FreeRiders.Web\" />
+    </item>
+    <item name="AUTH_TYPE">
+      <value string="ApplicationCookie" />
+    </item>
+    <item name="AUTH_USER">
+      <value string="admin@freeriders.com" />
+    </item>
+    <item name="AUTH_PASSWORD">
+      <value string="" />
+    </item>
+    <item name="LOGON_USER">
+      <value string="admin@freeriders.com" />
+    </item>
+    <item name="REMOTE_USER">
+      <value string="admin@freeriders.com" />
+    </item>
+    <item name="CERT_COOKIE">
+      <value string="" />
+    </item>
+    <item name="CERT_FLAGS">
+      <value string="" />
+    </item>
+    <item name="CERT_ISSUER">
+      <value string="" />
+    </item>
+    <item name="CERT_KEYSIZE">
+      <value string="" />
+    </item>
+    <item name="CERT_SECRETKEYSIZE">
+      <value string="" />
+    </item>
+    <item name="CERT_SERIALNUMBER">
+      <value string="" />
+    </item>
+    <item name="CERT_SERVER_ISSUER">
+      <value string="" />
+    </item>
+    <item name="CERT_SERVER_SUBJECT">
+      <value string="" />
+    </item>
+    <item name="CERT_SUBJECT">
+      <value string="" />
+    </item>
+    <item name="CONTENT_LENGTH">
+      <value string="210" />
+    </item>
+    <item name="CONTENT_TYPE">
+      <value string="application/x-www-form-urlencoded; charset=UTF-8" />
+    </item>
+    <item name="GATEWAY_INTERFACE">
+      <value string="CGI/1.1" />
+    </item>
+    <item name="HTTPS">
+      <value string="off" />
+    </item>
+    <item name="HTTPS_KEYSIZE">
+      <value string="" />
+    </item>
+    <item name="HTTPS_SECRETKEYSIZE">
+      <value string="" />
+    </item>
+    <item name="HTTPS_SERVER_ISSUER">
+      <value string="" />
+    </item>
+    <item name="HTTPS_SERVER_SUBJECT">
+      <value string="" />
+    </item>
+    <item name="INSTANCE_ID">
+      <value string="231" />
+    </item>
+    <item name="INSTANCE_META_PATH">
+      <value string="/LM/W3SVC/231" />
+    </item>
+    <item name="LOCAL_ADDR">
+      <value string="::1" />
+    </item>
+    <item name="PATH_INFO">
+      <value string="/User/PostAvatar" />
+    </item>
+    <item name="PATH_TRANSLATED">
+      <value string="C:\Users\Yasen\Documents\GitHub\Freeriders\FreeRiders.Web\User\PostAvatar" />
+    </item>
+    <item name="QUERY_STRING">
+      <value string="" />
+    </item>
+    <item name="REMOTE_ADDR">
+      <value string="::1" />
+    </item>
+    <item name="REMOTE_HOST">
+      <value string="::1" />
+    </item>
+    <item name="REMOTE_PORT">
+      <value string="59252" />
+    </item>
+    <item name="REQUEST_METHOD">
+      <value string="POST" />
+    </item>
+    <item name="SCRIPT_NAME">
+      <value string="/User/PostAvatar" />
+    </item>
+    <item name="SERVER_NAME">
+      <value string="localhost" />
+    </item>
+    <item name="SERVER_PORT">
+      <value string="62576" />
+    </item>
+    <item name="SERVER_PORT_SECURE">
+      <value string="0" />
+    </item>
+    <item name="SERVER_PROTOCOL">
+      <value string="HTTP/1.1" />
+    </item>
+    <item name="SERVER_SOFTWARE">
+      <value string="Microsoft-IIS/8.0" />
+    </item>
+    <item name="URL">
+      <value string="/User/PostAvatar" />
+    </item>
+    <item name="HTTP_CONNECTION">
+      <value string="keep-alive" />
+    </item>
+    <item name="HTTP_CONTENT_LENGTH">
+      <value string="210" />
+    </item>
+    <item name="HTTP_CONTENT_TYPE">
+      <value string="application/x-www-form-urlencoded; charset=UTF-8" />
+    </item>
+    <item name="HTTP_ACCEPT">
+      <value string="*/*" />
+    </item>
+    <item name="HTTP_ACCEPT_ENCODING">
+      <value string="gzip,deflate" />
+    </item>
+    <item name="HTTP_ACCEPT_LANGUAGE">
+      <value string="en-US,en;q=0.8,bg;q=0.6" />
+    </item>
+    <item name="HTTP_COOKIE">
+      <value string="glimpsePolicy=On; glimpseId=Chrome 38.0; __RequestVerificationToken=BWpEdENrllnlLpI4md1SInqJ9uV-GdywYl4ugQ0GDuJyE9Nl-iPZIa_ygqiAQqZTSaPvKZ55bgY7Z1epn8OyDZJgGJhSzXl6gTVz3nngw0w1; .AspNet.ApplicationCookie=59NGcGAymTrfmpOpWimSL7QEjCF3-6BWaZkgKISO_n8CitX_w6as9xImJVA69vOsQf81m7jLOhdnMBDeBTwHhWT_HV7olnommrX_gw7orf6Povio2ZRE03IjyaS5yffSN0KIkIcyqaSGuuKc-2kVjksApFpCC3ITWOwHNl_na_eCi3WodI2b_HwzLrqr29NWPhPZp0vxtX3KxUI5b1BVvcC_HW-3lgbnG-gxTZde0gZhqC9EKuMxpI05JBsi81CoPChIcwGIIm8PI49u9bTR6en3tfW7GPc94Tsnh7ny4WZODTbWKDhZQmiPWTqXj3nLB-1yckKbxqJenrt_oDcj6NT2G0CgG2i7gthBK9PT6EBLTUMHeA39uU21mVaITrkvrgRx4C45IKTMFggzQ0bnccyOk8sZFycfBgcwhH-qLyxmqnTmGS4rGRJDo-nff7MWIPjFjs-msj1RumHGGSYjBeZF0KNnytHsBrVXVK5Dac-ID17crHcCAaszTw0QRXpC_hlG0kk4PZIPwSE1l_oJXQ" />
+    </item>
+    <item name="HTTP_HOST">
+      <value string="localhost:62576" />
+    </item>
+    <item name="HTTP_REFERER">
+      <value string="http://localhost:62576/User/Profile?username=admin%40freeriders.com" />
+    </item>
+    <item name="HTTP_USER_AGENT">
+      <value string="Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/38.0.2125.111 Safari/537.36" />
+    </item>
+    <item name="HTTP_ORIGIN">
+      <value string="http://localhost:62576" />
+    </item>
+    <item name="HTTP_GLIMPSE_PARENT_REQUESTID">
+      <value string="fa095671-75b8-4041-bb91-d5e39dfe1d5d" />
+    </item>
+    <item name="HTTP_X_REQUESTED_WITH">
+      <value string="XMLHttpRequest" />
+    </item>
+  </serverVariables>
+  <form>
+    <item name="__RequestVerificationToken">
+      <value string="8YKzxr6R_Ffu6iYcQiBX4g_AH-mNtxE3bfkXJi7Yw4w-PBvMqo6-IvoSioCciPNvVRTs-uDKdQdrCbLXr-A6OAcfGKgcKJUaEuNrQ6xlf64GNRtA6hJHdL3MJ09I_mtwsz0FyWy7ZtVNi08IglubJA2" />
+    </item>
+    <item name="X-Requested-With">
+      <value string="XMLHttpRequest" />
+    </item>
+  </form>
+  <cookies>
+    <item name="glimpsePolicy">
+      <value string="On" />
+    </item>
+    <item name="glimpseId">
+      <value string="Chrome 38.0" />
+    </item>
+    <item name="__RequestVerificationToken">
+      <value string="BWpEdENrllnlLpI4md1SInqJ9uV-GdywYl4ugQ0GDuJyE9Nl-iPZIa_ygqiAQqZTSaPvKZ55bgY7Z1epn8OyDZJgGJhSzXl6gTVz3nngw0w1" />
+    </item>
+    <item name=".AspNet.ApplicationCookie">
+      <value string="59NGcGAymTrfmpOpWimSL7QEjCF3-6BWaZkgKISO_n8CitX_w6as9xImJVA69vOsQf81m7jLOhdnMBDeBTwHhWT_HV7olnommrX_gw7orf6Povio2ZRE03IjyaS5yffSN0KIkIcyqaSGuuKc-2kVjksApFpCC3ITWOwHNl_na_eCi3WodI2b_HwzLrqr29NWPhPZp0vxtX3KxUI5b1BVvcC_HW-3lgbnG-gxTZde0gZhqC9EKuMxpI05JBsi81CoPChIcwGIIm8PI49u9bTR6en3tfW7GPc94Tsnh7ny4WZODTbWKDhZQmiPWTqXj3nLB-1yckKbxqJenrt_oDcj6NT2G0CgG2i7gthBK9PT6EBLTUMHeA39uU21mVaITrkvrgRx4C45IKTMFggzQ0bnccyOk8sZFycfBgcwhH-qLyxmqnTmGS4rGRJDo-nff7MWIPjFjs-msj1RumHGGSYjBeZF0KNnytHsBrVXVK5Dac-ID17crHcCAaszTw0QRXpC_hlG0kk4PZIPwSE1l_oJXQ" />
+    </item>
+  </cookies>
+</error>

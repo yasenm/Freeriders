@@ -27,6 +27,8 @@
 
         IRepository<Message> Messages { get; }
 
+        IRepository<EventsUsers> EventsUsers { get; }
+
         int SaveChanges();
     }
 }

@@ -44,6 +44,8 @@
 
         public IDbSet<Message> Messages { get; set; }
 
+        public IDbSet<EventsUsers> EventsUsers { get; set; }
+
         public DbContext DbContext
         {
             get

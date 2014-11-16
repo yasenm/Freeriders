@@ -50,13 +50,15 @@
                 .GetById(currentEvent.CreatorID)
                 .UserName;
 
-            currentEvent.Users = this.Data.Events
-                .GetById(id)
-                .JoinedUsers
+            var joinedUSers = this.Data.EventsUsers
+                .All()
+                .Where(eu => eu.EventID == id)
                 .AsQueryable()
                 .Project()
-                .To<UserProfileViewModel>()
+                .To<UserBasicViewModel>()
                 .ToList();
+
+            currentEvent.Users = joinedUSers;
 
             return View(currentEvent);
         }
@@ -65,9 +67,21 @@
         public void Join(int eventID)
         {
             var currentEvent = this.Data.Events.GetById(eventID);
-            currentEvent.JoinedUsers.Add(this.CurrentUser);
-            this.CurrentUser.Events.Add(currentEvent);
 
+            var eventToUser = new EventsUsers
+            {
+                Event = currentEvent,
+                EventID = eventID,
+                UserID = this.GetUserId(),
+                User = this.CurrentUser,
+            };
+
+            this.Data.EventsUsers.Add(eventToUser);
+            this.Data.SaveChanges();
+
+            var evnts = this.Data.EventsUsers.All().Where(etu => etu.EventID == currentEvent.ID).ToList();
+
+            var something = evnts[0];
             this.Data.SaveChanges();
         }
 
