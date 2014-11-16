@@ -26,6 +26,7 @@
         [UIHint("MultiLineText")]
         public string Text { get; set; }
 
+        [UIHint("UserBasicViewModelMediumLink")]
         public string AuthorName { get; set; }
 
         public void CreateMappings(IConfiguration configuration)

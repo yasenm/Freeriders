@@ -11,23 +11,7 @@
         </div>
         @foreach (var message in Model)
         {
-            <div class="panel-body">
-                <div class="row body-content">
-                    @message.Text
-                </div>
-                <hr style="width: 80%;" />
-                <div class="row body-content">
-                    <strong>
-                        @Html.ActionLink(message.AuthorName, "Profile", "User",
-                        new
-                        {
-                            Area = string.Empty,
-                            username = message.AuthorName
-                        },
-                        new { @class = "pull-right" })
-                    </strong>
-                </div>
-            </div>
+            @Html.DisplayFor(m => message)
         }
     </div>
 </div>

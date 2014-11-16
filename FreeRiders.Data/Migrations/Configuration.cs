@@ -120,7 +120,7 @@ namespace FreeRiders.Data.Migrations
                 {
                     Email = usernameAndEmail,
                     UserName = usernameAndEmail,
-                    //Avatar = this.GetUserAvatar(),
+                    Avatar = this.GetUserAvatar(),
                 };
 
                 userManager.Create(user, GlobalConstants.AdminPassword);

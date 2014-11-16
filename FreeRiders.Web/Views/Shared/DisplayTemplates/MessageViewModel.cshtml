@@ -1,0 +1,9 @@
+﻿@model FreeRiders.Web.ViewModels.Message.MessageViewModel
+
+<div class="panel-body">
+    <div class="row body-content">
+        @Model.Text
+    </div>
+    <hr style="width: 80%;" />
+    @Html.DisplayFor(p => Model.AuthorName)
+</div>

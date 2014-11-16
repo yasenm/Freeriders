@@ -675,6 +675,9 @@
     <Content Include="Views\Album\Edit.cshtml" />
     <Content Include="Views\Album\EditingAlbumPicturesGrid.cshtml" />
     <Content Include="Views\User\PostAvatarForUser.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\UserBasicViewModelLargeLink.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\MessageViewModel.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\UserBasicViewModelMediumLink.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\Elmah\" />

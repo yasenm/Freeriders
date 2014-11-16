@@ -1,0 +1,7 @@
+﻿@model string
+
+<div class="row body-content">
+    <strong>
+        @Html.ActionLink(Model, "Profile", "User", new { Area = string.Empty, username = Model }, new { @class = "pull-right" })
+    </strong>
+</div>

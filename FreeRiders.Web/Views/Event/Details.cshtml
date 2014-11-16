@@ -62,9 +62,7 @@
             <div class="row">
                 @foreach (var participant in Model.Users)
                 {
-                    <h3>
-                        <strong>@Html.ActionLink(participant.UserName, "Profile", "User", new { username = participant.UserName }, null)</strong>
-                    </h3>
+                    @Html.DisplayFor(p => participant.UserName)
                 }
             </div>
         </div>

@@ -2,9 +2,11 @@
 {
     using FreeRiders.Models;
     using FreeRiders.Web.Infrastructure.Mapping;
+    using System.ComponentModel.DataAnnotations;
 
     public class UserBasicViewModel : IMapFrom<EventsUsers>, IHaveCustomMappings
     {
+        [UIHint("UserBasicViewModelLargeLink")]
         public string UserName { get; set; }
 
         public void CreateMappings(AutoMapper.IConfiguration configuration)
