@@ -15,6 +15,7 @@
     using FreeRiders.Data;
     using System;
     using FreeRiders.Data.Common;
+    using System.Reflection;
 
     [Authorize]
     public class AccountController : Controller
@@ -175,7 +176,10 @@
         {
             if (ModelState.IsValid)
             {
-                var user = new User { UserName = model.Email, Email = model.Email };
+                var directory = AssemblyHelpers.GetDirectoryForAssembyl(Assembly.GetExecutingAssembly());
+                var file = System.IO.File.ReadAllBytes(directory.Substring(0, directory.Length - 3) + "/Images/default-avatar.jpg");
+
+                var user = new User { UserName = model.Email, Email = model.Email, Avatar = file };
                 var result = await UserManager.CreateAsync(user, model.Password);
 
                 // Default role added to registration

@@ -502,6 +502,7 @@
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="Images\albums-cover.jpg" />
+    <Content Include="Images\default-avatar.jpg" />
     <Content Include="Images\events-cover.jpg" />
     <Content Include="Images\home-cover.jpg" />
     <Content Include="Images\locations-cover.jpg" />

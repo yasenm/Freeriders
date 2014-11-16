@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AssemblyHelpers.cs" />
     <Compile Include="Contracts\CodeFirstConventions\IsUnicodeAttributeConvention.cs" />
     <Compile Include="Contracts\DataAnotations\IsUnicodeAttribute.cs" />
     <Compile Include="Extensions\IEnumerableExtensions.cs" />

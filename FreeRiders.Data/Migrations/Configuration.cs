@@ -9,6 +9,8 @@ namespace FreeRiders.Data.Migrations
 
     using FreeRiders.Data.Common;
     using FreeRiders.Models;
+    using System.Reflection;
+    using System.IO;
 
     internal sealed class Configuration : DbMigrationsConfiguration<FreeRidersDbContext>
     {
@@ -118,6 +120,7 @@ namespace FreeRiders.Data.Migrations
                 {
                     Email = usernameAndEmail,
                     UserName = usernameAndEmail,
+                    Avatar = this.GetUserAvatar(),
                 };
 
                 userManager.Create(user, GlobalConstants.AdminPassword);
@@ -164,6 +167,14 @@ namespace FreeRiders.Data.Migrations
             }
 
             context.SaveChanges();
+        }
+
+        private byte[] GetUserAvatar()
+        {
+            var directory = AssemblyHelpers.GetDirectoryForAssembyl(Assembly.GetExecutingAssembly());
+            var file = File.ReadAllBytes(directory + "/Migrations/Imgs/default-avatar.jpg");
+
+            return file;
         }
     }
 }

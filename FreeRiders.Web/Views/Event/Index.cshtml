@@ -61,7 +61,9 @@
                     </p>
                 </div>
                 <div class="col-md-2 text-center">
-                    <strong>@ev.CreatorName</strong>
+                    <strong>
+                        @Html.ActionLink(ev.CreatorName, "Profile", "User", new { username = ev.CreatorName }, null)
+                    </strong>
                 </div>
                 <div class="col-md-2 text-center">
                     <strong>
