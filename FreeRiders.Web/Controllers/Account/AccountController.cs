@@ -179,7 +179,7 @@
             if (ModelState.IsValid)
             {
                 var directory = AssemblyHelpers.GetDirectoryForAssembyl(Assembly.GetExecutingAssembly());
-                var file = System.IO.File.ReadAllBytes(directory + "/DefaultImgs/default-avatar.jpg");
+                var file = System.IO.File.ReadAllBytes(directory + "/FreeRiders.Web/DefaultImgs/default-avatar.jpg");
 
                 var user = new User
                 {

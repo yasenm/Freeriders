@@ -229,7 +229,7 @@ namespace FreeRiders.Data.Migrations
         private byte[] GetUserAvatar()
         {
             var directory = AssemblyHelpers.GetDirectoryForAssembyl(Assembly.GetExecutingAssembly());
-            var file = File.ReadAllBytes(directory + "/DefaultImgs/default-avatar.jpg");
+            var file = File.ReadAllBytes(directory + "/FreeRiders.Web/DefaultImgs/default-avatar.jpg");
 
             return file;
         }
