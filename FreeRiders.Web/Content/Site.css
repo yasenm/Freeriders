@@ -110,3 +110,8 @@ textarea {
     word-wrap:break-word;
     text-align:justify;
 }
+
+.avatar-top-right{
+   max-height: 25px;
+   margin-right: 5px;
+}

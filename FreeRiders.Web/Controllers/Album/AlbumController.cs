@@ -123,7 +123,7 @@
         [ValidateAntiForgeryToken]
         public ActionResult Edit(int id, EditAlbumViewModel album)
         {
-            if (album != null && ModelState.IsValid)
+            if (album != null)
             {
                 var albumToUpdate = this.Data.Albums.GetById(id);
 
@@ -132,14 +132,22 @@
                     throw new HttpException(404, "Forbiden address you are not the author of the album");
                 }
 
-                foreach (var picture in album.PicturesAdded)
+                if (album.PicturesAdded != null)
                 {
-                    var albumPicture = ImageUploader.SavePictureInDb(picture, this.Data);
-                    albumToUpdate.Pictures.Add(albumPicture);
+                    foreach (var picture in album.PicturesAdded)
+                    {
+                        var albumPicture = ImageUploader.SavePictureInDb(picture, this.Data);
+                        albumToUpdate.Pictures.Add(albumPicture);
+                    }
                 }
 
+                albumToUpdate.CategoryID = album.CategoryID;
+                albumToUpdate.LocationID = album.LocationID;
+                albumToUpdate.Description = album.Description;
+                albumToUpdate.Title = album.Title;
+
                 this.Data.SaveChanges();
-                return RedirectToAction("Index", "Album", new { area = "Administration" });
+                return this.RedirectToAction("Details", "Album", new { area = string.Empty, id = album.ID });
             }
 
             return View();

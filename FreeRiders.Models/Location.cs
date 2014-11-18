@@ -34,6 +34,7 @@
 
         [Required]
         [StringLength(10000, MinimumLength = 50)]
+        [UIHint("DescriptionFullText")]
         public string Description { get; set; }
 
         [Required]

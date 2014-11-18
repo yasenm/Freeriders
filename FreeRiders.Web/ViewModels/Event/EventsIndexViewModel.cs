@@ -15,6 +15,7 @@
 
         public string Title { get; set; }
 
+        [UIHint("Description300Symbols")]
         public string Description { get; set; }
 
         public string CreatorName { get; set; }

@@ -1,6 +1,7 @@
 ﻿namespace FreeRiders.Web.ViewModels
 {
     using System;
+    using System.ComponentModel.DataAnnotations;
     using System.Linq.Expressions;
 
     using FreeRiders.Models;
@@ -12,6 +13,7 @@
 
         public string Name { get; set; }
 
+        [UIHint("Description100Symbols")]
         public string Description { get; set; }
 
         public Picture Picture { get; set; }

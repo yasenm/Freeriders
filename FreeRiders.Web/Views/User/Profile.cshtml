@@ -5,10 +5,10 @@
 <div class="container">
     <div class="jumbotron">
         <div class="row">
-            <div class="col-md-5" id="avatar-profile-holder">
+            <div class="col-md-5 text-center" id="avatar-profile-holder">
                 @if (Model.Avatar != null)
                 {
-                    <img src="@Url.Action("Avatar", "User", new { username = Model.UserName })" alt="No avatar was found" class="img-responsive" />
+                    <img src="@Url.Action("Avatar", "User", new { username = Model.UserName })" alt="No avatar was found" class="img-responsive"  style="max-height: 350px; margin:auto"/>
                 }
                 else
                 {

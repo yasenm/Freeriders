@@ -1,5 +1,6 @@
 ﻿namespace FreeRiders.Web.ViewModels.Album
 {
+    using System.ComponentModel.DataAnnotations;
     using System.Collections.Generic;
     using System.Web;
 
@@ -8,8 +9,10 @@
 
     public class AlbumCreateViewModel : IMapFrom<Album>
     {
+        [UIHint("CustomSingleLineText")]
         public string Title { get; set; }
 
+        [UIHint("CustomMultiLineText")]
         public string Description { get; set; }
 
         public int LocationID { get; set; }

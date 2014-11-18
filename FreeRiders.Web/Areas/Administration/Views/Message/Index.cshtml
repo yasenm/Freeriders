@@ -1,4 +1,4 @@
-﻿@using FreeRiders.Models
+﻿@using FreeRiders.Web.Areas.Administration.ViewModels.Message
 
 @{
     Layout = "~/Areas/Administration/Views/Shared/_Layout.cshtml";
@@ -7,15 +7,15 @@
 
 <div class="container">
     @(Html.Kendo()
-    .Grid<Event>()
-    .Name("events-grid")
+    .Grid<MessageAdminViewModel>()
+    .Name("messages-grid")
     .Columns(columns =>
     {
-        columns.Bound(ev => ev.ID);
-        columns.Bound(ev => ev.CreatedOn).Format("{0:dd-MM-yyyy HH:mm}").Filterable(false); ;
-        columns.Bound(ev => ev.Title);
-        columns.Bound(ev => ev.Description);
-        columns.Bound(ev => ev.DateOfEvent).Format("{0:dd-MM-yyyy HH:mm}").Filterable(false); ;
+        columns.Bound(message => message.ID);
+        columns.Bound(message => message.AuthorName);
+        columns.Bound(message => message.Text);
+        columns.Bound(message => message.EventTitle);
+        columns.Bound(message => message.CreatedOn).Format("{0:dd-MM-yyyy HH:mm}").Filterable(false); ;
         columns.Command(command =>
         {
             command.Destroy().Text("Remove");

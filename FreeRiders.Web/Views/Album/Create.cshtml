@@ -11,10 +11,7 @@
             <h3>Create Album</h3>
             <br />
             <div class="form-group">
-                <div>
-                    @Html.LabelFor(album => album.Title)
-                    @Html.TextBoxFor(album => album.Title, new { @class = "form-control" })
-                </div>
+                @Html.EditorFor(a => Model.Title)
             </div>
             <div class="form-group">
                 <div>
@@ -29,10 +26,7 @@
                 </div>
             </div>
             <div class="form-group">
-                <div>
-                    @Html.LabelFor(album => album.Description)
-                    @Html.TextAreaFor(album => album.Description, new { @class = "form-control location-desctioption-text-area" })
-                </div>
+                @Html.EditorFor(a => Model.Description)
             </div>
             <div class="form-group">
                 <div>

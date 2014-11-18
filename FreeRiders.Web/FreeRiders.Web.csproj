@@ -266,7 +266,6 @@
     <Compile Include="ViewModels\Event\EventsViewModel.cs" />
     <Compile Include="ViewModels\Custom\HeaderViewModel.cs" />
     <Compile Include="ViewModels\Event\EventUserProfileViewModel.cs" />
-    <Compile Include="ViewModels\Event\UserEventListViewModel.cs" />
     <Compile Include="ViewModels\Home\HomeViewModel.cs" />
     <Compile Include="ViewModels\Location\LocationViewModel.cs" />
     <Compile Include="ViewModels\Manage\ManageViewModels.cs" />
@@ -539,6 +538,7 @@
     <Content Include="Areas\Administration\Views\Shared\EditorTemplates\Url.cshtml" />
     <Content Include="Areas\Administration\Views\AlbumCategory\Index.cshtml" />
     <Content Include="Areas\Administration\Views\User\Index.cshtml" />
+    <Content Include="Areas\Administration\Views\Message\Index.cshtml" />
     <None Include="Properties\PublishProfiles\freeriders.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -621,8 +621,6 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
     <Content Include="Views\Account\_ChangePasswordPartial.cshtml" />
@@ -648,7 +646,6 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
-    <Content Include="Views\Home\Create.cshtml" />
     <Content Include="Views\Account\_DisplayAvatar.cshtml" />
     <Content Include="Views\Album\Index.cshtml" />
     <Content Include="Views\Album\AlbumDetails.cshtml" />
@@ -679,10 +676,14 @@
     <Content Include="Views\Shared\DisplayTemplates\MessageViewModel.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\UserBasicViewModelMediumLink.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\HeaderViewModel.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\Description100Symbols.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\Description300Symbols.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\DescriptionFullText.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\CustomSingleLineText.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\CustomMultiLineText.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\Elmah\" />
-    <Folder Include="Areas\Administration\Views\Message\" />
     <Folder Include="bin\" />
     <Folder Include="Infrastructure\Filters\" />
     <Folder Include="ViewModels\Review\" />

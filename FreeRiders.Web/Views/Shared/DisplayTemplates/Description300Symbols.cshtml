@@ -1,0 +1,17 @@
+﻿@model string
+
+<div class="row">
+    <p class="description-container">
+        @if (Model.Length < 300)
+        {
+            @Model
+        }
+        else
+        {
+            @Model.Substring(0, 300)
+            <span>
+                ...
+            </span>
+        }
+    </p>
+</div>

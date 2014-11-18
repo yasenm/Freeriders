@@ -42,5 +42,30 @@
 
             return RedirectToAction("Index");
         }
+
+        [HttpPost]
+        public ActionResult Delete(string categoryName)
+        {
+            var category = this.Data.LocationCategories.All().FirstOrDefault(c => c.Name == categoryName);
+            var locations = this.Data.Locations.All().Where(l => l.CategoryID == category.ID).ToList();
+
+            foreach (var location in locations)
+            {
+                var albums = location.Albums;
+
+                foreach (var album in albums)
+                {
+                    this.Data.Albums.Delete(album);
+                }
+
+                this.Data.SaveChanges();
+                this.Data.Locations.Delete(location.ID);
+                this.Data.SaveChanges();
+            }
+
+            this.Data.AlbumCategories.Delete(category.ID);
+            this.Data.SaveChanges();
+            return this.Index();
+        }
     }
 }

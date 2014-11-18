@@ -20,16 +20,18 @@
     [Authorize]
     public class AccountController : Controller
     {
+        private IFreeRidersData data;
         private ApplicationUserManager _userManager;
 
         public AccountController()
         {
         }
 
-        public AccountController(ApplicationUserManager userManager, ApplicationSignInManager signInManager)
+        public AccountController(ApplicationUserManager userManager, ApplicationSignInManager signInManager, IFreeRidersData data)
         {
             UserManager = userManager;
             SignInManager = signInManager;
+            this.data = data;
         }
 
         public ApplicationUserManager UserManager
@@ -177,7 +179,7 @@
             if (ModelState.IsValid)
             {
                 var directory = AssemblyHelpers.GetDirectoryForAssembyl(Assembly.GetExecutingAssembly());
-                var file = System.IO.File.ReadAllBytes(directory.Substring(0, directory.Length - 3) + "/Images/default-avatar.jpg");
+                var file = System.IO.File.ReadAllBytes(directory + "/DefaultImgs/default-avatar.jpg");
 
                 var user = new User
                 {

@@ -11,7 +11,7 @@
     };
 }
 
-@Html.Partial("_PageHeader", headerArguments)
+@Html.DisplayFor(a => headerArguments)
 
 <div class="container">
     @foreach (var location in Model)

@@ -7,12 +7,12 @@
 
     using FreeRiders.Data.UnitsOfWork;
     using FreeRiders.Web.ViewModels;
-using System.Collections.Generic;
+    using System.Collections.Generic;
 
     public class LocationController : BaseController
     {
         public LocationController(IFreeRidersData data)
-            :base(data)
+            : base(data)
         {
         }
 
@@ -29,6 +29,7 @@ using System.Collections.Generic;
             return View(locationsForIndex);
         }
 
+        [Authorize]
         public ActionResult LocationDetails(int id)
         {
             var result = this.Data.Locations.GetById(id);

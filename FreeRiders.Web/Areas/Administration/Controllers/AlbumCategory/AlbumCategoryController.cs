@@ -14,10 +14,10 @@
     public class AlbumCategoryController : AdminController
     {
         public AlbumCategoryController(IFreeRidersData data)
-            :base(data)
+            : base(data)
         {
         }
-        
+
         // GET: Administration/AlbumCategory
         public ActionResult Index()
         {
@@ -41,6 +41,24 @@
             this.Data.SaveChanges();
 
             return Redirect("Index");
+        }
+
+        [HttpPost]
+        public ActionResult Delete(string categoryName)
+        {
+            var category = this.Data.AlbumCategories.All().FirstOrDefault(c => c.Name == categoryName);
+            var albums = this.Data.Albums.All().Where(a => a.CategoryID == category.ID).ToList();
+
+            foreach (var album in albums)
+            {
+                this.Data.Albums.Delete(album);
+            }
+
+            this.Data.SaveChanges();
+
+            this.Data.AlbumCategories.Delete(category);
+            this.Data.SaveChanges();
+            return this.Index();
         }
     }
 }

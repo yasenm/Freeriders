@@ -6,24 +6,29 @@
     {
         @Html.AntiForgeryToken()
 
-        <ul class="nav navbar-nav navbar-right">
-            <li>
-                @*@{ Html.RenderAction("DisplayPhoto", "Account"); }*@
-            </li>
+    <ul class="nav navbar-nav navbar-right">
+        <li>
+            @*@{ Html.RenderAction("DisplayPhoto", "Account"); }*@
+        </li>
 
-            <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">@User.Identity.GetUserName()<b class="caret"></b></a>
-                <ul class="dropdown-menu">
-                    <li>
-                        @Html.ActionLink("User profile", "Profile", "User", new { Area = string.Empty, username = User.Identity.Name }, null)
-                    </li>
-                    <li class="divider"></li>
-                    <li>
-                        <a href="javascript:document.getElementById('logoutForm').submit()">Log off</a>
-                    </li>
-                </ul>
-            </li>
-        </ul>
+        <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                <img src="@Url.Action("Avatar", "User", new { Area = string.Empty, username = this.User.Identity.Name })" alt="No avatar was found" class="avatar-top-right" />
+                @User.Identity.GetUserName()
+                <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+                <li>
+                    <img src="@Url.Action("Avatar", "User", new { Area = string.Empty, username = this.User.Identity.Name })" alt="No avatar was found" class="img-responsive" />
+                    @Html.ActionLink("User profile", "Profile", "User", new { Area = string.Empty, username = User.Identity.Name }, null)
+                </li>
+                <li class="divider"></li>
+                <li>
+                    <a href="javascript:document.getElementById('logoutForm').submit()">Log off</a>
+                </li>
+            </ul>
+        </li>
+    </ul>
     }
 }
 else

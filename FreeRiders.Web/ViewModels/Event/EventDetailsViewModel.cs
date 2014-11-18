@@ -22,6 +22,7 @@
 
         [Required]
         [UIHint("MultiLineText")]
+        [UIHint("DescriptionFullText")]
         public string Description { get; set; }
 
         public string CreatorID { get; set; }

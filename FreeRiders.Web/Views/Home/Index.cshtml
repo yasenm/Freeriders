@@ -12,7 +12,7 @@
     };
 }
 
-@Html.Partial("_PageHeader", headerArguments)
+@Html.DisplayFor(a => headerArguments)
 
 <div class="container text-center">
     <div class="row">
@@ -46,6 +46,7 @@
                             <h2>
                                 @ev.Title
                             </h2>
+                            @Html.DisplayFor(e => ev.Description)
                             @Html.DisplayFor(o => ev.DateOfEvent)
                         </a>
                     </div>

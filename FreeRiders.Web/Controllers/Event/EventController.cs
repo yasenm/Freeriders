@@ -13,7 +13,7 @@
     using FreeRiders.Models;
     using FreeRiders.Web.Infrastructure.Services;
 
-    public class EventController : BaseController
+    public class EventController : AuthorizeUserController
     {
         private DDLServices ddlServices;
 
@@ -23,6 +23,7 @@
             this.ddlServices = ddlServices;
         }
 
+        [AllowAnonymous]
         public ActionResult Index()
         {
             var eventForView = this.Data

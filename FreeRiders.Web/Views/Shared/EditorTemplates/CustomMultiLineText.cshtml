@@ -1,0 +1,7 @@
+﻿@model string
+
+<div>
+    @Html.LabelFor(album => Model)
+    @Html.TextAreaFor(album => Model, new { @class = "form-control location-desctioption-text-area" })
+    @Html.ValidationMessageFor(album => Model)
+</div>

@@ -19,6 +19,7 @@
         {
         }
 
+        [AllowAnonymous]
         public ActionResult MessagesOfEvent(int eventID)
         {
             var messages = this.Data.Messages
@@ -41,7 +42,7 @@
             if (message != null && ModelState.IsValid)
             {
                 var dbMessage = Mapper.Map<Message>(message);
-                dbMessage.Author = this.CurrentUser;
+                dbMessage.AuthorID = this.GetUserId();
                 var ev = this.Data.Events.GetById(message.EventID);
 
                 if (ev == null)
@@ -49,7 +50,7 @@
                     throw new HttpException(404, "Event was not found");
                 }
 
-                ev.Messages.Add(dbMessage);
+                this.Data.Messages.Add(dbMessage);
                 this.Data.SaveChanges();
 
                 return this.MessagesOfEvent(message.EventID);
