@@ -19,7 +19,7 @@
     public class HomeController : BaseController
     {
         public HomeController(IFreeRidersData data)
-            : base (data)
+            : base(data)
         {
         }
 

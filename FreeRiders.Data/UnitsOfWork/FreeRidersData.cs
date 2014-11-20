@@ -122,7 +122,7 @@
             var typeOfRepository = typeof(T);
             if (!this.repositories.ContainsKey(typeOfRepository))
             {
-                var newRepository = Activator.CreateInstance(typeof(DeletableEntityRepository<T>), Context);
+                var newRepository = Activator.CreateInstance(typeof(DeletableEntityRepository<T>), this.Context);
                 this.repositories.Add(typeOfRepository, newRepository);
             }
 
