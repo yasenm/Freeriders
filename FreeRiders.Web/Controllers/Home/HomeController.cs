@@ -19,7 +19,7 @@
     public class HomeController : BaseController
     {
         public HomeController(IFreeRidersData data)
-            :base(data)
+            : base (data)
         {
         }
 
@@ -48,7 +48,7 @@
             indexViewResult.Events = this.Data.Events
                 .All()
                 .AsQueryable()
-                .OrderByDescending(ev =>ev.DateOfEvent)
+                .OrderByDescending(ev => ev.DateOfEvent)
                 .Take(10)
                 .Project()
                 .To<EventsViewModel>()

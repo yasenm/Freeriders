@@ -43,7 +43,7 @@
         {
             var albumResult = this.Data.Albums
                 .All()
-                .Where(a=>a.ID == id)
+                .Where(a => a.ID == id)
                 .Project()
                 .To<EditAlbumViewModel>()
                 .FirstOrDefault();
@@ -170,6 +170,7 @@
         }
 
         [HttpGet]
+        [OutputCache(Duration = 10 * 60)]
         public ActionResult LoadPicturesGrid(int albumID)
         {
             var album = this.Data.Albums.GetById(albumID);

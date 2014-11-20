@@ -14,7 +14,7 @@
     public class LocationCategoryController : AdminController
     {
         public LocationCategoryController(IFreeRidersData data)
-            :base(data)
+            :base (data)
         {
         }
 

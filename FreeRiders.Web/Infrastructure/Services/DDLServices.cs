@@ -10,7 +10,7 @@
     public class DDLServices : BaseServices
     {
         public DDLServices(IFreeRidersData data)
-            :base(data)
+            :base (data)
         {
         }
 

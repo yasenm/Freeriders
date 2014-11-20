@@ -29,17 +29,18 @@ namespace FreeRiders.Data.Migrations
             userManager = new UserManager<User>(userStore);
 
             this.SeedRoles(context);
-            this.SeedUsers(context);
-            this.SeedPictures(context);
-            this.SeedLocationCategories(context);
-            this.SeedAlbumCategories(context);
-            this.SeedLocations(context);
-            this.SeedEvents(context);
+            this.SeedAdmin(context);
+            //this.SeedUsers(context);
+            //this.SeedPictures(context);
+            //this.SeedLocationCategories(context);
+            //this.SeedAlbumCategories(context);
+            //this.SeedLocations(context);
+            //this.SeedEvents(context);
         }
 
         private void SeedEvents(FreeRidersDbContext context)
         {
-            if(context.Events.Any())
+            if (context.Events.Any())
             {
                 return;
             }
@@ -139,7 +140,6 @@ namespace FreeRiders.Data.Migrations
                 return;
             }
 
-            this.SeedAdmin(context);
             this.SeedModerators(context);
             this.SeedTrustedUsers(context);
         }
@@ -160,7 +160,7 @@ namespace FreeRiders.Data.Migrations
             {
                 Email = GlobalConstants.AdminEmailUsername,
                 UserName = GlobalConstants.AdminEmailUsername,
-                Avatar = this.GetUserAvatar(),
+                //Avatar = this.GetUserAvatar(),
             };
 
             userManager.Create(admin, GlobalConstants.AdminPassword);
@@ -229,7 +229,7 @@ namespace FreeRiders.Data.Migrations
         private byte[] GetUserAvatar()
         {
             var directory = AssemblyHelpers.GetDirectoryForAssembyl(Assembly.GetExecutingAssembly());
-            var file = File.ReadAllBytes(directory + "/FreeRiders.Web/DefaultImgs/default-avatar.jpg");
+            var file = File.ReadAllBytes(directory + "/DefaultImgs/default-avatar.jpg");
 
             return file;
         }

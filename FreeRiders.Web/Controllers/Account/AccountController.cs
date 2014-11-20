@@ -179,7 +179,7 @@
             if (ModelState.IsValid)
             {
                 var directory = AssemblyHelpers.GetDirectoryForAssembyl(Assembly.GetExecutingAssembly());
-                var file = System.IO.File.ReadAllBytes(directory + "/FreeRiders.Web/DefaultImgs/default-avatar.jpg");
+                var file = System.IO.File.ReadAllBytes(Server.MapPath("../DefaultImgs/default-avatar.jpg"));
 
                 var user = new User
                 {
@@ -187,7 +187,7 @@
                     Email = model.Email,
                     //Avatar = file
                 };
-                var result = await UserManager.CreateAsync(user, model.Password);
+                var result = UserManager.Create(user, model.Password);
 
                 // Default role added to registration
                 UserManager.AddToRole(user.Id, GlobalConstants.RegularUserRole);

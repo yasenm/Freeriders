@@ -20,6 +20,7 @@
         }
 
         [AllowAnonymous]
+        [OutputCache(Duration = 2 * 60)]
         public ActionResult MessagesOfEvent(int eventID)
         {
             var messages = this.Data.Messages
@@ -28,7 +29,7 @@
                 .OrderByDescending(m => m.CreatedOn)
                 .Project()
                 .To<MessageViewModel>()
-                .ToList() ;
+                .ToList();
 
             ViewBag.EventID = eventID;
 
