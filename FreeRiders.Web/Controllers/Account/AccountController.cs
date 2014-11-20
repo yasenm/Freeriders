@@ -185,7 +185,7 @@
                 {
                     UserName = model.Email,
                     Email = model.Email,
-                    //Avatar = file
+                    Avatar = file
                 };
                 var result = UserManager.Create(user, model.Password);
 

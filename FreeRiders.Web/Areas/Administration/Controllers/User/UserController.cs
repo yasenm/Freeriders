@@ -36,24 +36,6 @@
                 .Project()
                 .To<UserAdminViewModel>();
 
-            //var users1 = this.Data
-            //   .Users
-            //   .All().Join(this.Data.Roles.All(),
-            //   user => user.Roles.FirstOrDefault().RoleId,
-            //   role => role.Id,
-            //   (user, role) =>
-            //       new UserViewModel()
-            //       {
-            //           FirstName = user.FirstName,
-            //           MiddleName = user.MiddleName,
-            //           LastName = user.LastName,
-            //           Age = user.Age,
-            //           PersonalNumber = user.PersonalNumber,
-            //           Id = user.Id,
-            //           Role = role.Name
-            //       }
-            //   ).ToDataSourceResult(request, ModelState);
-
             return users;
         }
 
