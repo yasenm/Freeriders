@@ -26,7 +26,7 @@
                 .Select(InputAlbumCategoryModel.FromAlbumCategory)
                 .ToList();
 
-            return View(categories);
+            return this.View(categories);
         }
 
         [HttpPost]
@@ -40,7 +40,7 @@
             this.Data.AlbumCategories.Add(newAlbumCategory);
             this.Data.SaveChanges();
 
-            return Redirect("Index");
+            return this.Redirect("Index");
         }
 
         [HttpPost]

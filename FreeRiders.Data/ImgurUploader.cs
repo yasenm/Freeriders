@@ -31,7 +31,7 @@
                 Regex reg = new Regex("link\":\"(.*?)\"");
                 Match match = reg.Match(result);
 
-                string url = match.ToString().Replace("link\":\"", "").Replace("\"", "").Replace("\\/", "/");
+                string url = match.ToString().Replace("link\":\"", string.Empty).Replace("\"", string.Empty).Replace("\\/", "/");
 
                 return url;
             }

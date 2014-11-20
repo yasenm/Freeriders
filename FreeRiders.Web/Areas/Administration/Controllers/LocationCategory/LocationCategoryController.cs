@@ -26,7 +26,7 @@
                 .All()
                 .ToList();
 
-            return View(locationCategories);
+            return this.View(locationCategories);
         }
 
         [HttpPost]
@@ -40,7 +40,7 @@
             this.Data.LocationCategories.Add(newCategory);
             this.Data.SaveChanges();
 
-            return RedirectToAction("Index");
+            return this.RedirectToAction("Index");
         }
 
         [HttpPost]

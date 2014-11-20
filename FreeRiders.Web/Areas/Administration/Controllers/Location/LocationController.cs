@@ -24,23 +24,23 @@
         // GET: Administration/Location
         public ActionResult Index()
         {
-            return View();
+            return this.View();
         }
 
         [HttpGet]
         public ActionResult Create()
         {
-            ViewBag.Categories = ddlServices.LocationsCategoriesDDL;
+            this.ViewBag.Categories = this.ddlServices.LocationsCategoriesDDL;
 
             var location = new InputLocationModel();
-            return View(location);
+            return this.View(location);
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create(InputLocationModel location)
         {
-            if (ModelState.IsValid)
+            if (this.ModelState.IsValid)
             {
                 var picture = ImageUploader.SavePictureInDb(location.Picture, this.Data);
                 var newLocation = location.GetLocationForDb();
@@ -49,10 +49,10 @@
                 this.Data.Locations.Add(newLocation);
                 this.Data.SaveChanges();
 
-                return Redirect("~/");
+                return this.Redirect("~/");
             }
 
-            return View();
+            return this.View();
         }
     }
 }

@@ -26,7 +26,7 @@
                 .To<LocationViewModel>()
                 .ToList();
 
-            return View(locationsForIndex);
+            return this.View(locationsForIndex);
         }
 
         [Authorize]
@@ -34,7 +34,7 @@
         {
             var result = this.Data.Locations.GetById(id);
 
-            return View(result);
+            return this.View(result);
         }
 
         [HttpGet]

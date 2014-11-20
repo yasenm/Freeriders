@@ -31,7 +31,7 @@
 
         public ActionResult Index()
         {
-            return View();
+            return this.View();
         }
 
         protected override IQueryable GetData()

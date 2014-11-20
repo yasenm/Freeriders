@@ -31,16 +31,16 @@
                 .To<MessageViewModel>()
                 .ToList();
 
-            ViewBag.EventID = eventID;
+            this.ViewBag.EventID = eventID;
 
-            return PartialView("MessagesForEvent", messages);
+            return this.PartialView("MessagesForEvent", messages);
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create(MessageViewModel message)
         {
-            if (message != null && ModelState.IsValid)
+            if (message != null && this.ModelState.IsValid)
             {
                 var dbMessage = Mapper.Map<Message>(message);
                 dbMessage.AuthorID = this.GetUserId();

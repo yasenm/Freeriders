@@ -54,12 +54,12 @@
                 .To<EventsViewModel>()
                 .ToList();
 
-            return View(indexViewResult);
+            return this.View(indexViewResult);
         }
 
         public ActionResult Error()
         {
-            return View();
+            return this.View();
         }
     }
 }

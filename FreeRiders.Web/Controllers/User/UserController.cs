@@ -31,7 +31,7 @@ namespace FreeRiders.Web.Controllers
 
             var avatar = user.Avatar;
 
-            return File(avatar, "image/jpeg");
+            return this.File(avatar, "image/jpeg");
         }
 
         [HttpGet]
@@ -42,7 +42,7 @@ namespace FreeRiders.Web.Controllers
                 UserName = username,
             };
 
-            return PartialView("PostAvatarForUser", model);
+            return this.PartialView("PostAvatarForUser", model);
         }
 
         [HttpPost]
@@ -92,7 +92,7 @@ namespace FreeRiders.Web.Controllers
                 .To<AlbumIndexViewModel>()
                 .ToList();
 
-            return View(user);
+            return this.View(user);
         }
     }
 }

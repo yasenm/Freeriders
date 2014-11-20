@@ -34,7 +34,7 @@
                 .To<EventsIndexViewModel>()
                 .ToList();
 
-            return View(eventForView);
+            return this.View(eventForView);
         }
 
         [HttpGet]
@@ -61,7 +61,7 @@
 
             currentEvent.Users = joinedUSers;
 
-            return View(currentEvent);
+            return this.View(currentEvent);
         }
 
         [HttpPost]
@@ -90,9 +90,9 @@
         public ActionResult Create()
         {
             var model = new EventDetailsViewModel();
-            ViewBag.Categories = this.ddlServices.LocationsDDL;
+            this.ViewBag.Categories = this.ddlServices.LocationsDDL;
 
-            return View(model);
+            return this.View(model);
         }
 
         [HttpPost]
@@ -108,7 +108,7 @@
                 this.Data.Events.Add(dbEvent);
                 this.Data.SaveChanges();
 
-                return RedirectToAction("Index", "Event", new { Area = string.Empty });
+                return this.RedirectToAction("Index", "Event", new { Area = string.Empty });
             }
 
             throw new HttpException(404, "Event could not be created");

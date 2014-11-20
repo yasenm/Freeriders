@@ -32,17 +32,17 @@
                 .To<AdminAlbumModel>()
                 .ToList();
 
-            return View(albumsResult);
+            return this.View(albumsResult);
         }
 
         [HttpGet]
         public ActionResult Create()
         {
-            ViewBag.Locations = this.ddlServices.LocationsDDL;
-            ViewBag.Categories = this.ddlServices.AlbumsCategoriesDDL;
+            this.ViewBag.Locations = this.ddlServices.LocationsDDL;
+            this.ViewBag.Categories = this.ddlServices.AlbumsCategoriesDDL;
 
             var album = new InputAlbumModel();
-            return View(album);
+            return this.View(album);
         }
 
         [HttpPost]
@@ -66,10 +66,10 @@
                 this.Data.Locations.Update(location);
                 this.Data.SaveChanges();
 
-                return RedirectToAction("Index", "Album", new { area = "Administration" });
+                return this.RedirectToAction("Index", "Album", new { area = "Administration" });
             }
 
-            return View();
+            return this.View();
         }
 
         [HttpGet]
@@ -83,11 +83,11 @@
 
             if (album != null)
             {
-                return View(album);
+                return this.View(album);
             }
             else
             {
-                return RedirectToAction("Index", "Album", new { area = "Administration" });
+                return this.RedirectToAction("Index", "Album", new { area = "Administration" });
             }
         }
 
@@ -105,10 +105,10 @@
                 }
 
                 this.Data.SaveChanges();
-                return RedirectToAction("Index", "Album", new { area = "Administration" });
+                return this.RedirectToAction("Index", "Album", new { area = "Administration" });
             }
 
-            return View();
+            return this.View();
         }
 
         [HttpPost]
@@ -126,10 +126,10 @@
             var album = this.Data.Albums.GetById(albumID);
             var collection = album.Pictures.Where(p => p.IsDeleted != true).ToList();
 
-            ViewBag.CoverPictureID = album.PictureID;
-            ViewBag.AlbumID = albumID;
+            this.ViewBag.CoverPictureID = album.PictureID;
+            this.ViewBag.AlbumID = albumID;
 
-            return PartialView("Album/_PicturesForEdit", collection);
+            return this.PartialView("Album/_PicturesForEdit", collection);
         }
 
         [HttpPost]

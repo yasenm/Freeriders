@@ -23,11 +23,6 @@
             Database.SetInitializer(new MigrateDatabaseToLatestVersion<FreeRidersDbContext, Configuration>());
         }
 
-        public static FreeRidersDbContext Create()
-        {
-            return new FreeRidersDbContext();
-        }
-
         public IDbSet<Album> Albums { get; set; }
 
         public IDbSet<AlbumCategory> AlbumCategories { get; set; }
@@ -45,6 +40,11 @@
         public IDbSet<Message> Messages { get; set; }
 
         public IDbSet<EventsUsers> EventsUsers { get; set; }
+
+        public static FreeRidersDbContext Create()
+        {
+            return new FreeRidersDbContext();
+        }
 
         public DbContext DbContext
         {

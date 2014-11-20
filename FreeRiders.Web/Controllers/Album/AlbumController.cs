@@ -34,7 +34,7 @@
                 .To<AlbumIndexViewModel>()
                 .ToList();
 
-            return View(viewResult);
+            return this.View(viewResult);
         }
 
         [HttpGet]
@@ -48,7 +48,7 @@
                 .To<EditAlbumViewModel>()
                 .FirstOrDefault();
 
-            return View(albumResult);
+            return this.View(albumResult);
         }
 
         [HttpGet]
@@ -57,10 +57,10 @@
         {
             var albumModel = new AlbumCreateViewModel();
 
-            ViewBag.Locations = this.ddlServices.LocationsDDL;
-            ViewBag.Categories = this.ddlServices.AlbumsCategoriesDDL;
+            this.ViewBag.Locations = this.ddlServices.LocationsDDL;
+            this.ViewBag.Categories = this.ddlServices.AlbumsCategoriesDDL;
 
-            return View(albumModel);
+            return this.View(albumModel);
         }
 
         [HttpPost]
@@ -85,10 +85,10 @@
                 this.Data.Albums.Add(dbAlbum);
                 this.Data.SaveChanges();
 
-                return RedirectToAction("AlbumDetails", "Album", new { area = string.Empty, id = dbAlbum.ID });
+                return this.RedirectToAction("AlbumDetails", "Album", new { area = string.Empty, id = dbAlbum.ID });
             }
 
-            return View(albumModel);
+            return this.View(albumModel);
         }
 
         [HttpGet]
@@ -101,8 +101,8 @@
                 .To<EditAlbumViewModel>()
                 .FirstOrDefault();
 
-            ViewBag.Locations = this.ddlServices.LocationsDDL;
-            ViewBag.AlbumCategories = this.ddlServices.AlbumsCategoriesDDL;
+            this.ViewBag.Locations = this.ddlServices.LocationsDDL;
+            this.ViewBag.AlbumCategories = this.ddlServices.AlbumsCategoriesDDL;
 
             if (album.CreatorID != this.CurrentUser.Id)
             {
@@ -111,11 +111,11 @@
 
             if (album != null)
             {
-                return View(album);
+                return this.View(album);
             }
             else
             {
-                return RedirectToAction("Index", "Album", new { area = "Administration" });
+                return this.RedirectToAction("Index", "Album", new { area = "Administration" });
             }
         }
 
@@ -150,7 +150,7 @@
                 return this.RedirectToAction("Details", "Album", new { area = string.Empty, id = album.ID });
             }
 
-            return View();
+            return this.View();
         }
 
         [HttpPost]
@@ -176,10 +176,10 @@
             var album = this.Data.Albums.GetById(albumID);
             var collection = album.Pictures.Where(p => p.IsDeleted != true).ToList();
 
-            ViewBag.CoverPictureID = album.PictureID;
-            ViewBag.AlbumID = albumID;
+            this.ViewBag.CoverPictureID = album.PictureID;
+            this.ViewBag.AlbumID = albumID;
 
-            return PartialView("EditingAlbumPicturesGrid", collection);
+            return this.PartialView("EditingAlbumPicturesGrid", collection);
         }
 
         [HttpPost]

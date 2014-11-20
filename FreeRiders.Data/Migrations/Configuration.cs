@@ -25,17 +25,17 @@ namespace FreeRiders.Data.Migrations
 
         protected override void Seed(FreeRidersDbContext context)
         {
-            userStore = new UserStore<User>(context);
-            userManager = new UserManager<User>(userStore);
+            this.userStore = new UserStore<User>(context);
+            this.userManager = new UserManager<User>(this.userStore);
 
             this.SeedRoles(context);
             this.SeedAdmin(context);
-            //this.SeedUsers(context);
-            //this.SeedPictures(context);
-            //this.SeedLocationCategories(context);
-            //this.SeedAlbumCategories(context);
-            //this.SeedLocations(context);
-            //this.SeedEvents(context);
+            //// this.SeedUsers(context);
+            //// this.SeedPictures(context);
+            //// this.SeedLocationCategories(context);
+            //// this.SeedAlbumCategories(context);
+            //// this.SeedLocations(context);
+            //// this.SeedEvents(context);
         }
 
         private void SeedEvents(FreeRidersDbContext context)
@@ -160,11 +160,11 @@ namespace FreeRiders.Data.Migrations
             {
                 Email = GlobalConstants.AdminEmailUsername,
                 UserName = GlobalConstants.AdminEmailUsername,
-                //Avatar = this.GetUserAvatar(),
+                //// Avatar = this.GetUserAvatar(),
             };
 
-            userManager.Create(admin, GlobalConstants.AdminPassword);
-            userManager.AddToRole(admin.Id, GlobalConstants.AdminRole);
+            this.userManager.Create(admin, GlobalConstants.AdminPassword);
+            this.userManager.AddToRole(admin.Id, GlobalConstants.AdminRole);
             context.SaveChanges();
         }
 
@@ -180,8 +180,8 @@ namespace FreeRiders.Data.Migrations
                     Avatar = this.GetUserAvatar(),
                 };
 
-                userManager.Create(user, GlobalConstants.AdminPassword);
-                userManager.AddToRole(user.Id, role);
+                this.userManager.Create(user, GlobalConstants.AdminPassword);
+                this.userManager.AddToRole(user.Id, role);
                 context.SaveChanges();
             }
         }
