@@ -495,7 +495,7 @@
             {
                 this.LoginProvider = provider;
                 this.RedirectUri = redirectUri;
-                this.UserId = userId;
+                UserId = userId;
             }
 
             public string LoginProvider { get; set; }
@@ -505,9 +505,9 @@
             public override void ExecuteResult(ControllerContext context)
             {
                 var properties = new AuthenticationProperties { RedirectUri = this.RedirectUri };
-                if (this.UserId != null)
+                if (UserId != null)
                 {
-                    properties.Dictionary[AccountController.XsrfKey] = this.UserId;
+                    properties.Dictionary[AccountController.XsrfKey] = UserId;
                 }
 
                 context.HttpContext.GetOwinContext().Authentication.Challenge(properties, this.LoginProvider);
