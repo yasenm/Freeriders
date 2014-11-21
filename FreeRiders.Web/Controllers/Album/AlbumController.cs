@@ -170,7 +170,6 @@
         }
 
         [HttpGet]
-        [OutputCache(Duration = 10 * 60)]
         public ActionResult LoadPicturesGrid(int albumID)
         {
             var album = this.Data.Albums.GetById(albumID);

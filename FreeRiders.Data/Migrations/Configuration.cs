@@ -29,7 +29,7 @@ namespace FreeRiders.Data.Migrations
             this.userManager = new UserManager<User>(this.userStore);
 
             this.SeedRoles(context);
-            //this.SeedAdmin(context);
+            this.SeedAdmin(context);
             //// this.SeedUsers(context);
             //// this.SeedPictures(context);
             //// this.SeedLocationCategories(context);
@@ -156,6 +156,11 @@ namespace FreeRiders.Data.Migrations
 
         private void SeedAdmin(FreeRidersDbContext context)
         {
+            if (context.Users.Any())
+            {
+                return;
+            }
+
             var admin = new User
             {
                 Email = GlobalConstants.AdminEmailUsername,
