@@ -193,7 +193,7 @@
                 var result = this.UserManager.Create(user, model.Password);
 
                 // Default role added to registration
-                this.UserManager.AddToRole(user.Id, GlobalConstants.RegularUserRole);
+                this.UserManager.AddToRole(user.Id, GlobalConstants.TrustedUserRole);
 
                 if (result.Succeeded)
                 {
