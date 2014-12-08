@@ -115,7 +115,7 @@
             }
             else
             {
-                return this.RedirectToAction("Index", "Album", new { area = "Administration" });
+                return this.RedirectToAction("Index", "Album", new { area = string.Empty });
             }
         }
 
@@ -147,7 +147,7 @@
                 albumToUpdate.Title = album.Title;
 
                 this.Data.SaveChanges();
-                return this.RedirectToAction("Details", "Album", new { area = string.Empty, id = album.ID });
+                return this.RedirectToAction("AlbumDetails", "Album", new { area = string.Empty, id = album.ID });
             }
 
             return this.View();
