@@ -1,7 +1,7 @@
 ﻿@model string
 
 <div>
-    @Html.LabelFor(album => Model)
+    @Html.LabelFor(album => album)
     @Html.TextBoxFor(album => Model, new { @class = "form-control" })
     @Html.ValidationMessageFor(album => Model)
 </div>

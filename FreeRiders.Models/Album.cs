@@ -24,7 +24,7 @@
         public string Title { get; set; }
 
         [Required]
-        [StringLength(10000, MinimumLength = 50)]
+        [StringLength(10000, MinimumLength = 10)]
         public string Description { get; set; }
 
         [Range(0, 10)]
