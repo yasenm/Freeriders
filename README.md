@@ -11,6 +11,6 @@ ASP.NET MVC Web application for skiers and snowboarders that like to go off the 
 - [Automapper](http://automapper.org/) - A convention-based object-object mapper
 - [Twitter Bootstrap](http://getbootstrap.com/)
 - [jQuery](http://jquery.com/)
-- 
+
 ## FreeRiders - User Interface
 <p align="center"><img src="https://raw.githubusercontent.com/yasenm/Freeriders/master/images/presentation-image-1.png" /></p>
