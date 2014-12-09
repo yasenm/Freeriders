@@ -48,6 +48,17 @@
                 .To<EditAlbumViewModel>()
                 .FirstOrDefault();
 
+            var userHasntReviewed = albumResult.Reviews
+                .AsQueryable()
+                .Where(r => r.AuthorName == this.CurrentUser.UserName)
+                .FirstOrDefault();
+
+            ViewBag.UserHasntReviewed = true;
+            if (userHasntReviewed != null)
+            {
+                ViewBag.UserHasntReviewed = false;
+            }
+
             return this.View(albumResult);
         }
 

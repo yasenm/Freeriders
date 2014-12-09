@@ -8,6 +8,7 @@
 
     using FreeRiders.Models;
     using FreeRiders.Web.Infrastructure.Mapping;
+    using FreeRiders.Web.ViewModels.Review;
 
     public class EditAlbumViewModel : IMapFrom<Album>, IHaveCustomMappings
     {
@@ -34,6 +35,8 @@
         public ICollection<HttpPostedFileBase> PicturesAdded { get; set; }
 
         public ICollection<Picture> Pictures { get; set; }
+
+        public ICollection<ReviewCollectionViewModel> Reviews { get; set; }
 
         public DateTime CreatedOn { get; set; }
 

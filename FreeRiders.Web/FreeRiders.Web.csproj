@@ -273,6 +273,8 @@
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModels\Message\MessageViewModel.cs" />
     <Compile Include="ViewModels\Message\PostMessageViewModel.cs" />
+    <Compile Include="ViewModels\Review\ReviewCollectionViewModel.cs" />
+    <Compile Include="ViewModels\Review\ReviewCreateModel.cs" />
     <Compile Include="ViewModels\User\UserBasicViewModel.cs" />
     <Compile Include="ViewModels\User\UserProfileViewModel.cs" />
   </ItemGroup>
@@ -506,6 +508,7 @@
     <Content Include="Images\events-cover.jpg" />
     <Content Include="Images\home-cover.jpg" />
     <Content Include="Images\locations-cover.jpg" />
+    <Content Include="Images\rating-image.jpg" />
     <Content Include="Scripts\bootstrap-datepicker.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -682,14 +685,15 @@
     <Content Include="Views\Shared\DisplayTemplates\DescriptionFullText.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\CustomSingleLineText.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\CustomMultiLineText.cshtml" />
+    <Content Include="Views\Shared\_PostReviewPartial.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\StarsDisplay.cshtml" />
+    <Content Include="Views\Review\ReviewsForAlbum.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\Elmah\" />
     <Folder Include="bin\" />
     <Folder Include="Infrastructure\Filters\" />
-    <Folder Include="ViewModels\Review\" />
     <Folder Include="Views\Moderator\" />
-    <Folder Include="Views\Review\" />
     <Folder Include="Views\Shared\Album\" />
     <Folder Include="Views\Shared\Location\" />
     <Folder Include="Views\TrustedUser\" />

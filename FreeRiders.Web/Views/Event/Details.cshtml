@@ -26,6 +26,7 @@
                 <div id="joined-or-not" class="row">
                     @if (Model.Users.AsQueryable().FirstOrDefault(u => u.UserName == this.User.Identity.Name) != null)
                     {
+
                         @Html.Partial("_PostMessagePartial", new MessageViewModel(Model.ID))
                     }
                     else
@@ -46,6 +47,9 @@
                     }
                 </div>
 
+                <br />
+                <br />
+                
                 <div id="messages" class="row">
                     @Html.Action("MessagesOfEvent", "Message", new { eventID = Model.ID })
                 </div>

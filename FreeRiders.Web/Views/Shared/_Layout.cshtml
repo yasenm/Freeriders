@@ -9,6 +9,7 @@
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/jqueryval")
     @RenderSection("styles", required: false)
     @Styles.Render("~/Content/custom")
 
@@ -39,12 +40,12 @@
 
                                 @if (User.IsInRole(GlobalConstants.TrustedUserRole) || User.IsInRole(GlobalConstants.ModeratorRole) || User.IsInRole(GlobalConstants.AdminRole))
                                 {
-                                <li>@Html.ActionLink("Create Location", "Create", "Location", new { Area = "" }, new { })</li>
-                                <li>@Html.ActionLink("Create Album", "Create", "Album", new { Area = "" }, new { })</li>
+                                    <li>@Html.ActionLink("Create Location", "Create", "Location", new { Area = "" }, new { })</li>
+                                    <li>@Html.ActionLink("Create Album", "Create", "Album", new { Area = "" }, new { })</li>
                                 }
                             </ul>
                         </li>
-                        
+
                         if (User.IsInRole(GlobalConstants.AdminRole) || User.IsInRole(GlobalConstants.ModeratorRole))
                         {
                             <li class="dropdown">
@@ -78,7 +79,6 @@
         </footer>
     </div>
 
-    @Scripts.Render("~/bundles/jqueryval")
     @Scripts.Render("~/bundles/unobtrusive")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)

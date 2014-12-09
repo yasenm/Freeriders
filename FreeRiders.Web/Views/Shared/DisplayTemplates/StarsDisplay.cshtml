@@ -1,0 +1,17 @@
+﻿@model double
+
+@{
+    double divWidth = 155 / 5;
+    divWidth = divWidth * Model;
+}
+
+<div class="row">
+    <span>
+        <strong>
+            Rating :
+        </strong>
+    </span>
+</div>
+<div class="row" style="width: @(divWidth)px; overflow: hidden;">
+    <img src="../../Images/rating-image.jpg" alt="Alternate Text" />
+</div>

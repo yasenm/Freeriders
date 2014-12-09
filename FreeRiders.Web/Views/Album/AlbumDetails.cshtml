@@ -1,6 +1,8 @@
-﻿@model FreeRiders.Web.ViewModels.Album.EditAlbumViewModel
+﻿@using FreeRiders.Web.ViewModels;
+@using FreeRiders.Web.ViewModels.Album;
+@using FreeRiders.Web.ViewModels.Review;
 
-@using FreeRiders.Web.ViewModels;
+@model EditAlbumViewModel
 
 @{
     var headerArguments = new HeaderViewModel
@@ -28,15 +30,32 @@
                 <p class="subheading">
                     @Model.Description
                 </p>
+
+                <br />
                 @if (Model.CreatorName == this.User.Identity.Name)
                 {
                     @Html.ActionLink("Edit", "Edit", "Album", new { area = string.Empty, id = Model.ID }, new { @class = "btn btn-warning" })
                 }
+                <br />
             </div>
-            <div class="row">
-                <h2>
-                    <strong>Reviews will go here...</strong>
-                </h2>
+
+            <h3>
+                <strong>Album reviews : </strong>
+            </h3>
+            <br />
+                       
+            <div id="reviews" class="row">                
+                @if (this.Request.IsAuthenticated && ViewBag.UserHasntReviewed)
+                {
+                    var reviewModel = new ReviewCreateModel();
+                    reviewModel.AlbumID = Model.ID;
+                    <div class="row">
+                        @Html.Partial("_PostReviewPartial", reviewModel)
+                    </div>
+                }
+                
+                <hr style="width: 70%;" />
+                @Html.Action("ReviewsForAlbum", "Review", new { albumID = Model.ID })
             </div>
         </div>
         <br />

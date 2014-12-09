@@ -1,0 +1,15 @@
+﻿@using FreeRiders.Web.ViewModels.Review
+
+@model ICollection<ReviewCollectionViewModel>
+
+@foreach (var review in Model)
+{
+    <div>
+        @Html.DisplayFor(m => review.Content)
+        @Html.DisplayFor(m => review.AuthorName)
+        @Html.DisplayFor(m => review.Stars)
+    </div>
+    <br />
+    <hr style="width: 70%;" />
+    <br />
+}

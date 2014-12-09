@@ -1,0 +1,36 @@
+﻿@using FreeRiders.Web.ViewModels.Review
+
+@model ReviewCreateModel
+
+
+<br />
+<br />
+<div class="row">
+    @using (Ajax.BeginForm("Create", "Review",
+                new AjaxOptions
+                {
+                    HttpMethod = "POST",
+                    InsertionMode = InsertionMode.Replace,
+                    UpdateTargetId = "reviews"
+                }))
+    {
+        @Html.AntiForgeryToken()
+
+        @Html.HiddenFor(m => m.AlbumID)
+        @Html.TextAreaFor(m => m.Content, new { @class = "form-control", rows = 3 })
+        @Html.ValidationMessageFor(m => m.Content, "Content must be atleast 50 and maximum 5000 symbols", new { @class = "text-danger" })
+
+        <br />
+        @Html.EditorFor(m => m.Stars)
+        <br />
+        @Html.ValidationMessageFor(m => m.Stars, "Stars must be between 0.0 and 5.0", new { @class = "text-danger" })
+
+        <br />
+        <div class="col-md-8 col-md-offset-2">
+            <input type="submit" class="btn btn-default pull-right" value="Make review" />
+        </div>
+    }
+    <br />
+</div>
+<br />
+<br /> 
