@@ -1,4 +1,5 @@
 ﻿@using FreeRiders.Web.ViewModels.Message
+@using Recaptcha.Web.Mvc;
 
 @model MessageViewModel
 
@@ -18,6 +19,8 @@
         @Html.ValidationMessageFor(m => m.Text, "Needs to be atleast 50 symbols max 1000", new { @class = "text-danger" })
 
         <br />
+        @Html.Recaptcha(publicKey: "6LeNDv8SAAAAABSxCzl30cK8s0RJReO4kDK0qthK", theme: Recaptcha.Web.RecaptchaTheme.Clean)
+        
         <div class="col-md-8 col-md-offset-2">
             <input type="submit" class="btn btn-default pull-right" value="Send message" />
         </div>

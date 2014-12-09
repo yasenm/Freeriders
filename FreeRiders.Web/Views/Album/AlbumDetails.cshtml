@@ -43,9 +43,13 @@
                 <strong>Album reviews : </strong>
             </h3>
             <br />
-                       
-            <div id="reviews" class="row">                
-                @if (this.Request.IsAuthenticated && ViewBag.UserHasntReviewed)
+
+            <div id="reviews" class="row">
+                @if (this.Request.IsAuthenticated &&
+                    ViewBag.UserHasntReviewed &&
+                    User.IsInRole(GlobalConstants.TrustedUserRole) ||
+                    User.IsInRole(GlobalConstants.ModeratorRole) ||
+                    User.IsInRole(GlobalConstants.AdminRole))
                 {
                     var reviewModel = new ReviewCreateModel();
                     reviewModel.AlbumID = Model.ID;
@@ -53,7 +57,7 @@
                         @Html.Partial("_PostReviewPartial", reviewModel)
                     </div>
                 }
-                
+
                 <hr style="width: 70%;" />
                 @Html.Action("ReviewsForAlbum", "Review", new { albumID = Model.ID })
             </div>

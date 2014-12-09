@@ -1,6 +1,8 @@
 ﻿namespace FreeRiders.Web.Controllers
 {
+    using System;
     using System.Linq;
+    using System.Reflection;
     using System.Threading.Tasks;
     using System.Web;
     using System.Web.Mvc;
@@ -13,9 +15,7 @@
     using FreeRiders.Web.ViewModels;
     using FreeRiders.Data.UnitsOfWork;
     using FreeRiders.Data;
-    using System;
     using FreeRiders.Data.Common;
-    using System.Reflection;
 
     [Authorize]
     public class AccountController : Controller

@@ -8,9 +8,13 @@
     using AutoMapper;
     using AutoMapper.QueryableExtensions;
 
+    using Recaptcha.Web;
+    using Recaptcha.Web.Mvc;
+
     using FreeRiders.Data.UnitsOfWork;
     using FreeRiders.Models;
     using FreeRiders.Web.ViewModels.Message;
+    using System.Configuration;
 
     public class MessageController : AuthorizeUserController
     {
@@ -39,6 +43,20 @@
         [ValidateAntiForgeryToken]
         public ActionResult Create(MessageViewModel message)
         {
+            RecaptchaVerificationHelper recaptchaHelper = this.GetRecaptchaVerificationHelper();
+
+            if (String.IsNullOrEmpty(recaptchaHelper.Response))
+            {
+                this.ModelState.AddModelError("Captcha", "Invalid captcha");
+            }
+
+            RecaptchaVerificationResult recaptchaResult = recaptchaHelper.VerifyRecaptchaResponse();
+
+            if (recaptchaResult != RecaptchaVerificationResult.Success)
+            {
+                ModelState.AddModelError("", "Incorrect captcha answer.");
+            }
+
             if (message != null && this.ModelState.IsValid)
             {
                 var dbMessage = Mapper.Map<Message>(message);
