@@ -45,17 +45,18 @@
             <br />
 
             <div id="reviews" class="row">
-                @if (this.Request.IsAuthenticated &&
-                    ViewBag.UserHasntReviewed &&
-                    User.IsInRole(GlobalConstants.TrustedUserRole) ||
+                @if (User.IsInRole(GlobalConstants.TrustedUserRole) ||
                     User.IsInRole(GlobalConstants.ModeratorRole) ||
                     User.IsInRole(GlobalConstants.AdminRole))
                 {
-                    var reviewModel = new ReviewCreateModel();
-                    reviewModel.AlbumID = Model.ID;
-                    <div class="row">
-                        @Html.Partial("_PostReviewPartial", reviewModel)
-                    </div>
+                    if (ViewBag.UserHasntReviewed && this.Request.IsAuthenticated)
+                    {
+                        var reviewModel = new ReviewCreateModel();
+                        reviewModel.AlbumID = Model.ID;
+                        <div class="row">
+                            @Html.Partial("_PostReviewPartial", reviewModel)
+                        </div>
+                    }
                 }
 
                 <hr style="width: 70%;" />
