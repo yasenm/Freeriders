@@ -43,7 +43,8 @@
         [ValidateAntiForgeryToken]
         public ActionResult Create(MessageViewModel message)
         {
-            RecaptchaVerificationHelper recaptchaHelper = this.GetRecaptchaVerificationHelper();
+            var privateKey = ConfigurationManager.AppSettings;
+            RecaptchaVerificationHelper recaptchaHelper = this.GetRecaptchaVerificationHelper("6LeNDv8SAAAAAIz_P8n62F45Iw-CV7KIPZFlXVRH");
 
             if (String.IsNullOrEmpty(recaptchaHelper.Response))
             {

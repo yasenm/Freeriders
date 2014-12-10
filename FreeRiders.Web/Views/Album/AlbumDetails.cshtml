@@ -46,8 +46,8 @@
 
             <div id="reviews" class="row">
                 @if (User.IsInRole(GlobalConstants.TrustedUserRole) ||
-                    User.IsInRole(GlobalConstants.ModeratorRole) ||
-                    User.IsInRole(GlobalConstants.AdminRole))
+                     User.IsInRole(GlobalConstants.ModeratorRole) ||
+                     User.IsInRole(GlobalConstants.AdminRole))
                 {
                     if (ViewBag.UserHasntReviewed && this.Request.IsAuthenticated)
                     {
